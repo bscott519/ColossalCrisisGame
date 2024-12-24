@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://do37bvywgkx5k"]
+[gd_scene load_steps=10 format=3 uid="uid://do37bvywgkx5k"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_3gp3n"]
 [ext_resource type="Texture2D" uid="uid://c2vdlh6wda0jf" path="res://GameArt/TileSet-36x36.png" id="1_dkavn"]
 [ext_resource type="PackedScene" uid="uid://b5lm45fuex5bw" path="res://Scenes/player.tscn" id="3_pm7jt"]
+[ext_resource type="PackedScene" uid="uid://bs18n0b7vaju6" path="res://Scenes/darkbird.tscn" id="4_y8ncn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("1_dkavn")
@@ -75,3 +76,6 @@ shape = SubResource("RectangleShape2D_ft2ke")
 
 [node name="player" parent="." instance=ExtResource("3_pm7jt")]
 position = Vector2(185, 196)
+
+[node name="darkbird" parent="." instance=ExtResource("4_y8ncn")]
+position = Vector2(329, 119)
