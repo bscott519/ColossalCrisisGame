@@ -81,5 +81,11 @@ position = Vector2(185, 196)
 position = Vector2(329, 119)
 
 [node name="enemyOnlyColl" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemyOnlyColl"]
+polygon = PackedVector2Array(77, 212, 784, 207, 807, 203, 807, 30, 85, 27, 65, 31, 68, 209, 18, 201, 39, -6, 824, 3, 824, 285, 45, 294)
+
+[node name="darkbird2" parent="." instance=ExtResource("4_y8ncn")]
+position = Vector2(460, 128)
