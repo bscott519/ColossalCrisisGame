@@ -79,3 +79,7 @@ position = Vector2(185, 196)
 
 [node name="darkbird" parent="." instance=ExtResource("4_y8ncn")]
 position = Vector2(329, 119)
+
+[node name="enemyOnlyColl" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemyOnlyColl"]
