@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b5lm45fuex5bw"]
+[gd_scene load_steps=40 format=3 uid="uid://b5lm45fuex5bw"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mrjx3"]
 [ext_resource type="Texture2D" uid="uid://c5mshqgsf5wr" path="res://GameArt/TMMPlayerJumpAttack1.png" id="2_2nn04"]
@@ -197,15 +197,17 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ijys"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8pax1"]
+radius = 14.0
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_mrjx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0r8ui")
-animation = &"air_attack"
+animation = &"idle"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.653566
+frame_progress = 0.303766
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 19)
@@ -217,3 +219,9 @@ limit_left = 73
 limit_top = 1
 limit_right = 825
 limit_bottom = 240
+
+[node name="DamageZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone"]
+position = Vector2(18, 0)
+shape = SubResource("CircleShape2D_8pax1")
