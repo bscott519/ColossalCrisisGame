@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var dag_zone = $DamageZone
+@onready var dmg_zone = $DamageZone
 
 const SPEED = 200
 const JUMP_VELOCITY = -380.0
