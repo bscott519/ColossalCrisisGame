@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b5lm45fuex5bw"]
+[gd_scene load_steps=36 format=3 uid="uid://b5lm45fuex5bw"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mrjx3"]
 [ext_resource type="Texture2D" uid="uid://c5mshqgsf5wr" path="res://GameArt/TMMPlayerJumpAttack1.png" id="2_2nn04"]
@@ -9,9 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b3ov2oj0lntcr" path="res://GameArt/TMMPlayerJump.png" id="3_kgvkp"]
 [ext_resource type="Texture2D" uid="uid://c8viqv00j6v7x" path="res://GameArt/TMMPlayerIdle2.png" id="3_poxth"]
 [ext_resource type="Texture2D" uid="uid://d4imcf7h8kmc4" path="res://GameArt/TMMPlayerAttack2.png" id="3_s374f"]
-[ext_resource type="Texture2D" uid="uid://cpsv2m8v52yig" path="res://GameArt/TMMPlayerJumpAttack3.png" id="4_j1uig"]
 [ext_resource type="Texture2D" uid="uid://csfn3nrud2et4" path="res://GameArt/TMMPlayerAttack3.png" id="4_oa548"]
-[ext_resource type="Texture2D" uid="uid://cq36r5r5h4ujk" path="res://GameArt/TMMPlayerJumpAttack4.png" id="5_fjf60"]
 [ext_resource type="Texture2D" uid="uid://3221otqeqedp" path="res://GameArt/TMMPlayerAttack4.png" id="5_u25s5"]
 [ext_resource type="Texture2D" uid="uid://cbnyel2t6fuuo" path="res://GameArt/TMMPlayerAttack5.png" id="6_jqakd"]
 [ext_resource type="Texture2D" uid="uid://b2tafgtc4xlci" path="res://GameArt/TMMPlayerAttack6.png" id="7_a7y38"]
@@ -23,22 +21,6 @@ region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jp77e"]
 atlas = ExtResource("3_ivsnk")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0crd6"]
-atlas = ExtResource("4_j1uig")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w26j0"]
-atlas = ExtResource("5_fjf60")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ufha"]
-atlas = ExtResource("2_g08vv")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mbjqm"]
-atlas = ExtResource("3_s374f")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p7d30"]
@@ -97,6 +79,14 @@ region = Rect2(128, 0, 64, 64)
 atlas = ExtResource("3_fmlnm")
 region = Rect2(64, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ufha"]
+atlas = ExtResource("2_g08vv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbjqm"]
+atlas = ExtResource("3_s374f")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_0r8ui"]
 animations = [{
 "frames": [{
@@ -105,27 +95,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jp77e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0crd6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w26j0")
 }],
-"loop": true,
+"loop": false,
 "name": &"air_attack",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3ufha")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mbjqm")
-}],
+"frames": [],
 "loop": false,
-"name": &"attack",
-"speed": 6.0
+"name": &"death",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -149,14 +127,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_17g76")
 }],
-"loop": true,
-"name": &"attack_combo",
-"speed": 6.0
-}, {
-"frames": [],
 "loop": false,
-"name": &"death",
-"speed": 5.0
+"name": &"double_attack",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -193,6 +166,17 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ufha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbjqm")
+}],
+"loop": false,
+"name": &"single_attack",
+"speed": 6.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ijys"]
@@ -205,9 +189,8 @@ script = ExtResource("1_mrjx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0r8ui")
-animation = &"idle"
+animation = &"double_attack"
 autoplay = "idle"
-frame_progress = 0.303766
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 19)
@@ -225,3 +208,6 @@ limit_bottom = 240
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone"]
 position = Vector2(18, 0)
 shape = SubResource("CircleShape2D_8pax1")
+disabled = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
