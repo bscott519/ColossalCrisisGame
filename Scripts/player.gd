@@ -86,6 +86,13 @@ func toggle_flip(dir):
 
 func set_dmg(attack_type):
 	var cur_dmg_to_deal: int
+	if attack_type == "single":
+		cur_dmg_to_deal = 5
+	elif attack_type == "double":
+		cur_dmg_to_deal = 5
+	elif attack_type == "air":
+		cur_dmg_to_deal = 5
+	Global.plyrDmgAmount = cur_dmg_to_deal
 
 func _on_animated_sprite_2d_animation_finished():
 	cur_attack = false
