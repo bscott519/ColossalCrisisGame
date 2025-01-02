@@ -8,9 +8,13 @@ const JUMP_VELOCITY = -380.0
 
 var gravity = 900
 
+var health = 40
+var max_health = 40
+var min_health = 0
+var can_take_dmg: bool
+
 var attack_type: String
 var cur_attack: bool
-
 
 func _ready():
 	Global.plyrbody = self

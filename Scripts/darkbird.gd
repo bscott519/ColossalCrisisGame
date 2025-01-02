@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name DarkBird
+
 const speed = 30
 var dir: Vector2
 
@@ -13,11 +15,14 @@ var min_health = 0
 var dead = false
 var took_dmg = false
 var is_roaming: bool
+var dmg_to_deal = 10
 
 func _ready():
 	is_chasing = true
 
 func _process(delta):
+	Global.birdDmgAmount = dmg_to_deal
+	Global.birdDmgZone = $BirdDealDmgArea
 	if is_on_floor() and dead:
 		await get_tree().create_timer(2.0).timeout
 		self.queue_free()
