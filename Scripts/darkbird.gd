@@ -23,6 +23,12 @@ func _ready():
 func _process(delta):
 	Global.birdDmgAmount = dmg_to_deal
 	Global.birdDmgZone = $BirdDealDmgArea
+	
+	if Global.plyrAlive: 
+		is_chasing = true
+	elif !Global.plyrAlive:
+		is_chasing = false
+	
 	if is_on_floor() and dead:
 		await get_tree().create_timer(2.0).timeout
 		self.queue_free()
@@ -34,7 +40,7 @@ func move(delta):
 	player = Global.plyrbody
 	if !dead:
 		is_roaming = true
-		if !took_dmg and is_chasing:
+		if !took_dmg and is_chasing and Global.plyrAlive:
 			velocity = position.direction_to(player.position) * speed
 			dir.x = abs(velocity.x) / velocity.x
 		elif took_dmg: 
