@@ -44,7 +44,7 @@ func move(delta):
 			velocity = position.direction_to(player.position) * speed
 			dir.x = abs(velocity.x) / velocity.x
 		elif took_dmg: 
-			var knockback_dir = position.direction_to(player.position) * -50
+			var knockback_dir = position.direction_to(player.position) * -80
 			velocity = knockback_dir
 		else:
 			velocity += dir * speed * delta
