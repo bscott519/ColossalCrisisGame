@@ -9,13 +9,15 @@ var is_chasing: bool
 
 var player: CharacterBody2D
 
-var health = 15
-var max_health = 15
+var health = 10
+var max_health = 10
 var min_health = 0
 var dead = false
 var took_dmg = false
 var is_roaming: bool
 var dmg_to_deal = 10
+
+@onready var animated_sprite = $AnimatedSprite2D
 
 func _ready():
 	is_chasing = true
@@ -49,7 +51,8 @@ func move(delta):
 		else:
 			velocity += dir * speed * delta
 	elif dead:
-		velocity.y += 10 * delta
+		#velocity.y += 10 * delta
+		velocity.y = 0
 		velocity.x = 0
 		is_roaming = false
 	move_and_slide()
@@ -60,7 +63,7 @@ func _on_timer_timeout():
 		dir = choose([Vector2.RIGHT, Vector2.UP, Vector2.LEFT, Vector2.DOWN])
 
 func handle_anims():
-	var animated_sprite = $AnimatedSprite2D
+	
 	if !dead and !took_dmg:
 		animated_sprite.play("flying")
 		if dir.x == -1:
@@ -71,13 +74,12 @@ func handle_anims():
 		animated_sprite.play("hurt")
 		await get_tree().create_timer(0.6).timeout
 		took_dmg = false
-	elif dead and is_roaming:
-		is_roaming = false
-		animated_sprite.play("death")
-		set_collision_layer_value(1, true)
-		set_collision_layer_value(2, false)
-		set_collision_mask_value(1, true)
-		set_collision_mask_value(2, false)
+	#elif dead and is_roaming:
+		#is_roaming = false
+		#set_collision_layer_value(1, true)
+		#set_collision_layer_value(2, false)
+		#set_collision_mask_value(1, true)
+		#set_collision_mask_value(2, false)
 
 func choose(array):
 	array.shuffle()
@@ -89,6 +91,9 @@ func take_dmg(dmg):
 	if health <= 0:
 		health = 0
 		dead = true
+		animated_sprite.play("death")
+		await get_tree().create_timer(0.5).timeout
+		self.queue_free()
 	print(str(self), "current health is ", health)
 
 func _on_hitbox_area_entered(area):

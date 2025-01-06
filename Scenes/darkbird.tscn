@@ -1,16 +1,27 @@
-[gd_scene load_steps=16 format=3 uid="uid://bs18n0b7vaju6"]
+[gd_scene load_steps=21 format=3 uid="uid://bs18n0b7vaju6"]
 
 [ext_resource type="Script" path="res://Scripts/darkbird.gd" id="1_7te06"]
 [ext_resource type="Texture2D" uid="uid://mracxs786ynb" path="res://GameArt/TMMDarkBirdFly1.png" id="3_0bjdc"]
+[ext_resource type="Texture2D" uid="uid://bapnf131jmdih" path="res://GameArt/TMMEnemyDeath1.png" id="3_1bxau"]
 [ext_resource type="Texture2D" uid="uid://c4xrmq4k0coem" path="res://GameArt/TMMDarkBirdFly2.png" id="4_o0w7l"]
+[ext_resource type="Texture2D" uid="uid://l1yxspaxqyio" path="res://GameArt/TMMEnemyDeath2.png" id="4_x5ti2"]
+[ext_resource type="Texture2D" uid="uid://hcy0hjwm1svq" path="res://GameArt/TMMEnemyDeath3.png" id="5_1gvge"]
 [ext_resource type="Texture2D" uid="uid://cuqukm2duu7s8" path="res://GameArt/TMMDarkBirdHurt.png" id="5_h6cmu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6aavs"]
 atlas = ExtResource("4_o0w7l")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qt1au"]
-atlas = ExtResource("5_h6cmu")
+[sub_resource type="AtlasTexture" id="AtlasTexture_iltec"]
+atlas = ExtResource("3_1bxau")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm5fv"]
+atlas = ExtResource("4_x5ti2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8rtf"]
+atlas = ExtResource("5_1gvge")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hojsp"]
@@ -45,14 +56,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qt1au")
+"texture": SubResource("AtlasTexture_iltec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm5fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8rtf")
 }, {
 "duration": 1.0,
 "texture": null
 }],
 "loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -97,7 +114,9 @@ script = ExtResource("1_7te06")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_po7aa")
-animation = &"hurt"
+animation = &"death"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_by4lu")
