@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://do37bvywgkx5k"]
+[gd_scene load_steps=11 format=3 uid="uid://do37bvywgkx5k"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_3gp3n"]
 [ext_resource type="Texture2D" uid="uid://c2vdlh6wda0jf" path="res://GameArt/TileSet-36x36.png" id="1_dkavn"]
 [ext_resource type="PackedScene" uid="uid://b5lm45fuex5bw" path="res://Scenes/player.tscn" id="3_pm7jt"]
 [ext_resource type="PackedScene" uid="uid://bs18n0b7vaju6" path="res://Scenes/darkbird.tscn" id="4_y8ncn"]
+[ext_resource type="PackedScene" uid="uid://6d3rhne0s8yd" path="res://Scenes/colosslings.tscn" id="5_1lh3t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("1_dkavn")
@@ -156,3 +157,6 @@ polygon = PackedVector2Array(77, 212, 784, 207, 807, 203, 807, 30, 85, 27, 65, 3
 
 [node name="darkbird2" parent="." instance=ExtResource("4_y8ncn")]
 position = Vector2(460, 128)
+
+[node name="colosslings" parent="." instance=ExtResource("5_1lh3t")]
+position = Vector2(392, 165)

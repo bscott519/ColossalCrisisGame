@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://6d3rhne0s8yd"]
+[gd_scene load_steps=15 format=3 uid="uid://6d3rhne0s8yd"]
 
+[ext_resource type="Script" path="res://colosslings.gd" id="1_0ofvn"]
 [ext_resource type="Texture2D" uid="uid://bapnf131jmdih" path="res://GameArt/TMMEnemyDeath1.png" id="1_jq20u"]
 [ext_resource type="Texture2D" uid="uid://l1yxspaxqyio" path="res://GameArt/TMMEnemyDeath2.png" id="2_6v1sw"]
 [ext_resource type="Texture2D" uid="uid://hcy0hjwm1svq" path="res://GameArt/TMMEnemyDeath3.png" id="3_kqkd3"]
@@ -87,12 +88,13 @@ animations = [{
 radius = 16.1245
 
 [node name="colosslings" type="CharacterBody2D"]
+script = ExtResource("1_0ofvn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_kobry")
-animation = &"walk"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, -16)
 shape = SubResource("CircleShape2D_ej00d")
-
-[node name="Timer" type="Timer" parent="."]
