@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://6d3rhne0s8yd"]
+
+[ext_resource type="Texture2D" uid="uid://bapnf131jmdih" path="res://GameArt/TMMEnemyDeath1.png" id="1_jq20u"]
+[ext_resource type="Texture2D" uid="uid://l1yxspaxqyio" path="res://GameArt/TMMEnemyDeath2.png" id="2_6v1sw"]
+[ext_resource type="Texture2D" uid="uid://hcy0hjwm1svq" path="res://GameArt/TMMEnemyDeath3.png" id="3_kqkd3"]
+[ext_resource type="Texture2D" uid="uid://bk7x1cbmim4dt" path="res://GameArt/icon.svg" id="4_5t52r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhkha"]
+atlas = ExtResource("1_jq20u")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f83to"]
+atlas = ExtResource("2_6v1sw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tokov"]
+atlas = ExtResource("3_kqkd3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gius"]
+atlas = ExtResource("4_5t52r")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mjbt"]
+atlas = ExtResource("4_5t52r")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wufy6"]
+atlas = ExtResource("4_5t52r")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ip6m"]
+atlas = ExtResource("4_5t52r")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kobry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhkha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f83to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tokov")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gius")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mjbt")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wufy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ip6m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ej00d"]
+radius = 16.1245
+
+[node name="colosslings" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kobry")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ej00d")
+
+[node name="Timer" type="Timer" parent="."]
