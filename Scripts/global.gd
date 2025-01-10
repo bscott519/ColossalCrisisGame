@@ -8,3 +8,6 @@ var plyrDmgAmount: int
 
 var birdDmgZone: Area2D
 var birdDmgAmount: int
+
+var cLDmgZone: Area2D
+var cLDmgAmount: int

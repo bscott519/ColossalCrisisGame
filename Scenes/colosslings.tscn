@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://6d3rhne0s8yd"]
+[gd_scene load_steps=20 format=3 uid="uid://6d3rhne0s8yd"]
 
 [ext_resource type="Script" path="res://Scripts/colosslings.gd" id="1_iuvfo"]
 [ext_resource type="Texture2D" uid="uid://bapnf131jmdih" path="res://GameArt/TMMEnemyDeath1.png" id="1_jq20u"]
@@ -111,16 +111,17 @@ radius = 16.1245
 [sub_resource type="CircleShape2D" id="CircleShape2D_sk6bi"]
 radius = 18.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fw74b"]
+radius = 20.0
+
 [node name="colosslings" type="CharacterBody2D"]
 script = ExtResource("1_iuvfo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_kobry")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.08165e-12, -16)
@@ -135,6 +136,12 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CLHitbox"]
 position = Vector2(2.08165e-12, -16)
 shape = SubResource("CircleShape2D_sk6bi")
+
+[node name="CLDealDmgArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CLDealDmgArea"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_fw74b")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="CLHitbox" to="." method="_on_cl_hitbox_area_entered"]

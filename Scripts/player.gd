@@ -62,6 +62,8 @@ func check_hitbox():
 		var hitbox = hitbox_areas.front()
 		if hitbox.get_parent() is DarkBird:
 			dmg = Global.birdDmgAmount
+		elif hitbox.get_parent() is Colossling:
+			dmg = Global.cLDmgAmount
 
 	if can_take_dmg:
 		take_dmg(dmg)

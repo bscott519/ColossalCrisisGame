@@ -26,7 +26,8 @@ var max_health = 10
 var min_health = 0
 var dmg_to_deal = 10
 var is_deal_dmg: bool = false
-var knockback_force = 200
+var knockback_force = -50
+var player: CharacterBody2D
 
 func _ready():
 	if patrol_points != null:
@@ -42,9 +43,15 @@ func _ready():
 	cur_state = State.Idle
 
 func _physics_process(delta: float):
+	Global.cLDmgAmount = dmg_to_deal
+	Global.cLDmgZone = $CLDealDmgArea
+	
+	player = Global.plyrbody
+	
 	enemy_gravity(delta)
 	enemy_idle(delta)
 	enemy_walk(delta)
+	enemy_death(delta)
 	
 	move_and_slide()
 	
@@ -79,8 +86,17 @@ func enemy_walk(delta: float):
 		
 		can_walk = false
 		timer.start()
+		if took_dmg:
+			var knockback_dir = position.direction_to(player.position) * knockback_force
+			velocity.x = knockback_dir.x
+		
 
 	animated_sprite_2d.flip_h = dir.x > 0
+func enemy_death(delta: float):
+	if health <= min_health && dead == true:
+		cur_state = State.Death
+		await get_tree().create_timer(0.4).timeout
+		self.queue_free()
 
 func _on_timer_timeout():
 	can_walk = true
@@ -104,7 +120,4 @@ func take_dmg(dmg):
 	if health <= min_health:
 		health = min_health
 		dead = true
-		cur_state = State.Death
-		await get_tree().create_timer(0.5).timeout
-		self.queue_free()
 	print(str(self), "current health is ", health)
