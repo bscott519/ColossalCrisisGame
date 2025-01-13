@@ -155,7 +155,7 @@ limit_bottom = 272
 editor_draw_limits = true
 
 [node name="darkbird" parent="." instance=ExtResource("4_y8ncn")]
-position = Vector2(329, 119)
+position = Vector2(270, 118)
 
 [node name="enemyOnlyColl" type="StaticBody2D" parent="."]
 collision_layer = 2
