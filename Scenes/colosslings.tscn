@@ -1,10 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://6d3rhne0s8yd"]
+[gd_scene load_steps=23 format=3 uid="uid://6d3rhne0s8yd"]
 
 [ext_resource type="Script" path="res://Scripts/colosslings.gd" id="1_iuvfo"]
 [ext_resource type="Texture2D" uid="uid://bapnf131jmdih" path="res://GameArt/TMMEnemyDeath1.png" id="1_jq20u"]
 [ext_resource type="Texture2D" uid="uid://l1yxspaxqyio" path="res://GameArt/TMMEnemyDeath2.png" id="2_6v1sw"]
 [ext_resource type="Texture2D" uid="uid://hcy0hjwm1svq" path="res://GameArt/TMMEnemyDeath3.png" id="3_kqkd3"]
 [ext_resource type="Texture2D" uid="uid://bk7x1cbmim4dt" path="res://GameArt/icon.svg" id="4_5t52r"]
+[ext_resource type="Texture2D" uid="uid://cr1rltw3k6v7a" path="res://GameArt/TMMColosslingIdle1.png" id="6_g3uih"]
+[ext_resource type="Texture2D" uid="uid://47q34xsc0k1" path="res://GameArt/TMMColosslingIdle2.png" id="7_r2rbl"]
+[ext_resource type="Texture2D" uid="uid://bvbjfjhi0gmdj" path="res://GameArt/TMMColosslingWalk1.png" id="8_kwd8y"]
+[ext_resource type="Texture2D" uid="uid://0y6t6eulmiu3" path="res://GameArt/TMMColosslingWalk2.png" id="9_e3771"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhkha"]
 atlas = ExtResource("1_jq20u")
@@ -26,25 +30,21 @@ region = Rect2(32, 32, 32, 32)
 atlas = ExtResource("4_5t52r")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wufy6"]
-atlas = ExtResource("4_5t52r")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bdqn"]
+atlas = ExtResource("6_g3uih")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ip6m"]
-atlas = ExtResource("4_5t52r")
-region = Rect2(64, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_inkc3"]
+atlas = ExtResource("7_r2rbl")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k38lm"]
-atlas = ExtResource("4_5t52r")
-region = Rect2(96, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbqeu"]
+atlas = ExtResource("8_kwd8y")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t1h57"]
-atlas = ExtResource("4_5t52r")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nfnku"]
-atlas = ExtResource("4_5t52r")
-region = Rect2(64, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t501q"]
+atlas = ExtResource("9_e3771")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kobry"]
 animations = [{
@@ -81,38 +81,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wufy6")
+"texture": SubResource("AtlasTexture_7bdqn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3ip6m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k38lm")
+"texture": SubResource("AtlasTexture_inkc3")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t1h57")
+"texture": SubResource("AtlasTexture_qbqeu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nfnku")
+"texture": SubResource("AtlasTexture_t501q")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ej00d"]
-radius = 16.1245
+radius = 28.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sk6bi"]
-radius = 18.0
+radius = 26.0192
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fw74b"]
-radius = 20.0
+radius = 27.074
 
 [node name="colosslings" type="CharacterBody2D"]
 script = ExtResource("1_iuvfo")
@@ -120,7 +117,7 @@ script = ExtResource("1_iuvfo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_kobry")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
