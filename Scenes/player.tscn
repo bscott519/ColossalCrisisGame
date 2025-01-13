@@ -200,19 +200,12 @@ script = ExtResource("1_mrjx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0r8ui")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 19)
 shape = SubResource("CircleShape2D_3ijys")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.4, 2.4)
-limit_left = 73
-limit_top = 1
-limit_right = 825
-limit_bottom = 240
 
 [node name="DamageZone" type="Area2D" parent="."]
 

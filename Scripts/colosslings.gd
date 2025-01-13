@@ -27,6 +27,7 @@ var min_health = 0
 var dmg_to_deal = 10
 var is_deal_dmg: bool = false
 var knockback_force = -50
+var knockback_wait = 10
 var player: CharacterBody2D
 
 func _ready():
@@ -86,9 +87,9 @@ func enemy_walk(delta: float):
 		
 		can_walk = false
 		timer.start()
-		if took_dmg:
-			var knockback_dir = position.direction_to(player.position) * knockback_force
-			velocity.x = knockback_dir.x
+	if took_dmg:
+		var knockback_dir = position.direction_to(player.position) * knockback_force
+		velocity.x = knockback_dir.x
 		
 
 	animated_sprite_2d.flip_h = dir.x > 0
