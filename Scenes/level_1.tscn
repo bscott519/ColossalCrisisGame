@@ -165,7 +165,7 @@ collision_mask = 2
 polygon = PackedVector2Array(77, 212, 784, 207, 807, 203, 807, 30, 85, 27, 65, 31, 68, 209, 18, 201, 39, -6, 824, 3, 824, 285, 45, 294)
 
 [node name="darkbird2" parent="." instance=ExtResource("4_y8ncn")]
-position = Vector2(460, 128)
+position = Vector2(489, 125)
 
 [node name="colosslings" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_1lh3t")]
 position = Vector2(388, 213)
