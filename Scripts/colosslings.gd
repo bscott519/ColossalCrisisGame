@@ -2,18 +2,14 @@ extends CharacterBody2D
 
 class_name Colossling
 
-@export var patrol_points: Node
-@export var speed: int = 1500
-@export var wait_time: int = 2
-
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var timer = $Timer
 
-const gravity = 1000
+const speed = 30
+const gravity = 900
 
-enum State { Idle, Walk, Hurt, Death }
-var cur_state: State
-var dir: Vector2 = Vector2.LEFT
+var is_chasing: bool
+var dir: Vector2
 var num_of_points: int
 var point_positions: Array[Vector2]
 var cur_point: Vector2
@@ -27,88 +23,77 @@ var min_health = 0
 var dmg_to_deal = 10
 var is_deal_dmg: bool = false
 var knockback_force = -50
-var knockback_wait = 10
+var is_roaming: bool = true
 var player: CharacterBody2D
+var player_in_area = false
 
 func _ready():
-	if patrol_points != null:
-		num_of_points = patrol_points.get_children().size()
-		for point in patrol_points.get_children():
-			point_positions.append(point.global_position)
-		cur_point = point_positions[cur_point_pos]
-	else:
-		print("No patrol points")
-		
-	timer.wait_time = wait_time
+	pass
 
-	cur_state = State.Idle
+func _process(delta):
+	if !is_on_floor():
+		velocity.y += gravity * delta
+		velocity.x = 0
+
+	if Global.plyrAlive:
+		is_chasing = true
+	elif !Global.plyrAlive:
+		is_chasing = false
+
+	enemy_walk(delta)
+	enemy_anims()
+	move_and_slide()
+
+func _on_timer_timeout():
+	$Timer.wait_time = choose([1,5, 2,0, 2,5])
+	if !is_chasing:
+		dir = choose([Vector2.RIGHT, Vector2.LEFT])
+		velocity.x = 0
+
+func choose(array):
+	array.shuffle()
+	return array.front()
 
 func _physics_process(delta: float):
 	Global.cLDmgAmount = dmg_to_deal
 	Global.cLDmgZone = $CLDealDmgArea
 	
 	player = Global.plyrbody
-	
-	enemy_gravity(delta)
-	enemy_idle(delta)
-	enemy_walk(delta)
-	enemy_death(delta)
-	
-	move_and_slide()
-	
-	enemy_anims()
-
-func enemy_gravity(delta: float):
-	velocity.y += gravity * delta
-
-func enemy_idle(delta: float):
-	if !can_walk:
-		velocity.x = move_toward(velocity.x, 0, speed * delta)
-		cur_state = State.Idle
 
 func enemy_walk(delta: float):
-	if !can_walk:
-		return
-	if abs(position.x -cur_point.x) > 0.5:
-		velocity.x = dir.x * speed * delta
-		cur_state = State.Walk
-	else:
-		cur_point_pos += 1
-	
-		if cur_point_pos >= num_of_points:
-			cur_point_pos = 0
-		
-		cur_point = point_positions[cur_point_pos]
-		
-		if cur_point.x > position.x:
-			dir = Vector2.RIGHT
-		else:
-			dir = Vector2.LEFT
-		
-		can_walk = false
-		timer.start()
-	if took_dmg:
-		var knockback_dir = position.direction_to(player.position) * knockback_force
-		velocity.x = knockback_dir.x
-		
+	if !dead:
+		if !is_chasing:
+			velocity += dir * speed * delta
+		elif is_chasing and !took_dmg:
+			var dir_to_plyr = position.direction_to(player.position) * speed
+			velocity.x = dir_to_plyr.x
+			dir.x = abs(velocity.x) / velocity.x
+		elif took_dmg:
+			var knockback_dir = position.direction_to(player.position) * knockback_force
+			velocity.x = knockback_dir.x
+		is_roaming = true
+	elif dead:
+		velocity.x = 0
 
-	animated_sprite_2d.flip_h = dir.x > 0
-func enemy_death(delta: float):
-	if health <= min_health && dead == true:
-		cur_state = State.Death
-		await get_tree().create_timer(0.4).timeout
-		self.queue_free()
-
-func _on_timer_timeout():
-	can_walk = true
+func enemy_death():
+	self.queue_free()
 
 func enemy_anims():
-	if cur_state == State.Idle && !can_walk:
-		animated_sprite_2d.play("idle")
-	elif cur_state == State.Walk && can_walk:
+	if !dead and !took_dmg and !is_deal_dmg:
 		animated_sprite_2d.play("walk")
-	elif cur_state == State.Death && health == min_health:
+		if dir.x == 1:
+			animated_sprite_2d.flip_h = true
+		elif dir.x == -1:
+			animated_sprite_2d.flip_h = false
+	elif !dead and took_dmg and !is_deal_dmg:
+		animated_sprite_2d.play("hurt")
+		await get_tree().create_timer(0.6).timeout
+		took_dmg = false
+	elif dead and is_roaming:
+		is_roaming = false
 		animated_sprite_2d.play("death")
+		await get_tree().create_timer(0.4).timeout
+		enemy_death()
 
 func _on_cl_hitbox_area_entered(area):
 	var dmg = Global.plyrDmgAmount

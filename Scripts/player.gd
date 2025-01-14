@@ -26,6 +26,7 @@ func _ready():
 
 func _physics_process(delta):
 	Global.plyrDmgZone = dmg_zone
+	Global.plyrHitbox = $PlayerHitbox
 
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -84,9 +85,6 @@ func handle_death_anims():
 	$PlayerHitbox/CollisionShape2D.position.y = 5
 	animated_sprite_2d.play("death")
 	await get_tree().create_timer(0.5).timeout
-	$Camera2D.zoom.x = 4
-	$Camera2D.zoom.y = 4
-	await get_tree().create_timer(3.5).timeout
 	self.queue_free()
 
 func take_dmg_cooldown(wait_time): 
