@@ -100,3 +100,11 @@ func _on_hitbox_area_entered(area):
 	if area == Global.plyrDmgZone:
 		var dmg = Global.plyrDmgAmount
 		take_dmg(dmg)
+
+func _on_chase_area_body_entered(body):
+	if body.name == "player":
+		is_chasing = true
+
+func _on_chase_area_body_exited(body):
+	if body.name == "player":
+		is_chasing = false
