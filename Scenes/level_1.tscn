@@ -166,7 +166,7 @@ position = Vector2(1453, -75)
 polygon = PackedVector2Array(77, 212, 784, 207, 807, 203, 807, 30, 85, 27, 65, 31, 68, 209, 18, 201, 39, -6, 824, 3, 824, 285, 45, 294)
 
 [node name="darkbird2" parent="." instance=ExtResource("4_y8ncn")]
-position = Vector2(311, 133)
+position = Vector2(1615, 27)
 
 [node name="colosslings" parent="." instance=ExtResource("5_1lh3t")]
 position = Vector2(388, 213)
