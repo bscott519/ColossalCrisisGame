@@ -18,6 +18,7 @@ var is_roaming: bool
 var dmg_to_deal = 10
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var birdChaseArea = $ChaseArea/CollisionShape2D
 
 func _ready():
 	is_chasing = false
@@ -25,6 +26,7 @@ func _ready():
 func _process(delta):
 	Global.birdDmgAmount = dmg_to_deal
 	Global.birdDmgZone = $BirdDealDmgArea
+	Global.birdChaseArea = $ChaseArea
 	
 	if Global.plyrAlive: 
 		is_chasing = false
@@ -63,7 +65,6 @@ func _on_timer_timeout():
 		dir = choose([Vector2.RIGHT, Vector2.UP, Vector2.LEFT, Vector2.DOWN])
 
 func handle_anims():
-	
 	if !dead and !took_dmg:
 		animated_sprite.play("flying")
 		if dir.x == -1:
@@ -102,9 +103,9 @@ func _on_hitbox_area_entered(area):
 		take_dmg(dmg)
 
 func _on_chase_area_body_entered(body):
-	if body.name == "player":
+	if body == birdChaseArea:
 		is_chasing = true
 
 func _on_chase_area_body_exited(body):
-	if body.name == "player":
+	if body == birdChaseArea:
 		is_chasing = false

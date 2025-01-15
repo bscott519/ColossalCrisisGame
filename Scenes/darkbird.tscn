@@ -106,8 +106,8 @@ radius = 21.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rq6ys"]
 radius = 23.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ug8cw"]
-radius = 85.1645
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahtyx"]
+radius = 64.7611
 
 [node name="darkbird" type="CharacterBody2D"]
 collision_layer = 2
@@ -135,12 +135,8 @@ shape = SubResource("CircleShape2D_htht3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BirdDealDmgArea"]
 shape = SubResource("CircleShape2D_rq6ys")
 
-[node name="ChaseArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
-shape = SubResource("CircleShape2D_ug8cw")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ahtyx")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="body_entered" from="ChaseArea" to="." method="_on_chase_area_body_entered"]
-[connection signal="body_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]

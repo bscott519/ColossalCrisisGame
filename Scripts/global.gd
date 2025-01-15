@@ -9,6 +9,7 @@ var plyrHitbox: Area2D
 
 var birdDmgZone: Area2D
 var birdDmgAmount: int
+var birdChaseArea: Area2D
 
 var cLDmgZone: Area2D
 var cLDmgAmount: int
