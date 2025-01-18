@@ -139,7 +139,7 @@ position = Vector2(57, 147)
 shape = SubResource("RectangleShape2D_5k8vq")
 
 [node name="RightWallCollision" type="CollisionShape2D" parent="Collisions"]
-position = Vector2(5291, 105)
+position = Vector2(5295, 105)
 shape = SubResource("RectangleShape2D_ft2ke")
 
 [node name="player" parent="." instance=ExtResource("3_pm7jt")]
