@@ -45,7 +45,7 @@ func _process(delta):
 	move_and_slide()
 
 func _on_timer_timeout():
-	$Timer.wait_time = choose([1,5, 2,0, 2,5])
+	$Timer.wait_time = choose([1.5, 2.0, 2.5])
 	if !is_chasing:
 		dir = choose([Vector2.RIGHT, Vector2.LEFT])
 		velocity.x = 0

@@ -18,7 +18,7 @@ var is_roaming: bool
 var dmg_to_deal = 10
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var birdChaseArea = $ChaseArea/CollisionShape2D
+#@onready var birdChaseArea = $ChaseArea/CollisionShape2D
 
 func _ready():
 	is_chasing = false
@@ -26,7 +26,7 @@ func _ready():
 func _process(delta):
 	Global.birdDmgAmount = dmg_to_deal
 	Global.birdDmgZone = $BirdDealDmgArea
-	Global.birdChaseArea = $ChaseArea
+	#Global.birdChaseArea = $ChaseArea
 	
 	if Global.plyrAlive: 
 		is_chasing = false
@@ -102,10 +102,10 @@ func _on_hitbox_area_entered(area):
 		var dmg = Global.plyrDmgAmount
 		take_dmg(dmg)
 
-func _on_chase_area_body_entered(body):
-	if body == birdChaseArea:
-		is_chasing = true
+#func _on_chase_area_body_entered(body):
+	#if body == birdChaseArea:
+		#is_chasing = true
 
-func _on_chase_area_body_exited(body):
-	if body == birdChaseArea:
-		is_chasing = false
+#func _on_chase_area_body_exited(body):
+	#if body == birdChaseArea:
+		#is_chasing = false
