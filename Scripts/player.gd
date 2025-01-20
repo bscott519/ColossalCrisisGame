@@ -58,16 +58,18 @@ func _physics_process(delta):
 		player_anims(direction)
 		if Input.is_action_just_pressed("attack") && attack_points == 3 && is_on_floor():
 			$AttackReset.start()
-			velocity.x = 0
 			animated_sprite_2d.play("single_attack")
+			await get_tree().create_timer(1.0 / 6).timeout
 			attack_points = attack_points - 1
 		elif Input.is_action_just_pressed("attack") && attack_points == 2 && is_on_floor():
 			$AttackReset.start()
 			animated_sprite_2d.play("double_attack")
+			await get_tree().create_timer(1.0 / 6).timeout
 			attack_points = attack_points - 1
 		elif Input.is_action_just_pressed("attack") && attack_points == 1 && is_on_floor():
 			$AttackReset.start()
 			animated_sprite_2d.play("triple_attack")
+			await get_tree().create_timer(1.0 / 6).timeout
 			attack_points = attack_points - 1
 		
 		if Input.is_action_just_pressed("attack") && air_attack_points == 2 && !is_on_floor():
@@ -136,10 +138,10 @@ func player_anims(dir):
 		#animated_sprite_2d.play(anim)
 		#toggle_dmg_collisions(attack_type)
 
-func toggle_dmg_collisions(anim):
+func toggle_dmg_collisions():
 	var dmg_zone_col = dmg_zone.get_node("CollisionShape2D")
 	var wait_time: float
-	if attack_type == "air":
+	if animated_sprite_2d.animation == "single_attack":
 		wait_time = 0.3
 	elif attack_type == "single":
 		wait_time = 0.3

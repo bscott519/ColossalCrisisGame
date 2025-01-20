@@ -19,6 +19,12 @@ config/icon="res://GameArt/icon.svg"
 
 Global="*res://Scripts/global.gd"
 
+[importer_defaults]
+
+animation_library={
+"animation/fps": 30.0
+}
+
 [input]
 
 jump={
