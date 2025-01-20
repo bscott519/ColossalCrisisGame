@@ -16,6 +16,8 @@ var dead: bool
 
 var attack_type: String
 var cur_attack: bool
+var attack_points = 3
+var air_attack_points = 2
 
 func _ready():
 	Global.plyrbody = self
@@ -40,19 +42,43 @@ func _physics_process(delta):
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
 
-		if !cur_attack:
-			if Input.is_action_just_pressed("attack") or Input.is_action_just_pressed("double_attack"):
-				cur_attack = true
-				if Input.is_action_just_pressed("attack") and is_on_floor():
-					attack_type = "single"
-				elif Input.is_action_just_pressed("double_attack") and is_on_floor():
-					attack_type = "double"
-				else:
-					attack_type = "air"
-				set_dmg(attack_type)
-				handle_attack_anims(attack_type)
+		#if !cur_attack:
+			#if Input.is_action_just_pressed("attack") or Input.is_action_just_pressed("double_attack"):
+				#cur_attack = true
+				#if Input.is_action_just_pressed("attack") and is_on_floor():
+					#attack_type = "single"
+				#elif Input.is_action_just_pressed("double_attack") and is_on_floor():
+					#attack_type = "double"
+				#else:
+					#attack_type = "air"
+				#set_dmg(attack_type)
+				#handle_attack_anims(attack_type)
 		player_anims(direction)
+		if Input.is_action_just_pressed("attack") && attack_points == 3 && is_on_floor():
+			$AttackReset.start()
+			velocity.x = 0
+			animated_sprite_2d.play("single_attack")
+			attack_points = attack_points - 1
+		elif Input.is_action_just_pressed("attack") && attack_points == 2 && is_on_floor():
+			$AttackReset.start()
+			animated_sprite_2d.play("double_attack")
+			attack_points = attack_points - 1
+		elif Input.is_action_just_pressed("attack") && attack_points == 1 && is_on_floor():
+			$AttackReset.start()
+			animated_sprite_2d.play("triple_attack")
+			attack_points = attack_points - 1
+		
+		if Input.is_action_just_pressed("attack") && air_attack_points == 2 && !is_on_floor():
+			$AirAttackReset.start()
+			animated_sprite_2d.play("air_attack")
+			air_attack_points = air_attack_points - 1
+		elif Input.is_action_just_pressed("attack") && air_attack_points == 1 && !is_on_floor():
+			$AirAttackReset.start()
+			animated_sprite_2d.play("air_attack2")
+			air_attack_points = air_attack_points - 1
+		
 		check_hitbox()
 	move_and_slide()
 
@@ -102,13 +128,15 @@ func player_anims(dir):
 	elif !is_on_floor() and !cur_attack:
 		animated_sprite_2d.play("jump")
 
-func handle_attack_anims(attack_type):
-	if cur_attack:
-		var anim = str(attack_type, "_attack")
-		animated_sprite_2d.play(anim)
-		toggle_dmg_collisions(attack_type)
+#func handle_attack_anims(attack_type):
+	
+	
+	#if cur_attack:
+		#var anim = str(attack_type, "_attack")
+		#animated_sprite_2d.play(anim)
+		#toggle_dmg_collisions(attack_type)
 
-func toggle_dmg_collisions(attack_type):
+func toggle_dmg_collisions(anim):
 	var dmg_zone_col = dmg_zone.get_node("CollisionShape2D")
 	var wait_time: float
 	if attack_type == "air":
@@ -140,4 +168,20 @@ func set_dmg(attack_type):
 	Global.plyrDmgAmount = cur_dmg_to_deal
 
 func _on_animated_sprite_2d_animation_finished():
-	cur_attack = false
+	if animated_sprite_2d.animation == "single_attack" || animated_sprite_2d.animation == "double_attack":
+		animated_sprite_2d.play("idle")
+	elif animated_sprite_2d.animation == "triple_attack":
+		animated_sprite_2d.play("idle")
+		attack_points = 3
+	
+	if animated_sprite_2d.animation == "air_attack":
+		animated_sprite_2d.play("idle")
+	elif animated_sprite_2d.animation == "air_attack2":
+		animated_sprite_2d.play("idle")
+		air_attack_points = 2
+
+func _on_attack_reset_timeout():
+	attack_points = 3
+
+func _on_air_attack_reset_timeout():
+	air_attack_points = 2
