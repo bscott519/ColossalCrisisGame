@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3221otqeqedp"
-path="res://.godot/imported/TMMPlayerAttack4.png-62cbddd769e182d7eb000d8f4b496df6.ctex"
+uid="uid://cc55k3l8qotnr"
+path="res://.godot/imported/TMMPlayerSS.png-c7f71e6197f1f49f494f99457b5b3921.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameArt/TMMPlayerAttack4.png"
-dest_files=["res://.godot/imported/TMMPlayerAttack4.png-62cbddd769e182d7eb000d8f4b496df6.ctex"]
+source_file="res://GameArt/TMMPlayerSS.png"
+dest_files=["res://.godot/imported/TMMPlayerSS.png-c7f71e6197f1f49f494f99457b5b3921.ctex"]
 
 [params]
 
