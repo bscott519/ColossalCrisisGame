@@ -32,22 +32,23 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	player_anims(direction)
 	attack_anims()
+	#player_anims(direction)
 	move_and_slide()
 	
-func player_anims(direction):
-	if direction > 0:
-		animated_sprite_2d.flip_h = false
-	elif direction < 0:
-		animated_sprite_2d.flip_h = true
+#func player_anims(direction):
+	#if direction > 0:
+		#animated_sprite_2d.flip_h = false
+	#elif direction < 0:
+		#animated_sprite_2d.flip_h = true
 		
-	if !is_on_floor():
-		animated_sprite_2d.play("jump")
-	elif direction != 0:
-		animated_sprite_2d.play("run")
-	else:
-		animated_sprite_2d.play("idle")
+	#if !is_on_floor():
+		#animated_sprite_2d.play("jump")
+	#elif direction != 0:
+		#animated_sprite_2d.play("run")
+	#else:
+		#doAttack = false
+		#animated_sprite_2d.play("idle")
 
 func attack_anims():
 	if doAttack:
