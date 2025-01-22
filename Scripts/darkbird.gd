@@ -20,15 +20,14 @@ var dmg_to_deal = 10
 @onready var animated_sprite = $AnimatedSprite2D
 
 func _ready():
-	is_chasing = false
+	is_chasing = true
 
 func _process(delta):
 	Global.birdDmgAmount = dmg_to_deal
 	Global.birdDmgZone = $BirdDealDmgArea
-	#Global.birdChaseArea = $ChaseArea
 	
 	if Global.plyrAlive: 
-		is_chasing = false
+		is_chasing = true
 	elif !Global.plyrAlive:
 		is_chasing = false
 	

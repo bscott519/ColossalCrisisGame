@@ -28,9 +28,11 @@ var player: CharacterBody2D
 var player_in_area = false
 
 func _ready():
-	pass
+	is_chasing = true
 
 func _process(delta):
+	player = Global.plyrbody
+	
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		velocity.x = 0

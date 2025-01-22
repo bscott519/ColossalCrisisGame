@@ -147,7 +147,7 @@ shape = SubResource("RectangleShape2D_ft2ke")
 position = Vector2(185, 196)
 
 [node name="darkbird" parent="." instance=ExtResource("4_y8ncn")]
-position = Vector2(1880, 12)
+position = Vector2(1731, 37)
 
 [node name="enemyOnlyColl" type="StaticBody2D" parent="."]
 collision_layer = 2

@@ -68,8 +68,6 @@ func attack_anims():
 	var dmg_zone_col = dmg_zone.get_node("CollisionShape2D")
 	var wait_time: float
 	var cur_dmg_to_deal: int
-	Global.plyrDmgAmount = cur_dmg_to_deal
-	
 	
 	if Input.is_action_just_pressed("attack") and !is_on_floor():
 		doAttack = true
@@ -114,6 +112,8 @@ func attack_anims():
 		await get_tree().create_timer(wait_time).timeout
 		dmg_zone_col.disabled = true
 		doAttack = false
+	
+	Global.plyrDmgAmount = cur_dmg_to_deal
 
 func check_hitbox():
 	var hitbox_areas = $PlayerHitbox.get_overlapping_areas()
