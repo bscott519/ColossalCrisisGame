@@ -21,7 +21,12 @@ var min_health = 0
 var can_take_dmg: bool
 var dead: bool
 
+func _ready():
+	Global.plyrbody = self
+
 func _physics_process(delta):
+	Global.plyrDmgZone = dmg_zone
+	
 	velocity.y += gravity * delta
 	
 	if not doAttack:
@@ -62,6 +67,9 @@ func attack_anims():
 	
 	var dmg_zone_col = dmg_zone.get_node("CollisionShape2D")
 	var wait_time: float
+	var cur_dmg_to_deal: int
+	Global.plyrDmgAmount = cur_dmg_to_deal
+	
 	
 	if Input.is_action_just_pressed("attack") and !is_on_floor():
 		doAttack = true
@@ -70,10 +78,12 @@ func attack_anims():
 			last_air_attack = air_attack_states.AirAttack2
 			animated_sprite_2d.play("airattack2")
 			wait_time = 0.2
+			cur_dmg_to_deal = 5
 		else:
 			last_air_attack = air_attack_states.AirAttack1
 			animated_sprite_2d.play("airattack1")
 			wait_time = 0.2
+			cur_dmg_to_deal = 5
 			
 		dmg_zone_col.disabled = false
 		await get_tree().create_timer(wait_time).timeout
@@ -88,14 +98,17 @@ func attack_anims():
 			last_attack = attack_states.Attack3
 			animated_sprite_2d.play("attack3")
 			wait_time = 0.3
+			cur_dmg_to_deal = 5
 		elif last_attack == attack_states.Attack1:
 			last_attack = attack_states.Attack2
 			animated_sprite_2d.play("attack2")
 			wait_time = 0.2
+			cur_dmg_to_deal = 5
 		else:
 			last_attack = attack_states.Attack1
 			animated_sprite_2d.play("attack1")
 			wait_time = 0.2
+			cur_dmg_to_deal = 5
 			
 		dmg_zone_col.disabled = false
 		await get_tree().create_timer(wait_time).timeout

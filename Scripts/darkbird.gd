@@ -18,7 +18,6 @@ var is_roaming: bool
 var dmg_to_deal = 10
 
 @onready var animated_sprite = $AnimatedSprite2D
-#@onready var birdChaseArea = $ChaseArea/CollisionShape2D
 
 func _ready():
 	is_chasing = false
@@ -86,6 +85,11 @@ func choose(array):
 	array.shuffle()
 	return array.front()
 
+func _on_hitbox_area_entered(area):
+	if area == Global.plyrDmgZone:
+		var dmg = Global.plyrDmgAmount
+		take_dmg(dmg)
+
 func take_dmg(dmg):
 	health -= dmg
 	took_dmg = true
@@ -97,15 +101,4 @@ func take_dmg(dmg):
 		self.queue_free()
 	print(str(self), "current health is ", health)
 
-func _on_hitbox_area_entered(area):
-	if area == Global.plyrDmgZone:
-		var dmg = Global.plyrDmgAmount
-		take_dmg(dmg)
 
-#func _on_chase_area_body_entered(body):
-	#if body == birdChaseArea:
-		#is_chasing = true
-
-#func _on_chase_area_body_exited(body):
-	#if body == birdChaseArea:
-		#is_chasing = false
