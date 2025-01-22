@@ -45,11 +45,13 @@ func handle_hor_movement():
 		velocity.x = -SPEED
 		animated_sprite_2d.play("run")
 		animated_sprite_2d.flip_h = true
+		dmg_zone.scale.x = -1
 	elif Input.is_action_pressed("right"):
 		print("Right input detected")
 		velocity.x = SPEED
 		animated_sprite_2d.play("run")
 		animated_sprite_2d.flip_h = false
+		dmg_zone.scale.x = 1
 	else:
 		velocity.x = 0
 
@@ -58,18 +60,8 @@ func attack_anims():
 		velocity.x = 0
 		return
 	
-	if Input.is_action_just_pressed("attack"):
-		doAttack = true
-	
-		if last_attack == attack_states.Attack2:
-			last_attack = attack_states.Attack3
-			animated_sprite_2d.play("attack3")
-		elif last_attack == attack_states.Attack1:
-			last_attack = attack_states.Attack2
-			animated_sprite_2d.play("attack2")
-		else:
-			last_attack = attack_states.Attack1
-			animated_sprite_2d.play("attack1")
+	var dmg_zone_col = dmg_zone.get_node("CollisionShape2D")
+	var wait_time: float
 	
 	if Input.is_action_just_pressed("attack") and !is_on_floor():
 		doAttack = true
@@ -77,9 +69,38 @@ func attack_anims():
 		if last_air_attack == air_attack_states.AirAttack1:
 			last_air_attack = air_attack_states.AirAttack2
 			animated_sprite_2d.play("airattack2")
+			wait_time = 0.2
 		else:
 			last_air_attack = air_attack_states.AirAttack1
 			animated_sprite_2d.play("airattack1")
+			wait_time = 0.2
+			
+		dmg_zone_col.disabled = false
+		await get_tree().create_timer(wait_time).timeout
+		dmg_zone_col.disabled = true
+		doAttack = false
+		return
+	
+	if Input.is_action_just_pressed("attack"):
+		doAttack = true
+	
+		if last_attack == attack_states.Attack2:
+			last_attack = attack_states.Attack3
+			animated_sprite_2d.play("attack3")
+			wait_time = 0.3
+		elif last_attack == attack_states.Attack1:
+			last_attack = attack_states.Attack2
+			animated_sprite_2d.play("attack2")
+			wait_time = 0.2
+		else:
+			last_attack = attack_states.Attack1
+			animated_sprite_2d.play("attack1")
+			wait_time = 0.2
+			
+		dmg_zone_col.disabled = false
+		await get_tree().create_timer(wait_time).timeout
+		dmg_zone_col.disabled = true
+		doAttack = false
 
 func check_hitbox():
 	var hitbox_areas = $PlayerHitbox.get_overlapping_areas()
@@ -116,15 +137,6 @@ func take_dmg_cooldown(wait_time):
 	can_take_dmg = false
 	await get_tree().create_timer(wait_time).timeout
 	can_take_dmg = true
-
-func toggle_dmg_collisions():
-	var dmg_zone_col = dmg_zone.get_node("DamageZone/CollisionShape2D")
-	var wait_time: float
-	if animated_sprite_2d.animation == "single_attack":
-		wait_time = 0.3
-	dmg_zone_col.disabled = false
-	await get_tree().create_timer(wait_time).timeout
-	dmg_zone_col.disabled = true
 
 func set_dmg(attack_type):
 	var cur_dmg_to_deal: int
