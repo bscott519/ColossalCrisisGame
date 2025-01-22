@@ -20,58 +20,55 @@ var can_take_dmg: bool
 var dead: bool
 
 func _physics_process(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	var direction = Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	velocity.y += gravity * delta
 	
+	if not doAttack:
+		handle_hor_movement()
+		
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			animated_sprite_2d.play("jump")
+		elif not is_on_floor():
+			animated_sprite_2d.play("jump")
+		elif velocity.x == 0 and is_on_floor():
+			animated_sprite_2d.play('idle')
+
 	attack_anims()
-	#player_anims(direction)
+	
 	move_and_slide()
 	
-#func player_anims(direction):
-	#if direction > 0:
-		#animated_sprite_2d.flip_h = false
-	#elif direction < 0:
-		#animated_sprite_2d.flip_h = true
-		
-	#if !is_on_floor():
-		#animated_sprite_2d.play("jump")
-	#elif direction != 0:
-		#animated_sprite_2d.play("run")
-	#else:
-		#doAttack = false
-		#animated_sprite_2d.play("idle")
+func handle_hor_movement():
+	if Input.is_action_pressed("left"):
+		print("Left input detected")
+		velocity.x = -SPEED
+		animated_sprite_2d.play("run")
+		animated_sprite_2d.flip_h = true
+	elif Input.is_action_pressed("right"):
+		print("Right input detected")
+		velocity.x = SPEED
+		animated_sprite_2d.play("run")
+		animated_sprite_2d.flip_h = false
+	else:
+		velocity.x = 0
 
 func attack_anims():
 	if doAttack:
 		return
-	doAttack = true
 	
-	if Input.is_action_just_pressed("attack") && last_attack == attack_states.Attack2:
-		last_attack = attack_states.Attack3
-		animated_sprite_2d.play("attack3")
-	elif Input.is_action_just_pressed("attack") && last_attack == attack_states.Attack1:
-		last_attack = attack_states.Attack2
-		animated_sprite_2d.play("attack2")
-	elif Input.is_action_just_pressed("attack"):
-		last_attack = attack_states.Attack1
-		animated_sprite_2d.play("attack1")
+	if Input.is_action_just_pressed("attack"):
+		doAttack = true
 	
-	elif velocity.x > 0:
-		animated_sprite_2d.play("run")
-	elif velocity.x < 0:
-		animated_sprite_2d.play("run")
-	else:
-		doAttack = false
-		animated_sprite_2d.play("idle")
+		if last_attack == attack_states.Attack2:
+			last_attack = attack_states.Attack3
+			animated_sprite_2d.play("attack3")
+		elif last_attack == attack_states.Attack1:
+			last_attack = attack_states.Attack2
+			animated_sprite_2d.play("attack2")
+		else:
+			last_attack = attack_states.Attack1
+			animated_sprite_2d.play("attack1")
+		
+		#$AnimatedSprite2D.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 
 func check_hitbox():
 	var hitbox_areas = $PlayerHitbox.get_overlapping_areas()
