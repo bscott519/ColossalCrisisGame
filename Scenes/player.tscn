@@ -86,7 +86,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"airattack1",
-"speed": 6.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -97,7 +97,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"airattack2",
-"speed": 6.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -191,10 +191,8 @@ script = ExtResource("1_mrjx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5xkxs")
-animation = &"attack2"
+animation = &"airattack2"
 autoplay = "idle"
-frame = 1
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 19)

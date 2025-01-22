@@ -9,8 +9,10 @@ const SPEED = 200
 const JUMP_VELOCITY = -380.0
 var gravity = 900
 
-enum attack_states { Reset, Attack1, Attack2, Attack3, AirAttack1, AirAttack2}
+enum attack_states { Reset, Attack1, Attack2, Attack3 }
+enum air_attack_states { Reset, AirAttack1, AirAttack2 }
 var last_attack = attack_states.Reset
+var last_air_attack = air_attack_states.Reset
 var doAttack = false
 
 var health = 40
@@ -53,6 +55,7 @@ func handle_hor_movement():
 
 func attack_anims():
 	if doAttack:
+		velocity.x = 0
 		return
 	
 	if Input.is_action_just_pressed("attack"):
@@ -67,8 +70,16 @@ func attack_anims():
 		else:
 			last_attack = attack_states.Attack1
 			animated_sprite_2d.play("attack1")
-		
-		#$AnimatedSprite2D.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+	
+	if Input.is_action_just_pressed("attack") and !is_on_floor():
+		doAttack = true
+
+		if last_air_attack == air_attack_states.AirAttack1:
+			last_air_attack = air_attack_states.AirAttack2
+			animated_sprite_2d.play("airattack2")
+		else:
+			last_air_attack = air_attack_states.AirAttack1
+			animated_sprite_2d.play("airattack1")
 
 func check_hitbox():
 	var hitbox_areas = $PlayerHitbox.get_overlapping_areas()
@@ -107,7 +118,7 @@ func take_dmg_cooldown(wait_time):
 	can_take_dmg = true
 
 func toggle_dmg_collisions():
-	var dmg_zone_col = dmg_zone.get_node("CollisionShape2D")
+	var dmg_zone_col = dmg_zone.get_node("DamageZone/CollisionShape2D")
 	var wait_time: float
 	if animated_sprite_2d.animation == "single_attack":
 		wait_time = 0.3
@@ -131,3 +142,4 @@ func _on_animated_sprite_2d_animation_finished():
 
 func _on_combo_reset_timeout():
 	last_attack = attack_states.Reset
+	last_air_attack = air_attack_states.Reset
