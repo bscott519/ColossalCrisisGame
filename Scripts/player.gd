@@ -26,6 +26,7 @@ func _ready():
 
 func _physics_process(delta):
 	Global.plyrDmgZone = dmg_zone
+	Global.plyrHitbox = $PlayerHitbox
 	
 	velocity.y += gravity * delta
 	
@@ -41,7 +42,7 @@ func _physics_process(delta):
 			animated_sprite_2d.play('idle')
 
 	attack_anims()
-	
+	check_hitbox()
 	move_and_slide()
 	
 func handle_hor_movement():

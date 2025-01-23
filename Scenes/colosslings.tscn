@@ -141,3 +141,4 @@ shape = SubResource("CircleShape2D_fw74b")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="CLHitbox" to="." method="_on_cl_hitbox_area_entered"]
+[connection signal="area_entered" from="CLDealDmgArea" to="." method="_on_cl_deal_dmg_area_area_entered"]

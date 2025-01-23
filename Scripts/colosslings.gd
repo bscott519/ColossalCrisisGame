@@ -10,10 +10,6 @@ const gravity = 900
 
 var is_chasing: bool
 var dir: Vector2
-var num_of_points: int
-var point_positions: Array[Vector2]
-var cur_point: Vector2
-var cur_point_pos: int
 var can_walk: bool
 var took_dmg: bool = false
 var dead: bool = false
@@ -31,11 +27,13 @@ func _ready():
 	is_chasing = true
 
 func _process(delta):
-	player = Global.plyrbody
-	
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		velocity.x = 0
+	
+	Global.cLDmgAmount = dmg_to_deal
+	Global.cLDmgZone = $CLDealDmgArea
+	player = Global.plyrbody
 
 	if Global.plyrAlive:
 		is_chasing = true
@@ -56,13 +54,7 @@ func choose(array):
 	array.shuffle()
 	return array.front()
 
-func _physics_process(delta: float):
-	Global.cLDmgAmount = dmg_to_deal
-	Global.cLDmgZone = $CLDealDmgArea
-	
-	player = Global.plyrbody
-
-func enemy_walk(delta: float):
+func enemy_walk(delta):
 	if !dead:
 		if !is_chasing:
 			velocity += dir * speed * delta
@@ -83,9 +75,9 @@ func enemy_death():
 func enemy_anims():
 	if !dead and !took_dmg and !is_deal_dmg:
 		animated_sprite_2d.play("walk")
-		if dir.x == 1:
+		if dir.x == -1:
 			animated_sprite_2d.flip_h = true
-		elif dir.x == -1:
+		elif dir.x == 1:
 			animated_sprite_2d.flip_h = false
 	elif !dead and took_dmg and !is_deal_dmg:
 		animated_sprite_2d.play("hurt")
@@ -109,3 +101,9 @@ func take_dmg(dmg):
 		health = min_health
 		dead = true
 	print(str(self), "current health is ", health)
+
+func _on_cl_deal_dmg_area_area_entered(area):
+	if area == Global.plyrHitbox:
+		is_deal_dmg = true
+		await get_tree().create_timer(1.0).timeout
+		is_deal_dmg = false
