@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://b5lm45fuex5bw"]
+[gd_scene load_steps=26 format=3 uid="uid://b5lm45fuex5bw"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mrjx3"]
 [ext_resource type="Texture2D" uid="uid://cc55k3l8qotnr" path="res://GameArt/TMMPlayerSS.png" id="2_j61om"]
+[ext_resource type="Script" path="res://Scenes/DamageZone.gd" id="3_14v64"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sy1u8"]
 atlas = ExtResource("2_j61om")
@@ -186,7 +187,8 @@ radius = 14.0
 radius = 13.0
 height = 50.0
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 3
 script = ExtResource("1_mrjx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -199,6 +201,7 @@ position = Vector2(-4, 19)
 shape = SubResource("CircleShape2D_3ijys")
 
 [node name="DamageZone" type="Area2D" parent="."]
+script = ExtResource("3_14v64")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone"]
 position = Vector2(18, 0)
@@ -219,4 +222,5 @@ wait_time = 0.7
 one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="DamageZone" to="DamageZone" method="_on_body_entered"]
 [connection signal="timeout" from="ComboReset" to="." method="_on_combo_reset_timeout"]

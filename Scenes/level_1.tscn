@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://do37bvywgkx5k"]
+[gd_scene load_steps=11 format=3 uid="uid://do37bvywgkx5k"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_3gp3n"]
 [ext_resource type="Texture2D" uid="uid://c2vdlh6wda0jf" path="res://GameArt/TileSet-36x36.png" id="1_dkavn"]
@@ -107,9 +107,6 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_biuay")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tpem"]
-size = Vector2(729.5, 59)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k8vq"]
 size = Vector2(26, 154)
 
@@ -130,10 +127,6 @@ layer_0/tile_data = PackedInt32Array(458755, 131072, 1, 458756, 131072, 1, 45875
 layer_1/tile_data = PackedInt32Array(393221, 196608, 0, 393224, 196608, 0, 393223, 196608, 0, 393237, 131072, 0, 393239, 196608, 0, 393240, 196608, 0, 393231, 196608, 0)
 
 [node name="Collisions" type="StaticBody2D" parent="."]
-
-[node name="GroundCollision" type="CollisionShape2D" parent="Collisions"]
-position = Vector2(432, 258.5)
-shape = SubResource("RectangleShape2D_1tpem")
 
 [node name="LeftWallCollision" type="CollisionShape2D" parent="Collisions"]
 position = Vector2(57, 147)

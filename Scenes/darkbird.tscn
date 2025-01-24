@@ -106,7 +106,7 @@ radius = 21.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rq6ys"]
 radius = 22.0
 
-[node name="darkbird" type="CharacterBody2D"]
+[node name="darkbird" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_7te06")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

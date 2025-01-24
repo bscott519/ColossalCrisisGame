@@ -4,6 +4,7 @@ class_name Colossling
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var timer = $Timer
+@onready var cl_deal_dmg_area = $CLDealDmgArea
 
 const speed = 30
 const gravity = 900
@@ -25,6 +26,7 @@ var player_in_area = false
 
 func _ready():
 	is_chasing = true
+	cl_deal_dmg_area.cL_dmg = 10
 
 func _process(delta):
 	if !is_on_floor():
@@ -88,11 +90,6 @@ func enemy_anims():
 		animated_sprite_2d.play("death")
 		await get_tree().create_timer(0.4).timeout
 		enemy_death()
-
-func _on_cl_hitbox_area_entered(area):
-	var dmg = Global.plyrDmgAmount
-	if area == Global.plyrDmgZone:
-		take_dmg(dmg)
 	
 func take_dmg(dmg):
 	health -= dmg
@@ -102,8 +99,7 @@ func take_dmg(dmg):
 		dead = true
 	print(str(self), "current health is ", health)
 
-func _on_cl_deal_dmg_area_area_entered(area):
-	if area == Global.plyrHitbox:
-		is_deal_dmg = true
-		await get_tree().create_timer(1.0).timeout
-		is_deal_dmg = false
+func attack():
+	$CLDealDmgArea/CollisionShape2D.disabled = false
+	await await get_tree().create_timer(1.0).timeout
+	$CLDealDmgArea/CollisionShape2D.disabled = true
