@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="The Mighty Marauder"
+config/name="Colossal Crisis"
 run/main_scene="res://Scenes/level_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://GameArt/icon.svg"
