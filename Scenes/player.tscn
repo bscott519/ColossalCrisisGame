@@ -188,7 +188,6 @@ radius = 13.0
 height = 50.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 3
 script = ExtResource("1_mrjx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -216,6 +215,7 @@ shape = SubResource("CapsuleShape2D_mudk5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+limit_left = 0
 
 [node name="ComboReset" type="Timer" parent="."]
 wait_time = 0.7

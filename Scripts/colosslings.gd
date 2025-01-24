@@ -9,6 +9,10 @@ class_name Colossling
 const speed = 30
 const gravity = 900
 
+var knockback_strength : float = 100
+var is_knocked_back: bool = false
+var knockback_dur: float = 0.2
+
 var is_chasing: bool
 var dir: Vector2
 var can_walk: bool
@@ -41,6 +45,11 @@ func _process(delta):
 		is_chasing = true
 	elif !Global.plyrAlive:
 		is_chasing = false
+		
+	if is_knocked_back:
+		move_and_slide()
+	else:
+		pass
 
 	enemy_walk(delta)
 	enemy_anims()
@@ -60,14 +69,6 @@ func enemy_walk(delta):
 	if !dead:
 		if !is_chasing:
 			velocity += dir * speed * delta
-		elif is_chasing and !took_dmg:
-			var dir_to_plyr = position.direction_to(player.position) * speed
-			velocity.x = dir_to_plyr.x
-			dir.x = abs(velocity.x) / velocity.x
-		elif took_dmg:
-			var knockback_dir = position.direction_to(player.position) * knockback_force
-			velocity.x = knockback_dir.x
-		is_roaming = true
 	elif dead:
 		velocity.x = 0
 
@@ -91,13 +92,21 @@ func enemy_anims():
 		await get_tree().create_timer(0.4).timeout
 		enemy_death()
 	
-func take_dmg(dmg):
+func take_dmg(dmg, knockback_dir):
 	health -= dmg
+	apply_knockback(knockback_dir)
 	took_dmg = true
 	if health <= min_health:
 		health = min_health
 		dead = true
 	print(str(self), "current health is ", health)
+
+func apply_knockback(knockback_dir: Vector2):
+	is_knocked_back = true
+	velocity = knockback_dir * knockback_strength  
+	await get_tree().create_timer(knockback_dur).timeout 
+	is_knocked_back = false 
+	velocity = Vector2.ZERO
 
 func attack():
 	$CLDealDmgArea/CollisionShape2D.disabled = false
