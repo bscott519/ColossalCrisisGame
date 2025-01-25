@@ -216,6 +216,9 @@ shape = SubResource("CapsuleShape2D_mudk5")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 limit_left = 0
+limit_top = -125
+limit_right = 100000
+limit_bottom = 380
 
 [node name="ComboReset" type="Timer" parent="."]
 wait_time = 0.7

@@ -20,6 +20,9 @@ var max_health = 40
 var min_health = 0
 var can_take_dmg: bool
 var dead: bool
+var is_knocked_back: bool = false
+var knockback_strength: float = 100
+var knockback_dur: float = 0.3
 
 func _ready():
 	Global.plyrbody = self
@@ -40,6 +43,11 @@ func _physics_process(delta):
 			animated_sprite_2d.play("jump")
 		elif velocity.x == 0 and is_on_floor():
 			animated_sprite_2d.play('idle')
+	
+	if is_knocked_back:
+		move_and_slide()
+	else:
+		pass
 
 	attack_anims()
 	check_hitbox()
@@ -113,9 +121,18 @@ func attack_anims():
 		dmg_zone_col.disabled = true
 		doAttack = false
 
+func apply_knockback(knockback_dir: Vector2):
+	if is_knocked_back:
+		return
+	is_knocked_back = true
+	velocity = knockback_dir * knockback_strength 
+	await get_tree().create_timer(knockback_dur).timeout 
+	is_knocked_back = false
+
 func check_hitbox():
 	var hitbox_areas = $PlayerHitbox.get_overlapping_areas()
 	var dmg: int
+	var knockback_dir: Vector2
 	if hitbox_areas:
 		var hitbox = hitbox_areas.front()
 		if hitbox.get_parent() is DarkBird:
@@ -124,13 +141,14 @@ func check_hitbox():
 			dmg = Global.cLDmgAmount
 
 	if can_take_dmg:
-		plyr_take_dmg(dmg)
+		plyr_take_dmg(dmg, knockback_dir)
 
-func plyr_take_dmg(dmg):
+func plyr_take_dmg(dmg, knockback_dir):
 	if dmg != 0:
 		if health > 0:
 			health -= dmg
 			print("plyer health: ", health)
+			apply_knockback(knockback_dir)
 			if health <= 0:
 				health = 0
 				dead = true
