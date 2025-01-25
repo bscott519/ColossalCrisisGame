@@ -19,20 +19,43 @@ var direction: int = 1  # Current movement direction (1 for right, -1 for left)
 # Called when the node enters the scene tree
 func _ready():
 	patrol_points = [Vector2(100, position.y), Vector2(300, position.y)]  # Example patrol points
-	var collision_shape = $Detection/CollisionShape2D.shape
-	if collision_shape is RectangleShape2D:
-		collision_shape.extents = Vector2(detection_radius, detection_radius)
-	else:
-		print("Error: Detection range is not a CircleShape2D!")
+	
+	if not $Detection/CollisionShape2D.shape:
+		$Detection/CollisionShape2D.shape = RectangleShape2D.new()
+		print("Assigned a new RectangleShape2D for detection.")
+
+	# Set initial detection size (example: Width = 300, Height = 200)
+	var new_extents = Vector2(30, 50)  # Half of desired width and height
+	set_detection_radius(new_extents)
+	set_attack_radius(50)  # Set attack radius to 50
 
 # Called every physics frame
 func _physics_process(delta):
 	if is_chasing:
 		chase_player(delta)
+		$AnimatedSprite2D.play("walk")
+	elif abs(velocity.x) > 0:
+		$AnimatedSprite2D.play("walk")
 	else:
 		patrol(delta)
-		
+		$AnimatedSprite2D.play("walk")
 	move_and_slide()
+
+func set_detection_radius(new_extents: Vector2):
+	var detection_shape = $Detection/CollisionShape2D.shape
+	if detection_shape and detection_shape is RectangleShape2D:
+		detection_shape.extents = new_extents
+		print("Detection extents updated:", new_extents)
+	else:
+		print("Error: Detection shape is not a RectangleShape2D!")
+
+func set_attack_radius(new_radius: float):
+	var attack_shape = $AttackRadius/CollisionShape2D.shape
+	if attack_shape is CircleShape2D:
+		attack_shape.radius = new_radius
+		attack_radius = new_radius
+	else:
+		print("Error: Attack shape is not a CircleShape2D!")
 
 # Patrol behavior
 func patrol(delta):
@@ -58,6 +81,7 @@ func chase_player(delta):
 # Attack behavior
 func attack_player():
 	print("Enemy is attacking!")  # Replace with attack logic
+	$AnimatedSprite2D.play("attack")
 	# You can implement animations, damage logic, etc., here
 
 func _on_detection_body_entered(body):
