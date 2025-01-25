@@ -18,14 +18,14 @@ var direction: int = 1  # Current movement direction (1 for right, -1 for left)
 
 # Called when the node enters the scene tree
 func _ready():
-	patrol_points = [Vector2(100, position.y), Vector2(300, position.y)]  # Example patrol points
+	patrol_points = [Vector2(300, position.y), Vector2(100, position.y)]  # Example patrol points
 	
 	if not $Detection/CollisionShape2D.shape:
 		$Detection/CollisionShape2D.shape = RectangleShape2D.new()
 		print("Assigned a new RectangleShape2D for detection.")
 
 	# Set initial detection size (example: Width = 300, Height = 200)
-	var new_extents = Vector2(30, 50)  # Half of desired width and height
+	var new_extents = Vector2(30, 30)  # Half of desired width and height
 	set_detection_radius(new_extents)
 	set_attack_radius(50)  # Set attack radius to 50
 
@@ -86,6 +86,7 @@ func attack_player():
 
 func _on_detection_body_entered(body):
 	if body.is_in_group("player"):
+		print("Player entered detection zone.")
 		player = body  # Store the reference to the player
 		is_chasing = true
 
