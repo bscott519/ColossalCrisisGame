@@ -218,5 +218,14 @@ position = Vector2(388, 213)
 [node name="colosslings2" parent="." instance=ExtResource("5_1lh3t")]
 position = Vector2(677, 213)
 
-[node name="possessedknight" parent="." instance=ExtResource("6_r27hs")]
+[node name="possessedknight" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_r27hs")]
 position = Vector2(1012, 99)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="possessedknight"]
+
+[node name="Point1" type="Marker2D" parent="possessedknight/PatrolPoints"]
+position = Vector2(827, 134)
+
+[node name="Point2" type="Marker2D" parent="possessedknight/PatrolPoints"]
+position = Vector2(1160, 134)
