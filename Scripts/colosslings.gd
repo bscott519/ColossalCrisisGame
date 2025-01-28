@@ -23,7 +23,6 @@ var max_health = 10
 var min_health = 0
 var dmg_to_deal = 10
 var is_deal_dmg: bool = false
-var knockback_force = -50
 var is_roaming: bool = true
 var player: CharacterBody2D
 var player_in_area = false
