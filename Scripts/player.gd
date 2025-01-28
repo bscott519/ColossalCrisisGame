@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var combo_reset = $ComboReset
 @onready var dmg_zone = $DamageZone
 
+signal healthChanged
+
 const SPEED = 200
 const JUMP_VELOCITY = -380.0
 var gravity = 900
@@ -15,8 +17,8 @@ var last_attack = attack_states.Reset
 var last_air_attack = air_attack_states.Reset
 var doAttack = false
 
-var health = 40
-var max_health = 40
+var health = 4
+var max_health = 4
 var min_health = 0
 var can_take_dmg: bool
 var dead: bool
@@ -83,12 +85,12 @@ func attack_anims():
 		if last_air_attack == air_attack_states.AirAttack1:
 			last_air_attack = air_attack_states.AirAttack2
 			animated_sprite_2d.play("airattack2")
-			dmg_zone.plyr_dmg = 5
+			dmg_zone.plyr_dmg = 1
 			wait_time = 0.2
 		else:
 			last_air_attack = air_attack_states.AirAttack1
 			animated_sprite_2d.play("airattack1")
-			dmg_zone.plyr_dmg = 5
+			dmg_zone.plyr_dmg = 1
 			wait_time = 0.2
 			
 		dmg_zone_col.disabled = false
@@ -103,17 +105,17 @@ func attack_anims():
 		if last_attack == attack_states.Attack2:
 			last_attack = attack_states.Attack3
 			animated_sprite_2d.play("attack3")
-			dmg_zone.plyr_dmg = 5
+			dmg_zone.plyr_dmg = 1
 			wait_time = 0.3
 		elif last_attack == attack_states.Attack1:
 			last_attack = attack_states.Attack2
 			animated_sprite_2d.play("attack2")
-			dmg_zone.plyr_dmg = 5
+			dmg_zone.plyr_dmg = 1
 			wait_time = 0.2
 		else:
 			last_attack = attack_states.Attack1
 			animated_sprite_2d.play("attack1")
-			dmg_zone.plyr_dmg = 5
+			dmg_zone.plyr_dmg = 1
 			wait_time = 0.2
 			
 		dmg_zone_col.disabled = false
@@ -149,6 +151,7 @@ func plyr_take_dmg(dmg, knockback_dir):
 			health -= dmg
 			print("plyer health: ", health)
 			apply_knockback(knockback_dir)
+			healthChanged.emit(health)
 			if health <= 0:
 				health = 0
 				dead = true

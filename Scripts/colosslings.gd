@@ -18,10 +18,10 @@ var dir: Vector2
 var can_walk: bool
 var took_dmg: bool = false
 var dead: bool = false
-var health = 10
-var max_health = 10
+var health = 2
+var max_health = 2
 var min_health = 0
-var dmg_to_deal = 10
+var dmg_to_deal = 1
 var is_deal_dmg: bool = false
 var is_roaming: bool = true
 var player: CharacterBody2D
@@ -29,7 +29,7 @@ var player_in_area = false
 
 func _ready():
 	is_chasing = true
-	cl_deal_dmg_area.cL_dmg = 10
+	cl_deal_dmg_area.cL_dmg = 1
 
 func _process(delta):
 	if !is_on_floor():

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mrjx3"]
 [ext_resource type="Texture2D" uid="uid://cc55k3l8qotnr" path="res://GameArt/TMMPlayerSS.png" id="2_j61om"]
-[ext_resource type="Script" path="res://Scenes/DamageZone.gd" id="3_14v64"]
+[ext_resource type="Script" path="res://Scripts/DamageZone.gd" id="3_14v64"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sy1u8"]
 atlas = ExtResource("2_j61om")

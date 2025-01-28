@@ -30,15 +30,15 @@ var chase_speed: float = 100  # Movement speed while chasing
 var is_chasing: bool = false  # Whether the enemy is chasing the player
 var dead: bool = false
 var took_dmg: bool = false
-var health = 15
-var max_health = 15
+var health = 3
+var max_health = 3
 var min_health = 0
-var dmg_to_deal = 10
+var dmg_to_deal = 1
 var is_deal_dmg: bool = false
 
 # Called when the node enters the scene tree
 func _ready():
-	pk_deal_damage_area.pK_dmg = 10
+	pk_deal_damage_area.pK_dmg = 1
 	
 	if patrol_points != null:
 		number_of_points = patrol_points.get_children().size()

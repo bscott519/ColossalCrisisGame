@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://47q34xsc0k1" path="res://GameArt/TMMColosslingIdle2.png" id="7_r2rbl"]
 [ext_resource type="Texture2D" uid="uid://bvbjfjhi0gmdj" path="res://GameArt/TMMColosslingWalk1.png" id="8_kwd8y"]
 [ext_resource type="Texture2D" uid="uid://0y6t6eulmiu3" path="res://GameArt/TMMColosslingWalk2.png" id="9_e3771"]
-[ext_resource type="Script" path="res://Scenes/CLDealDmgArea.gd" id="10_urkx7"]
+[ext_resource type="Script" path="res://Scripts/CLDealDmgArea.gd" id="10_urkx7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhkha"]
 atlas = ExtResource("1_jq20u")

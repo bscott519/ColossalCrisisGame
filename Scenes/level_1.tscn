@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://do37bvywgkx5k"]
+[gd_scene load_steps=14 format=3 uid="uid://do37bvywgkx5k"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_3gp3n"]
+[ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_b48yp"]
 [ext_resource type="Texture2D" uid="uid://c2vdlh6wda0jf" path="res://GameArt/TileSet-36x36.png" id="1_dkavn"]
 [ext_resource type="PackedScene" uid="uid://b5lm45fuex5bw" path="res://Scenes/player.tscn" id="3_pm7jt"]
 [ext_resource type="PackedScene" uid="uid://6d3rhne0s8yd" path="res://Scenes/colosslings.tscn" id="5_1lh3t"]
@@ -118,6 +119,7 @@ size = Vector2(20, 154.5)
 size = Vector2(12.1212, 4.11765)
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_b48yp")
 
 [node name="Background5" type="Sprite2D" parent="."]
 position = Vector2(3086, 139)
@@ -155,7 +157,6 @@ texture = ExtResource("1_3gp3n")
 
 [node name="Background2" type="Sprite2D" parent="Background"]
 position = Vector2(-380, 6.10352e-05)
-scale = Vector2(1, 1)
 texture = ExtResource("1_3gp3n")
 flip_h = true
 
@@ -167,7 +168,6 @@ texture = ExtResource("1_3gp3n")
 
 [node name="Background4" type="Sprite2D" parent="Background3"]
 position = Vector2(-380, 6.10352e-05)
-scale = Vector2(1, 1)
 texture = ExtResource("1_3gp3n")
 flip_h = true
 
@@ -179,7 +179,6 @@ texture = ExtResource("1_3gp3n")
 
 [node name="Background4" type="Sprite2D" parent="Background4"]
 position = Vector2(-380, 6.10352e-05)
-scale = Vector2(1, 1)
 texture = ExtResource("1_3gp3n")
 flip_h = true
 
@@ -301,5 +300,4 @@ one_way_collision = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hearts" parent="CanvasLayer" instance=ExtResource("7_3x47w")]
-offset_right = 119.0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
