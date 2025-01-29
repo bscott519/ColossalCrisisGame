@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://do37bvywgkx5k"]
+[gd_scene load_steps=15 format=3 uid="uid://do37bvywgkx5k"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_3gp3n"]
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_b48yp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cbs0mp8o4ukol" path="res://GameArt/CCW1Platform.png" id="6_1me2m"]
 [ext_resource type="PackedScene" uid="uid://cfmyqu1rpu75r" path="res://Scenes/possessedknight.tscn" id="6_r27hs"]
 [ext_resource type="PackedScene" uid="uid://cigkhvsqha8dt" path="res://Scenes/heartscontainer.tscn" id="7_3x47w"]
+[ext_resource type="PackedScene" uid="uid://14i14pawge6g" path="res://Scenes/health_power_up.tscn" id="9_6f8uw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("1_dkavn")
@@ -301,3 +302,6 @@ one_way_collision = true
 
 [node name="Hearts" parent="CanvasLayer" instance=ExtResource("7_3x47w")]
 scale = Vector2(2, 2)
+
+[node name="healthPowerUp" parent="." instance=ExtResource("9_6f8uw")]
+position = Vector2(275, 205)

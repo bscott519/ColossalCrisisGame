@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://14i14pawge6g"]
+
+[ext_resource type="Texture2D" uid="uid://dumid4qsmtgca" path="res://GameArt/CCHeartSS.png" id="1_4ewtl"]
+[ext_resource type="Script" path="res://Scenes/health_power_up.gd" id="1_rbjpr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1e2x4"]
+radius = 14.0
+
+[node name="healthPowerUp" type="Sprite2D"]
+texture = ExtResource("1_4ewtl")
+hframes = 2
+script = ExtResource("1_rbjpr")
+
+[node name="healthPickup" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="healthPickup"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_1e2x4")
+
+[connection signal="body_entered" from="healthPickup" to="." method="_on_health_pickup_body_entered"]
