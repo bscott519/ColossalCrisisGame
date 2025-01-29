@@ -6,8 +6,19 @@ class_name Colossling
 @onready var timer = $Timer
 @onready var cl_deal_dmg_area = $CLDealDmgArea
 
-const speed = 30
+@export var patrol_points : Node
+@export var speed : int = 1500
+@export var wait_time : int = 1
+
 const gravity = 900
+
+enum State { Idle, Walk, Death }
+var current_state : State
+var direction : Vector2 = Vector2.LEFT
+var number_of_points : int
+var point_positions : Array[Vector2]
+var current_point : Vector2
+var current_point_position : int
 
 var knockback_strength : float = 100
 var is_knocked_back: bool = false
@@ -28,14 +39,21 @@ var player: CharacterBody2D
 var player_in_area = false
 
 func _ready():
-	is_chasing = true
+	if patrol_points != null:
+		number_of_points = patrol_points.get_children().size()
+		for point in patrol_points.get_children():
+			point_positions.append(point.global_position)
+		current_point = point_positions[current_point_position]
+	else:
+		print("No patrol points")
+	
+	timer.wait_time = wait_time
+	
+	current_state = State.Idle
+	
 	cl_deal_dmg_area.cL_dmg = 1
 
-func _process(delta):
-	if !is_on_floor():
-		velocity.y += gravity * delta
-		velocity.x = 0
-	
+func _physics_process(delta):
 	Global.cLDmgAmount = dmg_to_deal
 	Global.cLDmgZone = $CLDealDmgArea
 	player = Global.plyrbody
@@ -50,31 +68,57 @@ func _process(delta):
 	else:
 		pass
 
+	enemy_gravity(delta)
+	enemy_idle(delta)
 	enemy_walk(delta)
 	enemy_anims()
 	move_and_slide()
 
 func _on_timer_timeout():
-	$Timer.wait_time = choose([1.5, 2.0, 2.5])
-	if !is_chasing:
-		dir = choose([Vector2.RIGHT, Vector2.LEFT])
-		velocity.x = 0
+	can_walk = true
 
-func choose(array):
-	array.shuffle()
-	return array.front()
+func enemy_gravity(delta : float):
+	velocity.y += gravity * delta
+
+func enemy_idle(delta : float):
+	if !can_walk:
+		velocity.x = move_toward(velocity.x, 0, speed * delta)
+		current_state = State.Idle
 
 func enemy_walk(delta):
 	if !dead:
-		if !is_chasing:
-			velocity += dir * speed * delta
-	elif dead:
-		velocity.x = 0
+		if abs(position.x - current_point.x) > 0.5:
+			velocity.x = direction.x * speed * delta
+			current_state = State.Walk
+		else:
+			current_point_position += 1
+
+			if current_point_position >= number_of_points:
+				current_point_position = 0
+
+			current_point = point_positions[current_point_position];
+
+			if current_point.x > position.x:
+				direction = Vector2.RIGHT
+			else:
+				direction = Vector2.LEFT
+			
+			can_walk = false
+			timer.start()
+	
+	animated_sprite_2d.flip_h = direction.x > 0
 
 func enemy_death():
 	self.queue_free()
 
 func enemy_anims():
+	if current_state == State.Death:
+		animated_sprite_2d.play("death")
+	elif current_state == State.Idle && !can_walk:
+		animated_sprite_2d.play("idle")
+	elif current_state == State.Walk && can_walk:
+		animated_sprite_2d.play("walk")
+	
 	if !dead and !took_dmg and !is_deal_dmg:
 		animated_sprite_2d.play("walk")
 		if dir.x == -1:
@@ -87,6 +131,8 @@ func enemy_anims():
 		took_dmg = false
 	elif dead and is_roaming:
 		is_roaming = false
+		current_state = State.Death
+		velocity.x = 0
 		animated_sprite_2d.play("death")
 		await get_tree().create_timer(0.4).timeout
 		enemy_death()

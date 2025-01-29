@@ -205,28 +205,91 @@ position = Vector2(5295, 105)
 shape = SubResource("RectangleShape2D_ft2ke")
 
 [node name="player" parent="." instance=ExtResource("3_pm7jt")]
-position = Vector2(5263, 131)
+position = Vector2(173, 195)
 
-[node name="colosslings" parent="." instance=ExtResource("5_1lh3t")]
+[node name="colosslings" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_1lh3t")]
 position = Vector2(388, 213)
+patrol_points = NodePath("PatrolPoints")
 
-[node name="colosslings2" parent="." instance=ExtResource("5_1lh3t")]
+[node name="PatrolPoints" type="Node" parent="colosslings"]
+
+[node name="Point1" type="Marker2D" parent="colosslings/PatrolPoints"]
+position = Vector2(146, 211)
+
+[node name="Point2" type="Marker2D" parent="colosslings/PatrolPoints"]
+position = Vector2(510, 211)
+
+[node name="colosslings2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_1lh3t")]
 position = Vector2(677, 213)
+patrol_points = NodePath("PatrolPoints")
 
-[node name="colosslings3" parent="." instance=ExtResource("5_1lh3t")]
+[node name="PatrolPoints" type="Node" parent="colosslings2"]
+
+[node name="Point1" type="Marker2D" parent="colosslings2/PatrolPoints"]
+position = Vector2(546, 211)
+
+[node name="Point2" type="Marker2D" parent="colosslings2/PatrolPoints"]
+position = Vector2(765, 211)
+
+[node name="colosslings3" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_1lh3t")]
 position = Vector2(1599, 84)
+patrol_points = NodePath("PatrolPoints")
 
-[node name="colosslings4" parent="." instance=ExtResource("5_1lh3t")]
+[node name="PatrolPoints" type="Node" parent="colosslings3"]
+
+[node name="Point1" type="Marker2D" parent="colosslings3/PatrolPoints"]
+position = Vector2(1499, 78)
+
+[node name="Point2" type="Marker2D" parent="colosslings3/PatrolPoints"]
+position = Vector2(1701, 78)
+
+[node name="colosslings4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_1lh3t")]
 position = Vector2(2426, 144)
+patrol_points = NodePath("PatrolPoints")
 
-[node name="colosslings6" parent="." instance=ExtResource("5_1lh3t")]
-position = Vector2(3940, 178)
+[node name="PatrolPoints" type="Node" parent="colosslings4"]
 
-[node name="colosslings7" parent="." instance=ExtResource("5_1lh3t")]
-position = Vector2(4121, 179)
+[node name="Point1" type="Marker2D" parent="colosslings4/PatrolPoints"]
+position = Vector2(2271, 146)
 
-[node name="colosslings8" parent="." instance=ExtResource("5_1lh3t")]
-position = Vector2(5056, 145)
+[node name="Point2" type="Marker2D" parent="colosslings4/PatrolPoints"]
+position = Vector2(2596, 146)
+
+[node name="colosslings6" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_1lh3t")]
+position = Vector2(3901, 178)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="colosslings6"]
+
+[node name="Point1" type="Marker2D" parent="colosslings6/PatrolPoints"]
+position = Vector2(3732, 180)
+
+[node name="Point2" type="Marker2D" parent="colosslings6/PatrolPoints"]
+position = Vector2(4057, 180)
+
+[node name="colosslings7" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_1lh3t")]
+position = Vector2(4210, 179)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="colosslings7"]
+
+[node name="Point1" type="Marker2D" parent="colosslings7/PatrolPoints"]
+position = Vector2(4082, 180)
+
+[node name="Point2" type="Marker2D" parent="colosslings7/PatrolPoints"]
+position = Vector2(4363, 180)
+
+[node name="colosslings8" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_1lh3t")]
+position = Vector2(5051, 145)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="colosslings8"]
+
+[node name="Point1" type="Marker2D" parent="colosslings8/PatrolPoints"]
+position = Vector2(4905, 147)
+
+[node name="Point2" type="Marker2D" parent="colosslings8/PatrolPoints"]
+position = Vector2(5186, 147)
 
 [node name="possessedknight" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_r27hs")]
 position = Vector2(1012, 99)
