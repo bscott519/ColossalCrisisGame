@@ -63,6 +63,10 @@ func _ready():
 
 # Called every physics frame
 func _physics_process(delta):
+	if current_state == State.Death:
+		velocity = Vector2.ZERO 
+		return 
+	
 	enemy_gravity(delta)
 	enemy_idle(delta)
 	enemy_walk(delta)
@@ -109,14 +113,21 @@ func enemy_walk(delta):
 	animated_sprite_2d.flip_h = dir.x < 0
 
 func enemy_animations():
-	if current_state == State.Idle && !can_walk:
-		animated_sprite_2d.play("idle")
-	elif current_state == State.Walk && can_walk:
-		animated_sprite_2d.play("walk")
-	elif current_state == State.Attack:
-		animated_sprite_2d.play("attack")
+	if current_state == State.Attack:
+		if animated_sprite_2d.animation != "attack":  # Prevent re-triggering
+			print("Forcing attack animation")
+			animated_sprite_2d.play("attack")
+			return  # Do NOT allow any other animations to play during attack
+
 	elif current_state == State.Death:
+		print("Playing death animation")
 		animated_sprite_2d.play("death")
+		return
+
+	elif current_state == State.Walk and can_walk:
+		animated_sprite_2d.play("walk")
+	else:
+		animated_sprite_2d.play("idle")
 
 func set_detection_radius(new_extents: Vector2):
 	var detection_shape = $Detection/CollisionShape2D.shape
@@ -126,23 +137,20 @@ func set_detection_radius(new_extents: Vector2):
 	else:
 		print("Error: Detection shape is not a RectangleShape2D!")
 
-#func set_attack_radius(new_radius: float):
-	#var attack_shape = $AttackRadius/CollisionShape2D.shape
-	#if attack_shape is CircleShape2D:
-		#attack_shape.radius = new_radius
-		#attack_radius = new_radius
-	#else:
-		#print("Error: Attack shape is not a CircleShape2D!")
-
 # Chase behavior
 func chase_player(delta):
 	if player:
+		if current_state == State.Attack:
+			velocity.x = 0
+			return
+		
 		direction = sign(player.global_position.x - global_position.x)  # Determine direction
 		velocity.x = chase_speed * direction  # Move toward the player
 		animated_sprite_2d.flip_h = direction < 1
 
 		# Attack if close enough
 		if global_position.distance_to(player.global_position) <= attack_radius:
+			print("Enemy is close enough to attack!")
 			velocity.x = 0  # Stop moving to attack
 			attack_player()
 
@@ -151,17 +159,23 @@ func attack_player():
 	if not is_deal_dmg:  # Prevent re-triggering the attack while it's already happening
 		print("Enemy is attacking!")
 		current_state = State.Attack
+		velocity.x = 0
+		animated_sprite_2d.stop()
 		animated_sprite_2d.play("attack")
+		print("Playing attack animation: ", animated_sprite_2d.animation)
 		
 		# Enable the damage area
 		$PKDealDamageArea/CollisionShape2D.disabled = false
 		is_deal_dmg = true  # Mark the enemy as dealing damage
 		
 		# Wait for attack duration and disable the damage area
-		await get_tree().create_timer(0.9).timeout  # Replace 1.0 with the duration of the attack animation
-		current_state = State.Idle
+		#await get_tree().create_timer(0.9).timeout  # Replace 1.0 with the duration of the attack animation
+		await animated_sprite_2d.animation_finished
+		print("Attack animation finished.")
+		
+		current_state = State.Walk
 		$PKDealDamageArea/CollisionShape2D.disabled = true
-		is_deal_dmg = false  # Allow another attack
+		is_deal_dmg = false 
 
 func take_dmg(dmg, knockback_dir):
 	health -= dmg
@@ -173,6 +187,12 @@ func take_dmg(dmg, knockback_dir):
 		dead = true
 		is_chasing = false
 		can_walk = false
+		velocity = Vector2.ZERO
+		
+		animated_sprite_2d.stop()
+		animated_sprite_2d.play("death")
+		print("Enemy is dying, playing death animation.")
+		
 		await get_tree().create_timer(1.0).timeout
 		self.queue_free()
 	print(str(self), "current health is ", health)
@@ -187,14 +207,15 @@ func apply_knockback(knockback_dir: Vector2):
 func _on_detection_body_entered(body):
 	if body.is_in_group("player"):
 		print("Player entered detection zone.")
-		player = body  # Store the reference to the player
+		player = body
 		is_chasing = true
 
 func _on_detection_body_exited(body):
 	if body == player:
 		if not is_deal_dmg:
-			player = null  # Clear the player reference
+			player = null 
 			is_chasing = false
+		is_chasing = false
 
 func _on_timer_timeout():
 	can_walk = true
