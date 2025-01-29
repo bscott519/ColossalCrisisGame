@@ -1,7 +1,5 @@
 extends Area2D
 
-@onready var animated_sprite_2d = $"../AnimatedSprite2D"
-
 var pK_dmg: int = 0
 var can_dmg: bool = true
 var dmg_cooldown: float = 1.0
@@ -9,7 +7,6 @@ var dmg_cooldown: float = 1.0
 func _on_body_entered(body):
 	if can_dmg and body.is_in_group("player"):
 		print("Player entered PKDealDamageArea.")
-		animated_sprite_2d.play("attack")
 		var knockback_dir = (body.global_position - global_position).normalized()
 		body.plyr_take_dmg(pK_dmg, knockback_dir)
 		can_dmg = false

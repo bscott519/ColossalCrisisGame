@@ -113,7 +113,9 @@ func enemy_animations():
 		animated_sprite_2d.play("idle")
 	elif current_state == State.Walk && can_walk:
 		animated_sprite_2d.play("walk")
-	elif current_state == State.Death && !can_walk:
+	elif current_state == State.Attack:
+		animated_sprite_2d.play("attack")
+	elif current_state == State.Death:
 		animated_sprite_2d.play("death")
 
 func set_detection_radius(new_extents: Vector2):
@@ -148,6 +150,7 @@ func chase_player(delta):
 func attack_player():
 	if not is_deal_dmg:  # Prevent re-triggering the attack while it's already happening
 		print("Enemy is attacking!")
+		current_state = State.Attack
 		animated_sprite_2d.play("attack")
 		
 		# Enable the damage area
@@ -155,7 +158,8 @@ func attack_player():
 		is_deal_dmg = true  # Mark the enemy as dealing damage
 		
 		# Wait for attack duration and disable the damage area
-		await get_tree().create_timer(1.0).timeout  # Replace 1.0 with the duration of the attack animation
+		await get_tree().create_timer(0.9).timeout  # Replace 1.0 with the duration of the attack animation
+		current_state = State.Idle
 		$PKDealDamageArea/CollisionShape2D.disabled = true
 		is_deal_dmg = false  # Allow another attack
 

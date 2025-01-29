@@ -257,7 +257,7 @@ script = ExtResource("1_c1sxt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_s1m1k")
-animation = &"idle"
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8, 34)
