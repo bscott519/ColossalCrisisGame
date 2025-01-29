@@ -178,7 +178,8 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3ijys"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xc2w"]
+height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8pax1"]
 radius = 14.0
@@ -188,6 +189,7 @@ radius = 13.0
 height = 50.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 5
 script = ExtResource("1_mrjx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -196,8 +198,8 @@ animation = &"attack3"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 19)
-shape = SubResource("CircleShape2D_3ijys")
+position = Vector2(-4, 7)
+shape = SubResource("CapsuleShape2D_3xc2w")
 
 [node name="DamageZone" type="Area2D" parent="."]
 script = ExtResource("3_14v64")

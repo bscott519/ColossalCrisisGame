@@ -304,4 +304,10 @@ one_way_collision = true
 scale = Vector2(2, 2)
 
 [node name="healthPowerUp" parent="." instance=ExtResource("9_6f8uw")]
-position = Vector2(275, 205)
+position = Vector2(1297, 58)
+
+[node name="healthPowerUp4" parent="." instance=ExtResource("9_6f8uw")]
+position = Vector2(4055, 90)
+
+[node name="healthPowerUp3" parent="." instance=ExtResource("9_6f8uw")]
+position = Vector2(2427, 56)

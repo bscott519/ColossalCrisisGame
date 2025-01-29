@@ -296,3 +296,4 @@ shape = SubResource("CapsuleShape2D_6rgc8")
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="PKDealDamageArea" to="PKDealDamageArea" method="_on_body_entered"]
