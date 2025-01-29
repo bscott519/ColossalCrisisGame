@@ -18,8 +18,8 @@ var dir: Vector2
 var can_walk: bool
 var took_dmg: bool = false
 var dead: bool = false
-var health = 2
-var max_health = 2
+var health = 1
+var max_health = 1
 var min_health = 0
 var dmg_to_deal = 1
 var is_deal_dmg: bool = false
@@ -98,6 +98,9 @@ func take_dmg(dmg, knockback_dir):
 	if health <= min_health:
 		health = min_health
 		dead = true
+		
+		$CLDealDmgArea/CollisionShape2D.set_deferred("disabled", true)
+		
 	print(str(self), "current health is ", health)
 
 func apply_knockback(knockback_dir: Vector2):

@@ -30,8 +30,8 @@ var chase_speed: float = 100  # Movement speed while chasing
 var is_chasing: bool = false  # Whether the enemy is chasing the player
 var dead: bool = false
 var took_dmg: bool = false
-var health = 3
-var max_health = 3
+var health = 2
+var max_health = 2
 var min_health = 0
 var dmg_to_deal = 1
 var is_deal_dmg: bool = false
@@ -156,6 +156,9 @@ func chase_player(delta):
 
 # Attack behavior
 func attack_player():
+	if dead:
+		return
+	
 	if not is_deal_dmg:  # Prevent re-triggering the attack while it's already happening
 		print("Enemy is attacking!")
 		current_state = State.Attack
@@ -188,6 +191,9 @@ func take_dmg(dmg, knockback_dir):
 		is_chasing = false
 		can_walk = false
 		velocity = Vector2.ZERO
+		
+		$PKDealDamageArea/CollisionShape2D.set_deferred("disabled", true)
+		print("Enemy is dead. Disabling damage collision shape.")
 		
 		animated_sprite_2d.stop()
 		animated_sprite_2d.play("death")
