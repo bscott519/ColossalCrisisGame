@@ -162,8 +162,9 @@ func plyr_take_dmg(dmg, knockback_dir):
 func handle_death_anims():
 	$PlayerHitbox/CollisionShape2D.position.y = 5
 	animated_sprite_2d.play("death")
-	await get_tree().create_timer(0.5).timeout
-	self.queue_free()
+	await get_tree().create_timer(0.1).timeout
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+	#self.queue_free()
 
 func take_dmg_cooldown(wait_time): 
 	can_take_dmg = false
