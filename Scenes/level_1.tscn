@@ -215,17 +215,6 @@ limit_top = -123
 limit_right = 5550
 limit_bottom = 320
 
-[node name="PauseMenu" parent="player/Camera2D" instance=ExtResource("10_sup5l")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 74.0
-offset_top = -82.0
-offset_right = 74.0
-offset_bottom = -82.0
-
 [node name="colosslings" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_1lh3t")]
 position = Vector2(388, 213)
 patrol_points = NodePath("PatrolPoints")
@@ -449,3 +438,7 @@ position = Vector2(3170, 71)
 
 [node name="healthPowerUp5" parent="." instance=ExtResource("9_6f8uw")]
 position = Vector2(2048, 7)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("10_sup5l")]
