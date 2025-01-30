@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://do37bvywgkx5k"]
+[gd_scene load_steps=16 format=3 uid="uid://do37bvywgkx5k"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_3gp3n"]
-[ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_b48yp"]
+[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_b48yp"]
 [ext_resource type="Texture2D" uid="uid://c2vdlh6wda0jf" path="res://GameArt/TileSet-36x36.png" id="1_dkavn"]
 [ext_resource type="PackedScene" uid="uid://b5lm45fuex5bw" path="res://Scenes/player.tscn" id="3_pm7jt"]
 [ext_resource type="PackedScene" uid="uid://6d3rhne0s8yd" path="res://Scenes/colosslings.tscn" id="5_1lh3t"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cfmyqu1rpu75r" path="res://Scenes/possessedknight.tscn" id="6_r27hs"]
 [ext_resource type="PackedScene" uid="uid://cigkhvsqha8dt" path="res://Scenes/heartscontainer.tscn" id="7_3x47w"]
 [ext_resource type="PackedScene" uid="uid://14i14pawge6g" path="res://Scenes/health_power_up.tscn" id="9_6f8uw"]
+[ext_resource type="PackedScene" uid="uid://b07naphow6dr2" path="res://Scenes/pause_menu.tscn" id="10_sup5l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("1_dkavn")
@@ -213,6 +214,17 @@ limit_left = -29
 limit_top = -123
 limit_right = 5550
 limit_bottom = 320
+
+[node name="PauseMenu" parent="player/Camera2D" instance=ExtResource("10_sup5l")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 74.0
+offset_top = -82.0
+offset_right = 74.0
+offset_bottom = -82.0
 
 [node name="colosslings" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_1lh3t")]
 position = Vector2(388, 213)

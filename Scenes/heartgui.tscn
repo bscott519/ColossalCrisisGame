@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1djykty01ve6"]
 
-[ext_resource type="Script" path="res://Scenes/heartgui.gd" id="1_i2aus"]
+[ext_resource type="Script" path="res://Scripts/heartgui.gd" id="1_7u7ld"]
 [ext_resource type="Texture2D" uid="uid://dumid4qsmtgca" path="res://GameArt/CCHeartSS.png" id="2_thssk"]
 
 [node name="heartgui" type="Panel"]
@@ -9,7 +9,7 @@ custom_minimum_size = Vector2(26, 27)
 offset_top = -4.0
 offset_right = 26.0
 offset_bottom = 23.0
-script = ExtResource("1_i2aus")
+script = ExtResource("1_7u7ld")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(5, 0)
