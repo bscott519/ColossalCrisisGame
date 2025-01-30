@@ -1,9 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbgagnfd3rrb8"]
+[gd_scene load_steps=6 format=3 uid="uid://cbgagnfd3rrb8"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_kg8xn"]
+[ext_resource type="FontFile" uid="uid://bajqlmo0hm0fl" path="res://GameArt/Shouldve Known.otf" id="2_rjyqc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbcwy"]
+bg_color = Color(0.478431, 0.00392157, 0.662745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scm15"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiujn"]
+bg_color = Color(0.497474, 0.497474, 0.497474, 1)
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_kg8xn")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bbcwy")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -17,6 +35,7 @@ offset_right = 132.0
 offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_rjyqc")
 theme_override_font_sizes/font_size = 61
 text = "You Died"
 
@@ -38,12 +57,16 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_scm15")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qiujn")
 text = "Try Again"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_scm15")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qiujn")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
