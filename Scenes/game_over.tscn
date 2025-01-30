@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbgagnfd3rrb8"]
+[gd_scene load_steps=7 format=3 uid="uid://cbgagnfd3rrb8"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_kg8xn"]
 [ext_resource type="FontFile" uid="uid://bajqlmo0hm0fl" path="res://GameArt/Shouldve Known.otf" id="2_rjyqc"]
@@ -11,6 +11,8 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiujn"]
 bg_color = Color(0.497474, 0.497474, 0.497474, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pflmc"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_kg8xn")
@@ -59,6 +61,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_scm15")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qiujn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pflmc")
 text = "Try Again"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
@@ -67,6 +70,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_scm15")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qiujn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pflmc")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]

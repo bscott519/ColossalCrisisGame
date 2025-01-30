@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://b07naphow6dr2"]
+[gd_scene load_steps=6 format=3 uid="uid://b07naphow6dr2"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_eoybq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4kco"]
+bg_color = Color(0.478431, 0.00392157, 0.662745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3sf7"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwy6p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fej2x"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -11,26 +21,51 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eoybq")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = -164.0
+offset_right = 142.5
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Resume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-
-[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4kco")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s3sf7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jwy6p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fej2x")
 text = "Resume"
 
-[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Controls" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4kco")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s3sf7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jwy6p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fej2x")
 text = "Controls"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4kco")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s3sf7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jwy6p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fej2x")
 text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
