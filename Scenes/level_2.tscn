@@ -195,6 +195,13 @@ shape = SubResource("RectangleShape2D_ft2ke")
 [node name="player" parent="." instance=ExtResource("3_4twog")]
 position = Vector2(185, 196)
 
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(2, 2)
+limit_left = -29
+limit_top = -123
+limit_right = 5550
+limit_bottom = 320
+
 [node name="darkbird" parent="." instance=ExtResource("4_lsgcf")]
 position = Vector2(1731, 37)
 

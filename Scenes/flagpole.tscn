@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://pd0mic8diwl7"]
+
+[ext_resource type="Texture2D" uid="uid://cbjnx25f3xl40" path="res://GameArt/CCFlagpole.png" id="1_dqvyi"]
+[ext_resource type="Script" path="res://Scripts/flagpole.gd" id="1_v2ooc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxf7s"]
+radius = 1.0
+height = 32.0
+
+[node name="Flagpole" type="Sprite2D"]
+position = Vector2(16, -16)
+texture = ExtResource("1_dqvyi")
+script = ExtResource("1_v2ooc")
+
+[node name="ExitArea2D" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea2D"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_yxf7s")
+
+[connection signal="body_entered" from="ExitArea2D" to="." method="_on_exit_area_2d_body_entered"]

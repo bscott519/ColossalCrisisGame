@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://do37bvywgkx5k"]
+[gd_scene load_steps=17 format=3 uid="uid://do37bvywgkx5k"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_3gp3n"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_b48yp"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cigkhvsqha8dt" path="res://Scenes/heartscontainer.tscn" id="7_3x47w"]
 [ext_resource type="PackedScene" uid="uid://14i14pawge6g" path="res://Scenes/health_power_up.tscn" id="9_6f8uw"]
 [ext_resource type="PackedScene" uid="uid://b07naphow6dr2" path="res://Scenes/pause_menu.tscn" id="10_sup5l"]
+[ext_resource type="PackedScene" uid="uid://pd0mic8diwl7" path="res://Scenes/flagpole.tscn" id="11_7ckfk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("1_dkavn")
@@ -206,7 +207,7 @@ position = Vector2(5295, 105)
 shape = SubResource("RectangleShape2D_ft2ke")
 
 [node name="player" parent="." instance=ExtResource("3_pm7jt")]
-position = Vector2(173, 195)
+position = Vector2(5169, 131)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(2, 2)
@@ -442,3 +443,8 @@ position = Vector2(2048, 7)
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("10_sup5l")]
+
+[node name="Flagpole" parent="." instance=ExtResource("11_7ckfk")]
+position = Vector2(5241, 97)
+scale = Vector2(4, 4)
+next_scene = "Level 2"

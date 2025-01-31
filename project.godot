@@ -18,6 +18,7 @@ config/icon="res://GameArt/icon.svg"
 [autoload]
 
 Global="*res://Scripts/global.gd"
+Scenemanager="*res://Scripts/scenemanager.gd"
 
 [importer_defaults]
 
@@ -59,6 +60,7 @@ pause={
 
 2d_physics/layer_3="EnemyAttacks"
 2d_physics/layer_4="Powerup"
+2d_physics/layer_5="Flagpole"
 
 [rendering]
 
