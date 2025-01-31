@@ -18,6 +18,7 @@ func _on_exit_area_2d_body_entered(body):
 		
 		var player = body
 		player.queue_free()
-	
-		await get_tree().create_timer(0.5).timeout
-		Scenemanager.transition_to_scene(next_scene)
+		
+		get_tree().change_scene_to_file("res://Scenes/level_cleared.tscn")
+		#await get_tree().create_timer(0.5).timeout
+		#Scenemanager.transition_to_scene(next_scene)

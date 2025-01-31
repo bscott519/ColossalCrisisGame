@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://3yjb3r7jxagd"]
+
+[ext_resource type="Script" path="res://Scripts/level_cleared.gd" id="1_1xohk"]
+[ext_resource type="FontFile" uid="uid://bajqlmo0hm0fl" path="res://GameArt/Shouldve Known.otf" id="2_4dcfm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbcwy"]
+bg_color = Color(0.027451, 0.482353, 0.00784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scm15"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiujn"]
+bg_color = Color(0.497474, 0.497474, 0.497474, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pflmc"]
+
+[node name="LevelCleared" type="CanvasLayer"]
+script = ExtResource("1_1xohk")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bbcwy")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -199.0
+offset_right = 132.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_4dcfm")
+theme_override_font_sizes/font_size = 61
+text = "Level Cleared!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -124.0
+offset_top = -349.0
+offset_right = 125.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="LevelSelect" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_scm15")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qiujn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pflmc")
+text = "To Level Select"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_scm15")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qiujn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pflmc")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

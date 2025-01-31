@@ -10,7 +10,7 @@ func _process(delta):
 	pass
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level_1.tscn")
+	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
 
 func _on_controls_pressed():
 	print("Controls pressed")
