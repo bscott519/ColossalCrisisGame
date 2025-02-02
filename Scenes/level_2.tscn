@@ -1,11 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfh5gfsycx616"]
+[gd_scene load_steps=15 format=3 uid="uid://cfh5gfsycx616"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_lwea5"]
+[ext_resource type="Script" path="res://Scenes/level_2.gd" id="1_u655a"]
 [ext_resource type="Texture2D" uid="uid://c2vdlh6wda0jf" path="res://GameArt/TileSet-36x36.png" id="2_b3j4i"]
 [ext_resource type="PackedScene" uid="uid://b5lm45fuex5bw" path="res://Scenes/player.tscn" id="3_4twog"]
 [ext_resource type="PackedScene" uid="uid://bs18n0b7vaju6" path="res://Scenes/darkbird.tscn" id="4_lsgcf"]
 [ext_resource type="PackedScene" uid="uid://6d3rhne0s8yd" path="res://Scenes/colosslings.tscn" id="5_r43ho"]
 [ext_resource type="PackedScene" uid="uid://cfmyqu1rpu75r" path="res://Scenes/possessedknight.tscn" id="6_2br0n"]
+[ext_resource type="PackedScene" uid="uid://cigkhvsqha8dt" path="res://Scenes/heartscontainer.tscn" id="7_ewtj8"]
+[ext_resource type="PackedScene" uid="uid://b07naphow6dr2" path="res://Scenes/pause_menu.tscn" id="8_mqdvx"]
+[ext_resource type="PackedScene" uid="uid://pd0mic8diwl7" path="res://Scenes/flagpole.tscn" id="9_mjumt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("2_b3j4i")
@@ -113,7 +117,8 @@ size = Vector2(26, 154)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft2ke"]
 size = Vector2(20, 154.5)
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_u655a")
 
 [node name="Background5" type="Sprite2D" parent="."]
 position = Vector2(3086, 139)
@@ -233,3 +238,17 @@ position = Vector2(827, 134)
 
 [node name="Point2" type="Marker2D" parent="possessedknight/PatrolPoints"]
 position = Vector2(1160, 134)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hearts" parent="CanvasLayer" instance=ExtResource("7_ewtj8")]
+scale = Vector2(2, 2)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("8_mqdvx")]
+
+[node name="Flagpole" parent="." instance=ExtResource("9_mjumt")]
+position = Vector2(5241, 97)
+scale = Vector2(4, 4)
+next_scene = "Level 2"
