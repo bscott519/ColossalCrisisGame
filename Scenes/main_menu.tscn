@@ -142,6 +142,17 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 25
 text = "Benjamin Scott  |  2025"
 
+[node name="DemoTag" type="Label" parent="."]
+layout_mode = 0
+offset_left = 852.0
+offset_top = 202.0
+offset_right = 1089.0
+offset_bottom = 287.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ermid")
+theme_override_font_sizes/font_size = 70
+text = "DEMO"
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
