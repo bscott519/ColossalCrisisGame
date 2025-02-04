@@ -247,6 +247,30 @@ position = Vector2(1519, -302)
 [node name="Point2" type="Marker2D" parent="colosslings3/PatrolPoints"]
 position = Vector2(1747, -301)
 
+[node name="colosslings4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_r43ho")]
+position = Vector2(2957, -12)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="colosslings4"]
+
+[node name="Point1" type="Marker2D" parent="colosslings4/PatrolPoints"]
+position = Vector2(2892, -15)
+
+[node name="Point2" type="Marker2D" parent="colosslings4/PatrolPoints"]
+position = Vector2(3027, -14)
+
+[node name="colosslings5" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_r43ho")]
+position = Vector2(2160, -300)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="colosslings5"]
+
+[node name="Point1" type="Marker2D" parent="colosslings5/PatrolPoints"]
+position = Vector2(2036, -303)
+
+[node name="Point2" type="Marker2D" parent="colosslings5/PatrolPoints"]
+position = Vector2(2287, -301)
+
 [node name="possessedknight" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_2br0n")]
 position = Vector2(907, -290)
 patrol_points = NodePath("PatrolPoints")
@@ -318,6 +342,30 @@ position = Vector2(1167, -237)
 
 [node name="Point2" type="Marker2D" parent="possessedknight4/PatrolPoints"]
 position = Vector2(1393, -237)
+
+[node name="possessedknight7" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_2br0n")]
+position = Vector2(3306, -127)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="possessedknight7"]
+
+[node name="Point1" type="Marker2D" parent="possessedknight7/PatrolPoints"]
+position = Vector2(3182, -77)
+
+[node name="Point2" type="Marker2D" parent="possessedknight7/PatrolPoints"]
+position = Vector2(3408, -77)
+
+[node name="possessedknight8" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_2br0n")]
+position = Vector2(2585, -288)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="possessedknight8"]
+
+[node name="Point1" type="Marker2D" parent="possessedknight8/PatrolPoints"]
+position = Vector2(2461, -238)
+
+[node name="Point2" type="Marker2D" parent="possessedknight8/PatrolPoints"]
+position = Vector2(2687, -238)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -450,3 +498,9 @@ position = Vector2(579, -461)
 
 [node name="healthPowerUp3" parent="." instance=ExtResource("12_47spc")]
 position = Vector2(1886, -310)
+
+[node name="healthPowerUp4" parent="." instance=ExtResource("12_47spc")]
+position = Vector2(2735, 72)
+
+[node name="healthPowerUp5" parent="." instance=ExtResource("12_47spc")]
+position = Vector2(2803, 72)
