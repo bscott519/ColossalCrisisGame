@@ -162,6 +162,9 @@ func plyr_take_dmg(dmg, knockback_dir):
 func handle_death_anims():
 	$PlayerHitbox/CollisionShape2D.position.y = 5
 	animated_sprite_2d.play("death")
+	
+	Scenemanager.set_last_scene(get_tree().current_scene.scene_file_path)
+	
 	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 	#self.queue_free()

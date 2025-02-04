@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://do37bvywgkx5k"]
+[gd_scene load_steps=19 format=3 uid="uid://do37bvywgkx5k"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_3gp3n"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_b48yp"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://14i14pawge6g" path="res://Scenes/health_power_up.tscn" id="9_6f8uw"]
 [ext_resource type="PackedScene" uid="uid://b07naphow6dr2" path="res://Scenes/pause_menu.tscn" id="10_sup5l"]
 [ext_resource type="PackedScene" uid="uid://pd0mic8diwl7" path="res://Scenes/flagpole.tscn" id="11_7ckfk"]
+[ext_resource type="PackedScene" uid="uid://c7iym8qvw4i4e" path="res://Scenes/killzone.tscn" id="12_adly6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("1_dkavn")
@@ -120,6 +121,8 @@ size = Vector2(20, 154.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b0ud"]
 size = Vector2(12.1212, 4.11765)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4m5oa"]
 
 [node name="Level1" type="Node2D"]
 position = Vector2(0, 1)
@@ -448,3 +451,9 @@ position = Vector2(2048, 7)
 position = Vector2(5241, 97)
 scale = Vector2(4, 4)
 next_scene = "Level 2"
+
+[node name="Killzone" parent="." instance=ExtResource("12_adly6")]
+position = Vector2(1442, 435)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_4m5oa")

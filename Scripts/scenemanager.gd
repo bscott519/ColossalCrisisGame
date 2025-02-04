@@ -2,6 +2,11 @@ extends Node
 
 var scenes: Dictionary = { "Level 1": "res://Scenes/level_1.tscn", 
 							"Level 2": "res://Scenes/level_2.tscn" }
+							
+var last_played_scene: String = ""
+
+func set_last_scene(scene_path: String):
+	last_played_scene = scene_path
 
 func transition_to_scene(level : String):
 	var scene_path : String = scenes.get(level)
