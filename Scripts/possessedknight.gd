@@ -68,6 +68,11 @@ func _physics_process(delta):
 		return 
 	
 	enemy_gravity(delta)
+	
+	if is_knocked_back:
+		move_and_slide()
+		return
+	
 	enemy_idle(delta)
 	enemy_walk(delta)
 	
@@ -204,11 +209,19 @@ func take_dmg(dmg, knockback_dir):
 	print(str(self), "current health is ", health)
 
 func apply_knockback(knockback_dir: Vector2):
+	if is_knocked_back:
+		return
 	is_knocked_back = true
-	velocity = knockback_dir * knockback_strength  
+	velocity.x = knockback_dir.x * knockback_strength  
+	velocity.y = 0
+	
+	move_and_slide()
+	
 	await get_tree().create_timer(knockback_dur).timeout 
 	is_knocked_back = false 
-	velocity = Vector2.ZERO
+	velocity.x = 0
+	
+	move_and_slide()
 
 func _on_detection_body_entered(body):
 	if body.is_in_group("player"):
