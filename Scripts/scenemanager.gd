@@ -1,7 +1,8 @@
 extends Node
 
 var scenes: Dictionary = { "Level 1": "res://Scenes/level_1.tscn", 
-							"Level 2": "res://Scenes/level_2.tscn" }
+							"Level 2": "res://Scenes/level_2.tscn",
+							"Level 3": "res://Scenes/level_3.tscn" }
 							
 var last_played_scene: String = ""
 

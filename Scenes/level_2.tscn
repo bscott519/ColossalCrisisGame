@@ -445,7 +445,6 @@ scale = Vector2(2, 2)
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("8_mqdvx")]
-visible = false
 
 [node name="Flagpole" parent="." instance=ExtResource("9_mjumt")]
 position = Vector2(3480, -127)
