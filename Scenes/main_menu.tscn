@@ -153,6 +153,16 @@ theme_override_fonts/font = ExtResource("2_ermid")
 theme_override_font_sizes/font_size = 70
 text = "DEMO"
 
+[node name="Alpha" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 591.0
+offset_right = 112.0
+offset_bottom = 645.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Alpha"
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
