@@ -51,7 +51,7 @@ offset_right = 992.0
 offset_bottom = 352.0
 scale = Vector2(2, 2)
 lvl_name = "4"
-next_scene_path = ""
+next_scene_path = "res://Scenes/level_4.tscn"
 next_level_left = NodePath("../LevelIcon3")
 next_level_right = NodePath("../LevelIcon")
 

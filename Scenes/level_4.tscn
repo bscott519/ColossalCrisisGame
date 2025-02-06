@@ -1,21 +1,22 @@
-[gd_scene load_steps=20 format=3 uid="uid://djdrw2kkbasgj"]
+[gd_scene load_steps=21 format=3 uid="uid://bpjuy5i6suh5l"]
 
-[ext_resource type="Script" path="res://Scripts/level_3.gd" id="1_4egvu"]
-[ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_bevw8"]
-[ext_resource type="Texture2D" uid="uid://c2vdlh6wda0jf" path="res://GameArt/TileSet-36x36.png" id="3_54s0p"]
-[ext_resource type="PackedScene" uid="uid://b5lm45fuex5bw" path="res://Scenes/player.tscn" id="4_l2dcr"]
-[ext_resource type="PackedScene" uid="uid://6d3rhne0s8yd" path="res://Scenes/colosslings.tscn" id="5_l0auy"]
-[ext_resource type="PackedScene" uid="uid://cfmyqu1rpu75r" path="res://Scenes/possessedknight.tscn" id="6_pkoxm"]
-[ext_resource type="PackedScene" uid="uid://cigkhvsqha8dt" path="res://Scenes/heartscontainer.tscn" id="7_07qg5"]
-[ext_resource type="PackedScene" uid="uid://b07naphow6dr2" path="res://Scenes/pause_menu.tscn" id="8_f7gkb"]
-[ext_resource type="PackedScene" uid="uid://pd0mic8diwl7" path="res://Scenes/flagpole.tscn" id="9_35cib"]
-[ext_resource type="Texture2D" uid="uid://cbs0mp8o4ukol" path="res://GameArt/CCW1Platform.png" id="10_tbiev"]
-[ext_resource type="PackedScene" uid="uid://14i14pawge6g" path="res://Scenes/health_power_up.tscn" id="11_d58eq"]
-[ext_resource type="PackedScene" uid="uid://c7iym8qvw4i4e" path="res://Scenes/killzone.tscn" id="12_yfivl"]
-[ext_resource type="PackedScene" uid="uid://k2iw7vv8fo30" path="res://Scenes/darkknight.tscn" id="13_r4uqh"]
+[ext_resource type="Script" path="res://Scripts/level_4.gd" id="1_gkf6j"]
+[ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_0q5in"]
+[ext_resource type="Texture2D" uid="uid://c2vdlh6wda0jf" path="res://GameArt/TileSet-36x36.png" id="3_apig7"]
+[ext_resource type="PackedScene" uid="uid://b5lm45fuex5bw" path="res://Scenes/player.tscn" id="4_juajy"]
+[ext_resource type="PackedScene" uid="uid://6d3rhne0s8yd" path="res://Scenes/colosslings.tscn" id="5_iq8l4"]
+[ext_resource type="PackedScene" uid="uid://cfmyqu1rpu75r" path="res://Scenes/possessedknight.tscn" id="6_o56vv"]
+[ext_resource type="PackedScene" uid="uid://cigkhvsqha8dt" path="res://Scenes/heartscontainer.tscn" id="7_ui882"]
+[ext_resource type="PackedScene" uid="uid://b07naphow6dr2" path="res://Scenes/pause_menu.tscn" id="8_g170m"]
+[ext_resource type="PackedScene" uid="uid://pd0mic8diwl7" path="res://Scenes/flagpole.tscn" id="9_xc6js"]
+[ext_resource type="Texture2D" uid="uid://cbs0mp8o4ukol" path="res://GameArt/CCW1Platform.png" id="10_0pcbj"]
+[ext_resource type="PackedScene" uid="uid://14i14pawge6g" path="res://Scenes/health_power_up.tscn" id="11_evaqq"]
+[ext_resource type="PackedScene" uid="uid://c7iym8qvw4i4e" path="res://Scenes/killzone.tscn" id="12_7n2jo"]
+[ext_resource type="PackedScene" uid="uid://k2iw7vv8fo30" path="res://Scenes/darkknight.tscn" id="13_a56gh"]
+[ext_resource type="Texture2D" uid="uid://dap2ibfvx7ui8" path="res://GameArt/CCArrow.png" id="14_ai5pb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
-texture = ExtResource("3_54s0p")
+texture = ExtResource("3_apig7")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -125,162 +126,162 @@ size = Vector2(12.1212, 4.11765)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7665i"]
 
-[node name="Level3" type="Node2D"]
-script = ExtResource("1_4egvu")
+[node name="Level4" type="Node2D"]
+script = ExtResource("1_gkf6j")
 
 [node name="Background5" type="Sprite2D" parent="."]
 position = Vector2(3086, 139)
 rotation = -3.14159
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background6" type="Sprite2D" parent="."]
 position = Vector2(4011, 138)
 rotation = -3.14159
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background7" type="Sprite2D" parent="."]
 position = Vector2(436, -668)
 rotation = -3.14159
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background14" type="Sprite2D" parent="."]
 position = Vector2(1365, -668)
 rotation = -3.14159
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 
 [node name="Background18" type="Sprite2D" parent="."]
 position = Vector2(436, -1030)
 rotation = 6.28319
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background19" type="Sprite2D" parent="."]
 position = Vector2(1366, -1030)
 rotation = 6.28319
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 
 [node name="Background20" type="Sprite2D" parent="."]
 position = Vector2(2296, -1030)
 rotation = 6.28319
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background22" type="Sprite2D" parent="."]
 position = Vector2(4156, -1030)
 rotation = 6.28319
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background21" type="Sprite2D" parent="."]
 position = Vector2(3226, -1030)
 rotation = 6.28319
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 
 [node name="Background15" type="Sprite2D" parent="."]
 position = Vector2(2295, -668)
 rotation = -3.14159
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background17" type="Sprite2D" parent="."]
 position = Vector2(4154, -668)
 rotation = -3.14159
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background16" type="Sprite2D" parent="."]
 position = Vector2(3224, -668)
 rotation = -3.14159
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 
 [node name="Background8" type="Sprite2D" parent="."]
 position = Vector2(1797, 138)
 rotation = -3.14159
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background9" type="Sprite2D" parent="."]
 position = Vector2(436, -305)
 rotation = 6.28319
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background10" type="Sprite2D" parent="."]
 position = Vector2(1366, -305)
 rotation = 6.28319
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background11" type="Sprite2D" parent="."]
 position = Vector2(2296, -305)
 rotation = 6.28319
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 
 [node name="Background12" type="Sprite2D" parent="."]
 position = Vector2(3225, -305)
 rotation = 6.28319
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background13" type="Sprite2D" parent="."]
 position = Vector2(4155, -305)
 rotation = 6.28319
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 
 [node name="Background23" type="Sprite2D" parent="."]
 position = Vector2(884, 416)
 rotation = 6.28319
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(436, 56)
 rotation = 3.14159
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 
 [node name="Background2" type="Sprite2D" parent="Background"]
 position = Vector2(-380, 6.10352e-05)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background3" type="Sprite2D" parent="."]
 position = Vector2(2294, 56)
 rotation = 3.14159
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 
 [node name="Background4" type="Sprite2D" parent="Background3"]
 position = Vector2(-380, 6.10352e-05)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 flip_h = true
 
 [node name="Background4" type="Sprite2D" parent="."]
 position = Vector2(4153, 56)
 rotation = 3.14159
 scale = Vector2(2.44737, 1.452)
-texture = ExtResource("2_bevw8")
+texture = ExtResource("2_0q5in")
 
 [node name="GroundTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_olkdc")
@@ -298,7 +299,7 @@ shape = SubResource("RectangleShape2D_5k8vq")
 position = Vector2(4115, -679)
 shape = SubResource("RectangleShape2D_ft2ke")
 
-[node name="player" parent="." instance=ExtResource("4_l2dcr")]
+[node name="player" parent="." instance=ExtResource("4_juajy")]
 position = Vector2(98, 195)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -308,7 +309,7 @@ limit_top = -2000
 limit_right = 5550
 limit_bottom = 320
 
-[node name="colosslings" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_l0auy")]
+[node name="colosslings" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_iq8l4")]
 position = Vector2(834, 148)
 patrol_points = NodePath("PatrolPoints")
 
@@ -320,7 +321,7 @@ position = Vector2(736, 146)
 [node name="Point2" type="Marker2D" parent="colosslings/PatrolPoints"]
 position = Vector2(945, 146)
 
-[node name="colosslings2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_l0auy")]
+[node name="colosslings2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_iq8l4")]
 position = Vector2(1510, 84)
 patrol_points = NodePath("PatrolPoints")
 
@@ -332,7 +333,7 @@ position = Vector2(1386, 83)
 [node name="Point2" type="Marker2D" parent="colosslings2/PatrolPoints"]
 position = Vector2(1618, 79)
 
-[node name="colosslings4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_l0auy")]
+[node name="colosslings4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_iq8l4")]
 position = Vector2(1261, -235)
 patrol_points = NodePath("PatrolPoints")
 
@@ -344,7 +345,7 @@ position = Vector2(1178, -238)
 [node name="Point2" type="Marker2D" parent="colosslings4/PatrolPoints"]
 position = Vector2(1354, -237)
 
-[node name="colosslings5" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_l0auy")]
+[node name="colosslings5" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_iq8l4")]
 position = Vector2(1292, -652)
 patrol_points = NodePath("PatrolPoints")
 
@@ -356,7 +357,7 @@ position = Vector2(1168, -655)
 [node name="Point2" type="Marker2D" parent="colosslings5/PatrolPoints"]
 position = Vector2(1419, -653)
 
-[node name="colosslings6" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_l0auy")]
+[node name="colosslings6" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_iq8l4")]
 position = Vector2(2201, -714)
 patrol_points = NodePath("PatrolPoints")
 
@@ -368,7 +369,7 @@ position = Vector2(2125, -717)
 [node name="Point2" type="Marker2D" parent="colosslings6/PatrolPoints"]
 position = Vector2(2283, -716)
 
-[node name="possessedknight" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_pkoxm")]
+[node name="possessedknight" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_o56vv")]
 position = Vector2(907, -290)
 patrol_points = NodePath("PatrolPoints")
 
@@ -380,7 +381,7 @@ position = Vector2(783, -238)
 [node name="Point2" type="Marker2D" parent="possessedknight/PatrolPoints"]
 position = Vector2(1020, -238)
 
-[node name="possessedknight2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_pkoxm")]
+[node name="possessedknight2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_o56vv")]
 position = Vector2(273, 160)
 patrol_points = NodePath("PatrolPoints")
 
@@ -392,7 +393,7 @@ position = Vector2(147, 212)
 [node name="Point2" type="Marker2D" parent="possessedknight2/PatrolPoints"]
 position = Vector2(381, 212)
 
-[node name="possessedknight3" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_pkoxm")]
+[node name="possessedknight3" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_o56vv")]
 position = Vector2(375, -511)
 patrol_points = NodePath("PatrolPoints")
 
@@ -404,7 +405,7 @@ position = Vector2(251, -461)
 [node name="Point2" type="Marker2D" parent="possessedknight3/PatrolPoints"]
 position = Vector2(477, -461)
 
-[node name="possessedknight5" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_pkoxm")]
+[node name="possessedknight5" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_o56vv")]
 position = Vector2(496, -704)
 patrol_points = NodePath("PatrolPoints")
 
@@ -416,7 +417,7 @@ position = Vector2(399, -654)
 [node name="Point2" type="Marker2D" parent="possessedknight5/PatrolPoints"]
 position = Vector2(634, -654)
 
-[node name="possessedknight6" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_pkoxm")]
+[node name="possessedknight6" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_o56vv")]
 position = Vector2(1748, -767)
 patrol_points = NodePath("PatrolPoints")
 
@@ -428,7 +429,7 @@ position = Vector2(1639, -717)
 [node name="Point2" type="Marker2D" parent="possessedknight6/PatrolPoints"]
 position = Vector2(1843, -717)
 
-[node name="possessedknight4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_pkoxm")]
+[node name="possessedknight4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_o56vv")]
 position = Vector2(1605, -290)
 patrol_points = NodePath("PatrolPoints")
 
@@ -440,7 +441,7 @@ position = Vector2(1488, -240)
 [node name="Point2" type="Marker2D" parent="possessedknight4/PatrolPoints"]
 position = Vector2(1714, -240)
 
-[node name="possessedknight7" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_pkoxm")]
+[node name="possessedknight7" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_o56vv")]
 position = Vector2(3170, -672)
 patrol_points = NodePath("PatrolPoints")
 
@@ -452,7 +453,7 @@ position = Vector2(3046, -622)
 [node name="Point2" type="Marker2D" parent="possessedknight7/PatrolPoints"]
 position = Vector2(3272, -622)
 
-[node name="possessedknight8" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_pkoxm")]
+[node name="possessedknight8" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_o56vv")]
 position = Vector2(2631, -736)
 patrol_points = NodePath("PatrolPoints")
 
@@ -466,14 +467,15 @@ position = Vector2(2733, -686)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Hearts" parent="CanvasLayer" instance=ExtResource("7_07qg5")]
+[node name="Hearts" parent="CanvasLayer" instance=ExtResource("7_ui882")]
 scale = Vector2(2, 2)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("8_f7gkb")]
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("8_g170m")]
+visible = false
 
-[node name="Flagpole" parent="." instance=ExtResource("9_35cib")]
+[node name="Flagpole" parent="." instance=ExtResource("9_xc6js")]
 position = Vector2(4085, -670)
 scale = Vector2(4, 4)
 next_scene = "Level 2"
@@ -481,7 +483,7 @@ next_scene = "Level 2"
 [node name="Ccw1Platform" type="Sprite2D" parent="."]
 position = Vector2(1643, 30)
 scale = Vector2(5.28, 3.4)
-texture = ExtResource("10_tbiev")
+texture = ExtResource("10_0pcbj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform"]
 
@@ -493,7 +495,7 @@ one_way_collision = true
 [node name="Ccw1Platform2" type="Sprite2D" parent="."]
 position = Vector2(1759, -27)
 scale = Vector2(5.28, 3.4)
-texture = ExtResource("10_tbiev")
+texture = ExtResource("10_0pcbj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform2"]
 
@@ -505,7 +507,7 @@ one_way_collision = true
 [node name="Ccw1Platform3" type="Sprite2D" parent="."]
 position = Vector2(1868, -148)
 scale = Vector2(5.28, 3.4)
-texture = ExtResource("10_tbiev")
+texture = ExtResource("10_0pcbj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform3"]
 
@@ -517,7 +519,7 @@ one_way_collision = true
 [node name="Ccw1Platform6" type="Sprite2D" parent="."]
 position = Vector2(240, -509)
 scale = Vector2(5.28, 3.4)
-texture = ExtResource("10_tbiev")
+texture = ExtResource("10_0pcbj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform6"]
 
@@ -529,7 +531,7 @@ one_way_collision = true
 [node name="Ccw1Platform7" type="Sprite2D" parent="."]
 position = Vector2(241, -590)
 scale = Vector2(5.28, 3.4)
-texture = ExtResource("10_tbiev")
+texture = ExtResource("10_0pcbj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform7"]
 
@@ -541,7 +543,7 @@ one_way_collision = true
 [node name="Ccw1Platform10" type="Sprite2D" parent="."]
 position = Vector2(2629, -746)
 scale = Vector2(5.28, 3.4)
-texture = ExtResource("10_tbiev")
+texture = ExtResource("10_0pcbj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform10"]
 
@@ -550,37 +552,37 @@ position = Vector2(0, -3.8147e-06)
 shape = SubResource("RectangleShape2D_8e530")
 one_way_collision = true
 
-[node name="healthPowerUp" parent="." instance=ExtResource("11_d58eq")]
+[node name="healthPowerUp" parent="." instance=ExtResource("11_evaqq")]
 position = Vector2(1643, 3)
 
-[node name="healthPowerUp2" parent="." instance=ExtResource("11_d58eq")]
+[node name="healthPowerUp2" parent="." instance=ExtResource("11_evaqq")]
 position = Vector2(594, -402)
 
-[node name="healthPowerUp8" parent="." instance=ExtResource("11_d58eq")]
+[node name="healthPowerUp8" parent="." instance=ExtResource("11_evaqq")]
 position = Vector2(1100, -722)
 
-[node name="healthPowerUp3" parent="." instance=ExtResource("11_d58eq")]
+[node name="healthPowerUp3" parent="." instance=ExtResource("11_evaqq")]
 position = Vector2(2030, -127)
 
-[node name="healthPowerUp6" parent="." instance=ExtResource("11_d58eq")]
+[node name="healthPowerUp6" parent="." instance=ExtResource("11_evaqq")]
 position = Vector2(691, -306)
 
-[node name="healthPowerUp4" parent="." instance=ExtResource("11_d58eq")]
+[node name="healthPowerUp4" parent="." instance=ExtResource("11_evaqq")]
 position = Vector2(2628, -785)
 
-[node name="healthPowerUp5" parent="." instance=ExtResource("11_d58eq")]
+[node name="healthPowerUp5" parent="." instance=ExtResource("11_evaqq")]
 position = Vector2(2004, -780)
 
-[node name="healthPowerUp7" parent="." instance=ExtResource("11_d58eq")]
+[node name="healthPowerUp7" parent="." instance=ExtResource("11_evaqq")]
 position = Vector2(2039, -781)
 
-[node name="Killzone" parent="." instance=ExtResource("12_yfivl")]
+[node name="Killzone" parent="." instance=ExtResource("12_7n2jo")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(1622, 369)
 shape = SubResource("WorldBoundaryShape2D_7665i")
 
-[node name="darkknight" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_r4uqh")]
+[node name="darkknight" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_a56gh")]
 position = Vector2(1116, 83)
 patrol_points = NodePath("PatrolPoints")
 
@@ -592,7 +594,7 @@ position = Vector2(994, 146)
 [node name="Point2" type="Marker2D" parent="darkknight/PatrolPoints"]
 position = Vector2(1220, 146)
 
-[node name="darkknight2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_r4uqh")]
+[node name="darkknight2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_a56gh")]
 position = Vector2(879, -715)
 patrol_points = NodePath("PatrolPoints")
 
@@ -604,7 +606,7 @@ position = Vector2(713, -652)
 [node name="Point2" type="Marker2D" parent="darkknight2/PatrolPoints"]
 position = Vector2(1023, -652)
 
-[node name="darkknight3" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_r4uqh")]
+[node name="darkknight3" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_a56gh")]
 position = Vector2(3546, -683)
 patrol_points = NodePath("PatrolPoints")
 
@@ -616,7 +618,7 @@ position = Vector2(3380, -620)
 [node name="Point2" type="Marker2D" parent="darkknight3/PatrolPoints"]
 position = Vector2(3690, -620)
 
-[node name="darkknight4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_r4uqh")]
+[node name="darkknight4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_a56gh")]
 position = Vector2(3896, -683)
 patrol_points = NodePath("PatrolPoints")
 
@@ -627,3 +629,7 @@ position = Vector2(3730, -620)
 
 [node name="Point2" type="Marker2D" parent="darkknight4/PatrolPoints"]
 position = Vector2(4040, -620)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(139, 154)
+texture = ExtResource("14_ai5pb")
