@@ -1,0 +1,156 @@
+[gd_scene load_steps=24 format=3 uid="uid://u8hw126r4yl6"]
+
+[ext_resource type="Script" path="res://Scripts/colossabear.gd" id="1_5wuop"]
+[ext_resource type="Texture2D" uid="uid://bapnf131jmdih" path="res://GameArt/TMMEnemyDeath1.png" id="2_658an"]
+[ext_resource type="Texture2D" uid="uid://l1yxspaxqyio" path="res://GameArt/TMMEnemyDeath2.png" id="3_o80kb"]
+[ext_resource type="Texture2D" uid="uid://hcy0hjwm1svq" path="res://GameArt/TMMEnemyDeath3.png" id="4_0hw1x"]
+[ext_resource type="Texture2D" uid="uid://dy7fx3tgdyn1f" path="res://GameArt/CCColossaBearIdle1.png" id="5_0pm70"]
+[ext_resource type="Texture2D" uid="uid://d3itli81w4fa1" path="res://GameArt/CCColossaBearIdle2.png" id="6_hc5k7"]
+[ext_resource type="Texture2D" uid="uid://ch31wpglob50c" path="res://GameArt/CCColossaBearWalk1.png" id="7_r6udn"]
+[ext_resource type="Texture2D" uid="uid://dvipe7wha4os8" path="res://GameArt/CCColossaBearWalk2.png" id="8_6ekow"]
+[ext_resource type="Script" path="res://Scripts/CBDealDamageArea.gd" id="9_4r6f6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pckwd"]
+atlas = ExtResource("2_658an")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngpdj"]
+atlas = ExtResource("3_o80kb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v5po"]
+atlas = ExtResource("4_0hw1x")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol3i6"]
+atlas = ExtResource("5_0pm70")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajx3p"]
+atlas = ExtResource("6_hc5k7")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fqmw"]
+atlas = ExtResource("7_r6udn")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6brj"]
+atlas = ExtResource("5_0pm70")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya151"]
+atlas = ExtResource("8_6ekow")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1m1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pckwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngpdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v5po")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol3i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajx3p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fqmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6brj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya151")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6brj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ppn4"]
+radius = 16.0
+height = 70.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk817"]
+size = Vector2(54.849, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nkxby"]
+radius = 38.0132
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bl1jw"]
+size = Vector2(143, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27t0l"]
+size = Vector2(152, 74)
+
+[node name="colossabear" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_5wuop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 36)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_s1m1k")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 45)
+shape = SubResource("CapsuleShape2D_6ppn4")
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(-7, 31)
+scale = Vector2(5.96, 1)
+shape = SubResource("RectangleShape2D_yk817")
+
+[node name="AttackRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
+position = Vector2(0, 35)
+shape = SubResource("CircleShape2D_nkxby")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="CBHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CBHitbox"]
+position = Vector2(-6.5, 45)
+shape = SubResource("RectangleShape2D_bl1jw")
+
+[node name="CBDealDamageArea" type="Area2D" parent="."]
+collision_layer = 4
+script = ExtResource("9_4r6f6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CBDealDamageArea"]
+position = Vector2(-8, 44)
+shape = SubResource("RectangleShape2D_27t0l")
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="CBDealDamageArea" to="CBDealDamageArea" method="_on_body_entered"]
