@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck74jsgubpeg0"]
+[gd_scene load_steps=6 format=3 uid="uid://ck74jsgubpeg0"]
 
 [ext_resource type="PackedScene" uid="uid://d1g2ooq8x1of4" path="res://Scenes/level_icon.tscn" id="1_3hviw"]
 [ext_resource type="Script" path="res://Scripts/level_select.gd" id="1_bidab"]
 [ext_resource type="PackedScene" uid="uid://b1gserf155o12" path="res://Scenes/player_icon.tscn" id="2_aid86"]
+[ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_yts61"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxukp"]
+texture = ExtResource("2_yts61")
+modulate_color = Color(0.560955, 0.560955, 0.560955, 1)
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3
@@ -10,6 +15,17 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_bidab")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qxukp")
 
 [node name="LevelIcon" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("1_3hviw")]
 offset_left = 160.0

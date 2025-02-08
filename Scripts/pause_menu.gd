@@ -17,8 +17,9 @@ func testPause():
 func _on_resume_pressed():
 	resume()
 
-func _on_controls_pressed():
-	pass
+#func _on_controls_pressed():
+	#Scenemanager.set_last_scene(get_tree().current_scene.scene_file_path)
+	#get_tree().change_scene_to_file("res://Scenes/controlsscreen.tscn")
 
 func _on_quit_pressed():
 	get_tree().paused = false

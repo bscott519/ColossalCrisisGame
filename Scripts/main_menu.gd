@@ -13,7 +13,8 @@ func _on_start_pressed():
 	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
 
 func _on_controls_pressed():
-	print("Controls pressed")
+	Scenemanager.set_last_scene(get_tree().current_scene.scene_file_path)
+	get_tree().change_scene_to_file("res://Scenes/controlsscreen.tscn")
 
 func _on_quit_pressed():
 	get_tree().quit()
