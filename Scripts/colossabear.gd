@@ -95,27 +95,23 @@ func enemy_idle(delta):
 func enemy_walk(delta):
 	if !can_walk:
 		return
-	
-	if abs(position.x - current_point.x) > 0.5:
+
+	if abs(position.x - current_point.x) > 5:
 		velocity.x = dir.x * speed * delta
 		current_state = State.Walk
 	else:
-		current_point_position = (current_point_position + 1) % number_of_points
-		current_point = point_positions[current_point_position]
-
-		if current_point_position >= number_of_points:
+		if current_point_position == 0:
+			current_point_position = 1
+		else:
 			current_point_position = 0
 
-		current_point = point_positions[current_point_position];
+		current_point = point_positions[current_point_position]
 
-		if current_point.x > position.x:
-			dir = Vector2.RIGHT
-		else:
-			dir = Vector2.LEFT
-		
+		dir = (current_point - position).normalized()
+
 		can_walk = false
 		walk_timer.start()
-	
+
 	animated_sprite_2d.flip_h = dir.x > 0
 
 func enemy_animations():

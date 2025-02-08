@@ -217,6 +217,13 @@ scale = Vector2(2.44737, 1.452)
 texture = ExtResource("2_0q5in")
 flip_h = true
 
+[node name="Background24" type="Sprite2D" parent="."]
+position = Vector2(2577, 138)
+rotation = -3.14159
+scale = Vector2(2.44737, 1.452)
+texture = ExtResource("2_0q5in")
+flip_h = true
+
 [node name="Background9" type="Sprite2D" parent="."]
 position = Vector2(436, -305)
 rotation = 6.28319
@@ -301,7 +308,7 @@ position = Vector2(4326, 49)
 shape = SubResource("RectangleShape2D_ft2ke")
 
 [node name="player" parent="." instance=ExtResource("4_juajy")]
-position = Vector2(3176, 86)
+position = Vector2(98, 195)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(2, 2)
