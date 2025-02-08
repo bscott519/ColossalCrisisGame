@@ -100,7 +100,8 @@ func enemy_walk(delta):
 		velocity.x = dir.x * speed * delta
 		current_state = State.Walk
 	else:
-		current_point_position += 1
+		current_point_position = (current_point_position + 1) % number_of_points
+		current_point = point_positions[current_point_position]
 
 		if current_point_position >= number_of_points:
 			current_point_position = 0
@@ -152,7 +153,7 @@ func chase_player(delta):
 		
 		direction = sign(player.global_position.x - global_position.x)  # Determine direction
 		velocity.x = chase_speed * direction  # Move toward the player
-		animated_sprite_2d.flip_h = direction < 1
+		animated_sprite_2d.flip_h = direction > 0
 
 		# Attack if close enough
 		if global_position.distance_to(player.global_position) <= attack_radius:
