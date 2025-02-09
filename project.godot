@@ -20,6 +20,11 @@ config/icon="res://GameArt/icon.svg"
 Global="*res://Scripts/global.gd"
 Scenemanager="*res://Scripts/scenemanager.gd"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"
+
 [importer_defaults]
 
 animation_library={
