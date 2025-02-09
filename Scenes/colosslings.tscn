@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://6d3rhne0s8yd"]
+[gd_scene load_steps=25 format=3 uid="uid://6d3rhne0s8yd"]
 
 [ext_resource type="Script" path="res://Scripts/colosslings.gd" id="1_iuvfo"]
 [ext_resource type="Texture2D" uid="uid://bapnf131jmdih" path="res://GameArt/TMMEnemyDeath1.png" id="1_jq20u"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bvbjfjhi0gmdj" path="res://GameArt/TMMColosslingWalk1.png" id="8_kwd8y"]
 [ext_resource type="Texture2D" uid="uid://0y6t6eulmiu3" path="res://GameArt/TMMColosslingWalk2.png" id="9_e3771"]
 [ext_resource type="Script" path="res://Scripts/CLDealDmgArea.gd" id="10_urkx7"]
+[ext_resource type="AudioStream" uid="uid://drjvewt1v2ivs" path="res://Sounds/sounds/explosion.wav" id="11_1bh7o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhkha"]
 atlas = ExtResource("1_jq20u")
@@ -144,6 +145,7 @@ position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_fw74b")
 
 [node name="EnemyDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_1bh7o")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="CLHitbox" to="." method="_on_cl_hitbox_area_entered"]

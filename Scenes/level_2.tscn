@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cfh5gfsycx616"]
+[gd_scene load_steps=21 format=3 uid="uid://cfh5gfsycx616"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_lwea5"]
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_u655a"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://14i14pawge6g" path="res://Scenes/health_power_up.tscn" id="12_47spc"]
 [ext_resource type="PackedScene" uid="uid://c7iym8qvw4i4e" path="res://Scenes/killzone.tscn" id="12_to3ro"]
 [ext_resource type="Texture2D" uid="uid://dap2ibfvx7ui8" path="res://GameArt/CCArrow.png" id="13_dqwvt"]
+[ext_resource type="AudioStream" uid="uid://b8dvr4re3ybsg" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="14_tdamg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("2_b3j4i")
@@ -593,3 +594,9 @@ texture = ExtResource("13_dqwvt")
 position = Vector2(1796, -347)
 scale = Vector2(2, 2)
 texture = ExtResource("13_dqwvt")
+
+[node name="LevelTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_tdamg")
+autoplay = true
+
+[connection signal="finished" from="LevelTheme" to="." method="_on_level_theme_finished"]

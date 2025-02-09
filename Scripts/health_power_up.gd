@@ -12,6 +12,7 @@ func _process(delta):
 
 func _on_health_pickup_body_entered(body):
 	if body.is_in_group("player"):
+		$HealthPick.play()
 		if body.health < body.max_health: 
 			body.health = min(body.health + pickupAmount, body.max_health) 
 			body.healthChanged.emit(body.health)  

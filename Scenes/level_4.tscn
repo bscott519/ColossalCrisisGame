@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bpjuy5i6suh5l"]
+[gd_scene load_steps=23 format=3 uid="uid://bpjuy5i6suh5l"]
 
 [ext_resource type="Script" path="res://Scripts/level_4.gd" id="1_gkf6j"]
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_0q5in"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://k2iw7vv8fo30" path="res://Scenes/darkknight.tscn" id="13_a56gh"]
 [ext_resource type="Texture2D" uid="uid://dap2ibfvx7ui8" path="res://GameArt/CCArrow.png" id="14_ai5pb"]
 [ext_resource type="PackedScene" uid="uid://u8hw126r4yl6" path="res://Scenes/colossabear.tscn" id="15_euia3"]
+[ext_resource type="AudioStream" uid="uid://b8dvr4re3ybsg" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="16_ebc6n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("3_apig7")
@@ -658,3 +659,9 @@ position = Vector2(3272, 108)
 
 [node name="Point2" type="Marker2D" parent="colossabear/PatrolPoints"]
 position = Vector2(3954, 111)
+
+[node name="LevelTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_ebc6n")
+autoplay = true
+
+[connection signal="finished" from="LevelTheme" to="." method="_on_level_theme_finished"]

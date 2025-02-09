@@ -133,6 +133,7 @@ func enemy_anims():
 		is_roaming = false
 		current_state = State.Death
 		velocity.x = 0
+		$EnemyDeath.play()
 		animated_sprite_2d.play("death")
 		await get_tree().create_timer(0.4).timeout
 		enemy_death()

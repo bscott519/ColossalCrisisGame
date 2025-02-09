@@ -123,6 +123,7 @@ func enemy_animations():
 
 	if current_state == State.Death:
 		print("Playing death animation")
+		$BearDeath.play()
 		animated_sprite_2d.play("death")
 		self.queue_free()
 		return

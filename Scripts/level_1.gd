@@ -7,6 +7,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$LevelTheme.play()
+	$LevelTheme.finished.connect(_on_level_theme_finished)
 	heartsContainer.setMaxHearts(player.max_health)
 	heartsContainer.updateHearts(player.health)
 	player.healthChanged.connect(heartsContainer.updateHearts)

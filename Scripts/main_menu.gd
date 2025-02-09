@@ -4,6 +4,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$TitleTheme.play()
+	$TitleTheme.finished.connect(_on_title_theme_finished)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,3 +19,6 @@ func _on_controls_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+func _on_title_theme_finished():
+	$TitleTheme.play()
