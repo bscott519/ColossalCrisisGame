@@ -39,6 +39,7 @@ func _physics_process(delta):
 		handle_hor_movement()
 		
 		if Input.is_action_just_pressed("jump") and is_on_floor():
+			$Jump.play()
 			velocity.y = JUMP_VELOCITY
 			animated_sprite_2d.play("jump")
 		elif not is_on_floor():
@@ -80,6 +81,7 @@ func attack_anims():
 	var wait_time: float
 	
 	if Input.is_action_just_pressed("attack") and !is_on_floor():
+		$Attack.play()
 		doAttack = true
 
 		if last_air_attack == air_attack_states.AirAttack1:
@@ -100,6 +102,7 @@ func attack_anims():
 		return
 	
 	if Input.is_action_just_pressed("attack"):
+		$Attack.play()
 		doAttack = true
 	
 		if last_attack == attack_states.Attack2:

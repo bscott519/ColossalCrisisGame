@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3eqybbt7fjet"]
+
+[ext_resource type="Script" path="res://Scripts/audio_controller.gd" id="1_p85am"]
+[ext_resource type="AudioStream" uid="uid://4kq1dvj4rnyq" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Den_(Regular).wav" id="1_tn407"]
+[ext_resource type="AudioStream" uid="uid://b8dvr4re3ybsg" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="2_xtvuy"]
+[ext_resource type="AudioStream" uid="uid://4maitnt5ujqa" path="res://Sounds/Minifantasy_Dungeon_SFX/12_human_jump_2.wav" id="3_tli76"]
+
+[node name="AudioController" type="Node2D"]
+script = ExtResource("1_p85am")
+
+[node name="TitleMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_tn407")
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xtvuy")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tli76")
+
+[node name="LevelCleared" type="AudioStreamPlayer2D" parent="."]

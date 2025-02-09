@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck74jsgubpeg0"]
+[gd_scene load_steps=7 format=3 uid="uid://ck74jsgubpeg0"]
 
 [ext_resource type="PackedScene" uid="uid://d1g2ooq8x1of4" path="res://Scenes/level_icon.tscn" id="1_3hviw"]
 [ext_resource type="Script" path="res://Scripts/level_select.gd" id="1_bidab"]
 [ext_resource type="PackedScene" uid="uid://b1gserf155o12" path="res://Scenes/player_icon.tscn" id="2_aid86"]
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_yts61"]
+[ext_resource type="AudioStream" uid="uid://4kq1dvj4rnyq" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Den_(Regular).wav" id="5_y1mdf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxukp"]
 texture = ExtResource("2_yts61")
@@ -89,5 +90,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Back"
+
+[node name="TitleTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_y1mdf")
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

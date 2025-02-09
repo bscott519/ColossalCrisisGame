@@ -1,8 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://b5lm45fuex5bw"]
+[gd_scene load_steps=28 format=3 uid="uid://b5lm45fuex5bw"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mrjx3"]
 [ext_resource type="Texture2D" uid="uid://cc55k3l8qotnr" path="res://GameArt/TMMPlayerSS.png" id="2_j61om"]
 [ext_resource type="Script" path="res://Scripts/DamageZone.gd" id="3_14v64"]
+[ext_resource type="AudioStream" uid="uid://4maitnt5ujqa" path="res://Sounds/Minifantasy_Dungeon_SFX/12_human_jump_2.wav" id="4_mn5u2"]
+[ext_resource type="AudioStream" uid="uid://dqiastj4qumfl" path="res://Sounds/Minifantasy_Dungeon_SFX/07_human_atk_sword_2.wav" id="5_rseau"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sy1u8"]
 atlas = ExtResource("2_j61om")
@@ -218,6 +220,13 @@ shape = SubResource("CapsuleShape2D_mudk5")
 [node name="ComboReset" type="Timer" parent="."]
 wait_time = 0.7
 one_shot = true
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mn5u2")
+volume_db = 3.0
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_rseau")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DamageZone" to="DamageZone" method="_on_body_entered"]
