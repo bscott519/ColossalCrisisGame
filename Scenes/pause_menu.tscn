@@ -9,15 +9,15 @@ modulate_color = Color(0.560784, 0.560784, 0.560784, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lh61f"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4kco"]
-bg_color = Color(0.478431, 0.00392157, 0.662745, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fej2x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3sf7"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwy6p"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fej2x"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4kco"]
+bg_color = Color(0.478431, 0.00392157, 0.662745, 1)
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -62,20 +62,20 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_s4kco")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fej2x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s3sf7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jwy6p")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fej2x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4kco")
 text = "Resume"
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_s4kco")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fej2x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s3sf7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jwy6p")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fej2x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4kco")
 text = "Quit"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

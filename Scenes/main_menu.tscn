@@ -9,12 +9,7 @@
 texture = ExtResource("1_psr37")
 modulate_color = Color(0.560955, 0.560955, 0.560955, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tay1g"]
-bg_color = Color(0.478431, 0.00392157, 0.662745, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb4cd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d03m1"]
 bg_color = Color(0, 0, 0, 1)
@@ -29,7 +24,12 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb4cd"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tay1g"]
+bg_color = Color(0.478431, 0.00392157, 0.662745, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -67,43 +67,43 @@ theme_override_constants/separation = 30
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_tay1g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rb4cd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d03m1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_cdj7d")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rb4cd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tay1g")
 text = "Start"
 
 [node name="Controls" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_tay1g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rb4cd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d03m1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_cdj7d")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rb4cd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tay1g")
 text = "Controls"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_tay1g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rb4cd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d03m1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_cdj7d")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rb4cd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tay1g")
 text = "Quit"
 
 [node name="Title" type="Label" parent="."]

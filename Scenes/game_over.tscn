@@ -6,13 +6,13 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbcwy"]
 bg_color = Color(0.478431, 0.00392157, 0.662745, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scm15"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pflmc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiujn"]
 bg_color = Color(0.497474, 0.497474, 0.497474, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pflmc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scm15"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_kg8xn")
@@ -59,18 +59,18 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_scm15")
-theme_override_styles/hover = SubResource("StyleBoxFlat_qiujn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pflmc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qiujn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_scm15")
 text = "Try Again"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_scm15")
-theme_override_styles/hover = SubResource("StyleBoxFlat_qiujn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pflmc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qiujn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_scm15")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
