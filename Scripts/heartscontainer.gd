@@ -24,5 +24,3 @@ func updateHearts(curHealth: int):
 	
 	for i in range(curHealth, hearts.size()):
 		hearts[i].update(false)
-
-

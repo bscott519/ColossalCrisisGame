@@ -99,5 +99,3 @@ func take_dmg(dmg):
 		await get_tree().create_timer(0.5).timeout
 		self.queue_free()
 	print(str(self), "current health is ", health)
-
-
