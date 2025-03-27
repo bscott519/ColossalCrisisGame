@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b4fcjb0f8n0ma"]
+[gd_scene load_steps=26 format=3 uid="uid://b4fcjb0f8n0ma"]
 
 [ext_resource type="Script" path="res://Scripts/level_5.gd" id="1_wy7mr"]
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_t8tq7"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://buy507nxy6xwt" path="res://Scenes/boss_door.tscn" id="15_1vf4c"]
 [ext_resource type="Script" path="res://Scripts/boss_trigger.gd" id="15_2se6i"]
 [ext_resource type="Script" path="res://Scripts/boss_door.gd" id="16_myq40"]
+[ext_resource type="PackedScene" uid="uid://cbrjwdmbhictw" path="res://Scenes/earth_giant.tscn" id="18_8nic5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("3_hujus")
@@ -174,7 +175,7 @@ position = Vector2(2630, 67)
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(2, 2)
 limit_left = -29
-limit_top = -123
+limit_top = -200
 limit_right = 5550
 limit_bottom = 320
 
@@ -326,6 +327,10 @@ script = ExtResource("15_2se6i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossTrigger"]
 position = Vector2(2887, 59)
 shape = SubResource("RectangleShape2D_om74q")
+
+[node name="EarthGiant" parent="." instance=ExtResource("18_8nic5")]
+position = Vector2(3279, -2)
+scale = Vector2(3.2, 3.2)
 
 [connection signal="finished" from="LevelTheme" to="." method="_on_level_theme_finished"]
 [connection signal="playerEntered" from="BossTrigger" to="BossDoor" method="_on_boss_trigger_player_entered"]
