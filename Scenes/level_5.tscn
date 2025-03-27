@@ -15,8 +15,8 @@
 [ext_resource type="AudioStream" uid="uid://b8dvr4re3ybsg" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="13_eeulh"]
 [ext_resource type="PackedScene" uid="uid://k2iw7vv8fo30" path="res://Scenes/darkknight.tscn" id="14_bwqol"]
 [ext_resource type="PackedScene" uid="uid://buy507nxy6xwt" path="res://Scenes/boss_door.tscn" id="15_1vf4c"]
-[ext_resource type="Script" path="res://boss_trigger.gd" id="15_2se6i"]
-[ext_resource type="Script" path="res://Scenes/boss_door.gd" id="16_myq40"]
+[ext_resource type="Script" path="res://Scripts/boss_trigger.gd" id="15_2se6i"]
+[ext_resource type="Script" path="res://Scripts/boss_door.gd" id="16_myq40"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("3_hujus")
