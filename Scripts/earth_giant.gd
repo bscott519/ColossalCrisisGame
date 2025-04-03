@@ -72,12 +72,19 @@ func _on_attack_radius_body_entered(body):
 	if body.name == "player":
 		player = body
 		print("Player entered attack radius")
-		choose_attack()
+		change_state(State.STOMP) 
+		#choose_attack()
 
 func change_state(new_state):
 	current_state = new_state
-	if new_state in [State.STOMP, State.SLAM, State.SUMMON]:
-		attack_cooldown.start()
+	match new_state:
+		State.STOMP:
+			print("Entering STOMP")
+			velocity = Vector2.ZERO
+			animated_sprite_2d.play("stomp")
+			attack_cooldown.start()
+	#if new_state in [State.STOMP, State.SLAM, State.SUMMON]:
+		#attack_cooldown.start()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:
