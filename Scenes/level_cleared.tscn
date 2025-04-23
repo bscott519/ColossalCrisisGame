@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://3yjb3r7jxagd"]
 
-[ext_resource type="Script" path="res://Scripts/level_cleared.gd" id="1_1xohk"]
+[ext_resource type="Script" uid="uid://ddy7pur4xxtpr" path="res://Scripts/level_cleared.gd" id="1_1xohk"]
 [ext_resource type="FontFile" uid="uid://bajqlmo0hm0fl" path="res://GameArt/Shouldve Known.otf" id="2_4dcfm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbcwy"]

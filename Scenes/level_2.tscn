@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cfh5gfsycx616"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_lwea5"]
-[ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_u655a"]
+[ext_resource type="Script" uid="uid://ds0768ls26je4" path="res://Scripts/level_2.gd" id="1_u655a"]
 [ext_resource type="Texture2D" uid="uid://c2vdlh6wda0jf" path="res://GameArt/TileSet-36x36.png" id="2_b3j4i"]
 [ext_resource type="PackedScene" uid="uid://b5lm45fuex5bw" path="res://Scenes/player.tscn" id="3_4twog"]
 [ext_resource type="PackedScene" uid="uid://6d3rhne0s8yd" path="res://Scenes/colosslings.tscn" id="5_r43ho"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bih7r5ubgl604"]
 
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="1_psr37"]
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_uowl2"]
+[ext_resource type="Script" uid="uid://bwdmwpl6g4dqw" path="res://Scripts/main_menu.gd" id="1_uowl2"]
 [ext_resource type="FontFile" uid="uid://bajqlmo0hm0fl" path="res://GameArt/Shouldve Known.otf" id="2_ermid"]
 [ext_resource type="AudioStream" uid="uid://4kq1dvj4rnyq" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Den_(Regular).wav" id="4_kapqu"]
 

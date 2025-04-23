@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://pd0mic8diwl7"]
 
 [ext_resource type="Texture2D" uid="uid://cbjnx25f3xl40" path="res://GameArt/CCFlagpole.png" id="1_dqvyi"]
-[ext_resource type="Script" path="res://Scripts/flagpole.gd" id="1_v2ooc"]
+[ext_resource type="Script" uid="uid://dewc58gcjltkc" path="res://Scripts/flagpole.gd" id="1_v2ooc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxf7s"]
 radius = 1.0

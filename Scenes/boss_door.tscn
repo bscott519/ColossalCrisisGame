@@ -117,10 +117,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xhuks"]
 _data = {
-"Active": SubResource("Animation_pnsyp"),
-"Closed": SubResource("Animation_x40hb"),
-"RESET": SubResource("Animation_8l8j6"),
-"idle": SubResource("Animation_uxcd1")
+&"Active": SubResource("Animation_pnsyp"),
+&"Closed": SubResource("Animation_x40hb"),
+&"RESET": SubResource("Animation_8l8j6"),
+&"idle": SubResource("Animation_uxcd1")
 }
 
 [node name="BossDoor" type="StaticBody2D"]

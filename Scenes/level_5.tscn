@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://b4fcjb0f8n0ma"]
 
-[ext_resource type="Script" path="res://Scripts/level_5.gd" id="1_wy7mr"]
+[ext_resource type="Script" uid="uid://cqvsk0b2edkvr" path="res://Scripts/level_5.gd" id="1_wy7mr"]
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_t8tq7"]
 [ext_resource type="Texture2D" uid="uid://c2vdlh6wda0jf" path="res://GameArt/TileSet-36x36.png" id="3_hujus"]
 [ext_resource type="PackedScene" uid="uid://b5lm45fuex5bw" path="res://Scenes/player.tscn" id="4_fbqnf"]
@@ -15,8 +15,8 @@
 [ext_resource type="AudioStream" uid="uid://b8dvr4re3ybsg" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="13_eeulh"]
 [ext_resource type="PackedScene" uid="uid://k2iw7vv8fo30" path="res://Scenes/darkknight.tscn" id="14_bwqol"]
 [ext_resource type="PackedScene" uid="uid://buy507nxy6xwt" path="res://Scenes/boss_door.tscn" id="15_1vf4c"]
-[ext_resource type="Script" path="res://Scripts/boss_trigger.gd" id="15_2se6i"]
-[ext_resource type="Script" path="res://Scripts/boss_door.gd" id="16_myq40"]
+[ext_resource type="Script" uid="uid://0x0e0temc7r4" path="res://Scripts/boss_trigger.gd" id="15_2se6i"]
+[ext_resource type="Script" uid="uid://3mnpbkwocaoa" path="res://Scripts/boss_door.gd" id="16_myq40"]
 [ext_resource type="PackedScene" uid="uid://cbrjwdmbhictw" path="res://Scenes/earth_giant.tscn" id="18_8nic5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]

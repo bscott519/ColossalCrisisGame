@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://14i14pawge6g"]
 
 [ext_resource type="Texture2D" uid="uid://dumid4qsmtgca" path="res://GameArt/CCHeartSS.png" id="1_4ewtl"]
-[ext_resource type="Script" path="res://Scripts/health_power_up.gd" id="1_rbjpr"]
+[ext_resource type="Script" uid="uid://bj32mo61um8gc" path="res://Scripts/health_power_up.gd" id="1_rbjpr"]
 [ext_resource type="AudioStream" uid="uid://b45nkx2j2mj6b" path="res://Sounds/sounds/power_up.wav" id="3_41u3l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1e2x4"]

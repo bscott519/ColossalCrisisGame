@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://cbrjwdmbhictw"]
 
-[ext_resource type="Script" path="res://Scripts/earth_giant.gd" id="1_kl2yr"]
+[ext_resource type="Script" uid="uid://ba7kmamigg8am" path="res://Scripts/earth_giant.gd" id="1_kl2yr"]
 [ext_resource type="Texture2D" uid="uid://cbmek8v8jln14" path="res://GameArt/CCEarthGiantSS.png" id="1_obi7s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klkj6"]

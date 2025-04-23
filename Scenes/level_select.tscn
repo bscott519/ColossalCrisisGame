@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ck74jsgubpeg0"]
 
 [ext_resource type="PackedScene" uid="uid://d1g2ooq8x1of4" path="res://Scenes/level_icon.tscn" id="1_3hviw"]
-[ext_resource type="Script" path="res://Scripts/level_select.gd" id="1_bidab"]
+[ext_resource type="Script" uid="uid://do8u8o65lavc5" path="res://Scripts/level_select.gd" id="1_bidab"]
 [ext_resource type="PackedScene" uid="uid://b1gserf155o12" path="res://Scenes/player_icon.tscn" id="2_aid86"]
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_yts61"]
 [ext_resource type="AudioStream" uid="uid://4kq1dvj4rnyq" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Den_(Regular).wav" id="5_y1mdf"]

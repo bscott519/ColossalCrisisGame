@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=3 uid="uid://b5lm45fuex5bw"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_mrjx3"]
+[ext_resource type="Script" uid="uid://bl3ebjurdrqui" path="res://Scripts/player.gd" id="1_mrjx3"]
 [ext_resource type="Texture2D" uid="uid://cc55k3l8qotnr" path="res://GameArt/TMMPlayerSS.png" id="2_j61om"]
-[ext_resource type="Script" path="res://Scripts/DamageZone.gd" id="3_14v64"]
+[ext_resource type="Script" uid="uid://ct2k0s6d5q470" path="res://Scripts/DamageZone.gd" id="3_14v64"]
 [ext_resource type="AudioStream" uid="uid://4maitnt5ujqa" path="res://Sounds/Minifantasy_Dungeon_SFX/12_human_jump_2.wav" id="4_mn5u2"]
 [ext_resource type="AudioStream" uid="uid://dqiastj4qumfl" path="res://Sounds/Minifantasy_Dungeon_SFX/07_human_atk_sword_2.wav" id="5_rseau"]
 

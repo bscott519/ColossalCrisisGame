@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnu21d5tct5dk"]
 
-[ext_resource type="Script" path="res://Scripts/controlsscreen.gd" id="1_60v7l"]
+[ext_resource type="Script" uid="uid://cjx0ncb03cqfj" path="res://Scripts/controlsscreen.gd" id="1_60v7l"]
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_miavg"]
 
 [node name="ControlsScreen" type="Control"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=42 format=3 uid="uid://cfmyqu1rpu75r"]
 
-[ext_resource type="Script" path="res://Scripts/possessedknight.gd" id="1_c1sxt"]
+[ext_resource type="Script" uid="uid://8sa8fw6wi78t" path="res://Scripts/possessedknight.gd" id="1_c1sxt"]
 [ext_resource type="Texture2D" uid="uid://besgk5qspd40e" path="res://GameArt/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Idle.png" id="2_mkh3y"]
 [ext_resource type="Texture2D" uid="uid://bv5vyojjtaeuf" path="res://GameArt/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Attack2.png" id="2_tbcq6"]
 [ext_resource type="Texture2D" uid="uid://dx3chud32bmfb" path="res://GameArt/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_DeathNoMovement.png" id="3_xt67i"]
 [ext_resource type="Texture2D" uid="uid://jqoyf1g381le" path="res://GameArt/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Run.png" id="5_7ffan"]
-[ext_resource type="Script" path="res://Scripts/PKDealDamageArea.gd" id="6_nwi6h"]
+[ext_resource type="Script" uid="uid://cg44owvo54r0e" path="res://Scripts/PKDealDamageArea.gd" id="6_nwi6h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lb48o"]
 atlas = ExtResource("2_tbcq6")

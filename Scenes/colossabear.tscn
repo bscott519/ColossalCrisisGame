@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://u8hw126r4yl6"]
 
-[ext_resource type="Script" path="res://Scripts/colossabear.gd" id="1_5wuop"]
+[ext_resource type="Script" uid="uid://bylkvfbxepx37" path="res://Scripts/colossabear.gd" id="1_5wuop"]
 [ext_resource type="Texture2D" uid="uid://bapnf131jmdih" path="res://GameArt/TMMEnemyDeath1.png" id="2_658an"]
 [ext_resource type="Texture2D" uid="uid://l1yxspaxqyio" path="res://GameArt/TMMEnemyDeath2.png" id="3_o80kb"]
 [ext_resource type="Texture2D" uid="uid://hcy0hjwm1svq" path="res://GameArt/TMMEnemyDeath3.png" id="4_0hw1x"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d3itli81w4fa1" path="res://GameArt/CCColossaBearIdle2.png" id="6_hc5k7"]
 [ext_resource type="Texture2D" uid="uid://ch31wpglob50c" path="res://GameArt/CCColossaBearWalk1.png" id="7_r6udn"]
 [ext_resource type="Texture2D" uid="uid://dvipe7wha4os8" path="res://GameArt/CCColossaBearWalk2.png" id="8_6ekow"]
-[ext_resource type="Script" path="res://Scripts/CBDealDamageArea.gd" id="9_4r6f6"]
+[ext_resource type="Script" uid="uid://oduc7tcgka3y" path="res://Scripts/CBDealDamageArea.gd" id="9_4r6f6"]
 [ext_resource type="AudioStream" uid="uid://drjvewt1v2ivs" path="res://Sounds/sounds/explosion.wav" id="10_ipe36"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pckwd"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cigkhvsqha8dt"]
 
-[ext_resource type="Script" path="res://Scripts/heartscontainer.gd" id="1_n56x7"]
+[ext_resource type="Script" uid="uid://cd76y0xlw5a5h" path="res://Scripts/heartscontainer.gd" id="1_n56x7"]
 
 [node name="Hearts" type="HBoxContainer"]
 theme_override_constants/separation = 5

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbgagnfd3rrb8"]
 
-[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_kg8xn"]
+[ext_resource type="Script" uid="uid://rip36mod4425" path="res://Scripts/game_over.gd" id="1_kg8xn"]
 [ext_resource type="FontFile" uid="uid://bajqlmo0hm0fl" path="res://GameArt/Shouldve Known.otf" id="2_rjyqc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbcwy"]
