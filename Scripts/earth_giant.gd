@@ -7,6 +7,8 @@ enum State { IDLE, CHASE, STOMP, SLAM, SUMMON }
 @onready var attack_cooldown = $AttackCooldown
 @onready var attack_radius = $AttackRadius
 
+var player_in_attack_radius = false
+
 var current_state = State.IDLE
 var player = null
 var speed = 70
@@ -58,8 +60,13 @@ func _on_body_entered(body):
 func _on_attack_radius_body_entered(body):
 	if body.name == "player":
 		player = body
+		player_in_attack_radius = true
 		print("Player entered attack radius")
 		choose_attack()
+
+func _on_attack_radius_body_exited(body):
+	if body.name == "player":
+		player_in_attack_radius = false
 
 func change_state(new_state):
 	current_state = new_state
@@ -93,3 +100,8 @@ func _on_animated_sprite_2d_animation_finished():
 		State.STOMP, State.SLAM, State.SUMMON:
 			print("Finished attack animation:", current_state)
 			change_state(State.CHASE)
+			attack_cooldown.start()
+
+func _on_attack_cooldown_timeout():
+	if player_in_attack_radius:
+		choose_attack()
