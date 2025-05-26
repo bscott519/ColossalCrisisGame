@@ -8,11 +8,23 @@ enum State { IDLE, CHASE, STOMP, SLAM, SUMMON }
 @onready var attack_radius = $AttackRadius
 
 var player_in_attack_radius = false
+var knockback_strength : float = 100
+var is_knocked_back: bool = false
+var knockback_dur: float = 0.2
+var is_chasing: bool = false
+var can_walk: bool
 
 var current_state = State.IDLE
 var player = null
 var speed = 70
 var attack_range = 80
+var dead: bool = false
+var took_dmg: bool = false
+var health = 15
+var max_health = 15
+var min_health = 0
+var dmg_to_deal = 2
+var is_deal_dmg: bool = false
 
 func _ready():
 	detection_area.connect("body_entered", _on_body_entered)
@@ -105,3 +117,42 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_attack_cooldown_timeout():
 	if player_in_attack_radius:
 		choose_attack()
+		
+
+func take_dmg(dmg, knockback_dir):
+	health -= dmg
+	apply_knockback(knockback_dir)
+	took_dmg = true
+	if health <= min_health:
+		health = min_health
+		#current_state = State.Death
+		dead = true
+		is_chasing = false
+		can_walk = false
+		velocity = Vector2.ZERO
+		
+		$DKDealDamageArea/CollisionShape2D.set_deferred("disabled", true)
+		print("Enemy is dead. Disabling damage collision shape.")
+		
+		animated_sprite_2d.stop()
+		animated_sprite_2d.play("death")
+		print("Enemy is dying, playing death animation.")
+		
+		await get_tree().create_timer(1.0).timeout
+		self.queue_free()
+	print(str(self), "current health is ", health)
+
+func apply_knockback(knockback_dir: Vector2):
+	if is_knocked_back:
+		return
+	is_knocked_back = true
+	velocity.x = knockback_dir.x * knockback_strength  
+	velocity.y = 0
+	
+	move_and_slide()
+	
+	await get_tree().create_timer(knockback_dur).timeout 
+	is_knocked_back = false 
+	velocity.x = 0
+	
+	move_and_slide()
