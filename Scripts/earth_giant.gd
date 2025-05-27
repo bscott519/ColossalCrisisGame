@@ -36,10 +36,11 @@ var is_deal_dmg: bool = false
 func _ready():
 	detection_area.connect("body_entered", _on_body_entered)
 	attack_radius.connect("body_entered", _on_attack_radius_body_entered)
-	attack_cooldown.start()
 	
-	enable_eg_damage_area.connect("timeout", self, "_on_enable_eg_damage_area_timeout")
-	disable_eg_damage_area.connect("timeout", self, "_on_disable_eg_damage_area_timeout")
+	enable_eg_damage_area.timeout.connect(_on_enable_eg_damage_area_timeout)
+	disable_eg_damage_area.timeout.connect(_on_disable_eg_damage_area_timeout)
+	
+	attack_cooldown.start()
 
 func _physics_process(delta):
 	match current_state:
