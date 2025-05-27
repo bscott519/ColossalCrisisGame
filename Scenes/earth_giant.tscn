@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cbrjwdmbhictw"]
+[gd_scene load_steps=22 format=3 uid="uid://cbrjwdmbhictw"]
 
 [ext_resource type="Script" uid="uid://ba7kmamigg8am" path="res://Scripts/earth_giant.gd" id="1_kl2yr"]
 [ext_resource type="Texture2D" uid="uid://cbmek8v8jln14" path="res://GameArt/CCEarthGiantSS.png" id="1_obi7s"]
+[ext_resource type="Script" uid="uid://d2ssjdturfft2" path="res://Scenes/eg_deal_damage_area.gd" id="3_horgh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klkj6"]
 atlas = ExtResource("1_obi7s")
@@ -136,6 +137,9 @@ size = Vector2(75, 31)
 radius = 18.0
 height = 52.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgat6"]
+size = Vector2(53, 20)
+
 [node name="EarthGiant" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_kl2yr")
 
@@ -168,7 +172,15 @@ shape = SubResource("RectangleShape2D_fyhic")
 position = Vector2(-2, 5)
 shape = SubResource("CapsuleShape2D_vgat6")
 
+[node name="EGDealDamageArea" type="Area2D" parent="."]
+script = ExtResource("3_horgh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EGDealDamageArea"]
+position = Vector2(-1, 21)
+shape = SubResource("RectangleShape2D_vgat6")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="body_entered" from="AttackRadius" to="." method="_on_attack_radius_body_entered"]
 [connection signal="body_exited" from="AttackRadius" to="." method="_on_attack_radius_body_exited"]
+[connection signal="body_entered" from="EGDealDamageArea" to="EGDealDamageArea" method="_on_body_entered"]

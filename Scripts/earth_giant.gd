@@ -6,6 +6,7 @@ enum State { IDLE, CHASE, STOMP, SLAM, SUMMON, DEATH }
 @onready var detection_area = $Detection
 @onready var attack_cooldown = $AttackCooldown
 @onready var attack_radius = $AttackRadius
+@onready var eg_deal_damage_area = $EGDealDamageArea
 
 var player_in_attack_radius = false
 var knockback_strength : float = 500
@@ -133,7 +134,7 @@ func take_dmg(dmg, knockback_dir):
 		can_walk = false
 		velocity = Vector2.ZERO
 		
-		#$DKDealDamageArea/CollisionShape2D.set_deferred("disabled", true)
+		$EGDealDamageArea/CollisionShape2D.set_deferred("disabled", true)
 		print("Enemy is dead. Disabling damage collision shape.")
 		
 		animated_sprite_2d.stop()
