@@ -177,7 +177,16 @@ shape = SubResource("CapsuleShape2D_vgat6")
 position = Vector2(-1, 21)
 shape = SubResource("RectangleShape2D_vgat6")
 
+[node name="EnableEGDamageArea" type="Timer" parent="."]
+one_shot = true
+
+[node name="DisableEGDamageArea" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="body_entered" from="AttackRadius" to="." method="_on_attack_radius_body_entered"]
 [connection signal="body_exited" from="AttackRadius" to="." method="_on_attack_radius_body_exited"]
+[connection signal="body_entered" from="EGDealDamageArea" to="." method="_on_eg_deal_damage_area_body_entered"]
+[connection signal="timeout" from="EnableEGDamageArea" to="." method="_on_enable_eg_damage_area_timeout"]
+[connection signal="timeout" from="DisableEGDamageArea" to="." method="_on_disable_eg_damage_area_timeout"]

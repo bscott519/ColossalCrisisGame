@@ -7,6 +7,8 @@ enum State { IDLE, CHASE, STOMP, SLAM, SUMMON, DEATH }
 @onready var attack_cooldown = $AttackCooldown
 @onready var attack_radius = $AttackRadius
 @onready var eg_deal_damage_area = $EGDealDamageArea
+@onready var enable_eg_damage_area = $EnableEGDamageArea
+@onready var disable_eg_damage_area = $DisableEGDamageArea
 
 var player_in_attack_radius = false
 var knockback_strength : float = 500
@@ -14,6 +16,10 @@ var is_knocked_back: bool = false
 var knockback_dur: float = 0.2
 var is_chasing: bool = false
 var can_walk: bool
+
+var eG_dmg: int = 0
+var can_dmg: bool = true
+var dmg_cooldown: float = 1.0
 
 var current_state = State.IDLE
 var player = null
@@ -31,6 +37,9 @@ func _ready():
 	detection_area.connect("body_entered", _on_body_entered)
 	attack_radius.connect("body_entered", _on_attack_radius_body_entered)
 	attack_cooldown.start()
+	
+	enable_eg_damage_area.connect("timeout", self, "_on_enable_eg_damage_area_timeout")
+	disable_eg_damage_area.connect("timeout", self, "_on_disable_eg_damage_area_timeout")
 
 func _physics_process(delta):
 	match current_state:
@@ -159,3 +168,29 @@ func apply_knockback(knockback_dir: Vector2):
 	velocity.x = 0
 	
 	move_and_slide()
+	
+func _on_eg_deal_damage_area_body_entered(body):
+	if can_dmg and body.is_in_group("player"):
+		print("Player entered EGDealDamageArea.")
+		var knockback_dir = (body.global_position - global_position).normalized()
+		body.plyr_take_dmg(eG_dmg, knockback_dir)
+		can_dmg = false
+		start_dmg_cooldown()
+
+func start_dmg_cooldown():
+	await get_tree().create_timer(dmg_cooldown).timeout
+	can_dmg = true
+
+func _on_enable_eg_damage_area_timeout():
+	enable_eg_timer()
+
+func _on_disable_eg_damage_area_timeout():
+	disable_eg_timer()
+	
+func enable_eg_timer():
+	$EGDealDamageArea/CollisionShape2D.disabled = false
+	is_deal_dmg = true
+
+func disable_eg_timer():
+	$EGDealDamageArea/CollisionShape2D.disabled = true
+	is_deal_dmg = false
