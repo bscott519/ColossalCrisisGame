@@ -216,7 +216,7 @@ position = Vector2(277, 211)
 position = Vector2(547, 211)
 
 [node name="Ccw1Platform3" type="Sprite2D" parent="."]
-position = Vector2(3861.68, 127.8)
+position = Vector2(2993, 21)
 scale = Vector2(5.28, 3.4)
 texture = ExtResource("7_mday3")
 
@@ -228,7 +228,7 @@ shape = SubResource("RectangleShape2D_3b0ud")
 one_way_collision = true
 
 [node name="Ccw1Platform4" type="Sprite2D" parent="."]
-position = Vector2(4053.68, 127.8)
+position = Vector2(3016, -62)
 scale = Vector2(5.28, 3.4)
 texture = ExtResource("7_mday3")
 
@@ -316,7 +316,12 @@ position = Vector2(1817, 84)
 position = Vector2(2084, 84)
 
 [node name="BossDoor" parent="." instance=ExtResource("15_1vf4c")]
-position = Vector2(2734, -158)
+position = Vector2(2903, -158)
+scale = Vector2(5, 5)
+script = ExtResource("16_myq40")
+
+[node name="BossDoor2" parent="." instance=ExtResource("15_1vf4c")]
+position = Vector2(3855, -158)
 scale = Vector2(5, 5)
 script = ExtResource("16_myq40")
 
@@ -325,7 +330,7 @@ z_index = -1
 script = ExtResource("15_2se6i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossTrigger"]
-position = Vector2(2887, 59)
+position = Vector2(2993, 59)
 shape = SubResource("RectangleShape2D_om74q")
 
 [node name="EarthGiant" parent="." instance=ExtResource("18_8nic5")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cbrjwdmbhictw"]
+[gd_scene load_steps=20 format=3 uid="uid://cbrjwdmbhictw"]
 
 [ext_resource type="Script" uid="uid://ba7kmamigg8am" path="res://Scripts/earth_giant.gd" id="1_kl2yr"]
 [ext_resource type="Texture2D" uid="uid://cbmek8v8jln14" path="res://GameArt/CCEarthGiantSS.png" id="1_obi7s"]
@@ -132,15 +132,17 @@ size = Vector2(180, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyhic"]
 size = Vector2(75, 31)
 
-[node name="EarthGiant" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vgat6"]
+radius = 18.0
+height = 52.0
+
+[node name="EarthGiant" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_kl2yr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e7ak4")
 animation = &"idle"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.479434
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 6)
@@ -159,6 +161,12 @@ shape = SubResource("RectangleShape2D_8icpq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
 position = Vector2(-2.5, 14.5)
 shape = SubResource("RectangleShape2D_fyhic")
+
+[node name="EGHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EGHitbox"]
+position = Vector2(-2, 5)
+shape = SubResource("CapsuleShape2D_vgat6")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

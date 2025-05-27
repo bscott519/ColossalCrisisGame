@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum State { IDLE, CHASE, STOMP, SLAM, SUMMON }
+enum State { IDLE, CHASE, STOMP, SLAM, SUMMON, DEATH }
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var detection_area = $Detection
@@ -8,7 +8,7 @@ enum State { IDLE, CHASE, STOMP, SLAM, SUMMON }
 @onready var attack_radius = $AttackRadius
 
 var player_in_attack_radius = false
-var knockback_strength : float = 100
+var knockback_strength : float = 500
 var is_knocked_back: bool = false
 var knockback_dur: float = 0.2
 var is_chasing: bool = false
@@ -42,6 +42,7 @@ func _physics_process(delta):
 				animated_sprite_2d.play("walk")
 				var direction = (player.global_position - global_position).normalized()
 				velocity = direction * speed
+				velocity.y = 0
 				
 				move_and_slide()
 				
@@ -125,13 +126,14 @@ func take_dmg(dmg, knockback_dir):
 	took_dmg = true
 	if health <= min_health:
 		health = min_health
-		#current_state = State.Death
+		current_state = State.DEATH
 		dead = true
+		animated_sprite_2d.play("death")
 		is_chasing = false
 		can_walk = false
 		velocity = Vector2.ZERO
 		
-		$DKDealDamageArea/CollisionShape2D.set_deferred("disabled", true)
+		#$DKDealDamageArea/CollisionShape2D.set_deferred("disabled", true)
 		print("Enemy is dead. Disabling damage collision shape.")
 		
 		animated_sprite_2d.stop()
