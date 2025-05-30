@@ -9,6 +9,7 @@ enum State { IDLE, CHASE, STOMP, SLAM, SUMMON, DEATH }
 @onready var eg_deal_damage_area = $EGDealDamageArea
 @onready var enable_eg_damage_area: Timer = $EnableEGDamageArea
 @onready var disable_eg_damage_area: Timer = $DisableEGDamageArea
+@onready var rock_projectile_scene = preload("res://Scenes/rock_projectile.tscn")
 
 var player_in_attack_radius = false
 var knockback_strength : float = 500
@@ -27,7 +28,7 @@ var speed = 70
 var attack_range = 80
 var dead: bool = false
 var took_dmg: bool = false
-var health = 15
+var health = 10
 var max_health = 15
 var min_health = 0
 var dmg_to_deal = 2
@@ -117,13 +118,14 @@ func change_state(new_state):
 			print("Entering SUMMON")
 			velocity = Vector2.ZERO
 			animated_sprite_2d.play("rock_summon")
+			spawn_rock()
 			attack_cooldown.start()
 
-#func spawn_spikes():
-	#var spike_scene = preload("res://scenes/SpikedRock.tscn")
-	#var spike = spike_scene.instantiate()
-	#spike.global_position = global_position + Vector2(0, 100)
-	#get_tree().current_scene.add_child(spike)
+func spawn_rock():
+	var projectile = rock_projectile_scene.instantiate()
+	projectile.global_position = global_position + Vector2(0, -20)
+	projectile.dir = (player.global_position - global_position).normalized()
+	get_tree().current_scene.add_child(projectile)
 
 func _on_animated_sprite_2d_animation_finished():
 	match current_state:

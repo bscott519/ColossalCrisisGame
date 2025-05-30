@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4s7l7j2dwjfp"]
+
+[ext_resource type="Script" uid="uid://chait1iq1yx1f" path="res://rock_projectile.gd" id="1_8gvon"]
+[ext_resource type="Texture2D" uid="uid://cg8f8bxivoshb" path="res://GameArt/CCRock.png" id="2_vmspx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1l8ud"]
+radius = 16.0
+height = 42.0
+
+[node name="RockProjectile" type="Area2D"]
+script = ExtResource("1_8gvon")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vmspx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1l8ud")

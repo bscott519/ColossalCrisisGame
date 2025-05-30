@@ -133,7 +133,7 @@ size = Vector2(180, 40)
 size = Vector2(75, 31)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vgat6"]
-radius = 18.0
+radius = 19.0
 height = 52.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgat6"]
@@ -158,6 +158,7 @@ position = Vector2(-1, 10)
 shape = SubResource("RectangleShape2D_8icpq")
 
 [node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="AttackRadius" type="Area2D" parent="."]
 
