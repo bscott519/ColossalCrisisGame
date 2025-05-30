@@ -16,3 +16,6 @@ func _on_boss_trigger_player_entered():
 	await get_tree().create_timer(1.3).timeout
 	$AnimationPlayer.play("Closed")
 	emit_signal('isClosed')
+
+func open_doors():
+	$AnimationPlayer.play("Opening")

@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 enum State { IDLE, CHASE, STOMP, SLAM, SUMMON, DEATH }
 
+signal boss_died
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var detection_area = $Detection
 @onready var attack_cooldown = $AttackCooldown
@@ -29,7 +31,7 @@ var attack_range = 80
 var dead: bool = false
 var took_dmg: bool = false
 var health = 10
-var max_health = 15
+var max_health = 10
 var min_health = 0
 var dmg_to_deal = 2
 var is_deal_dmg: bool = false
@@ -137,7 +139,6 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_attack_cooldown_timeout():
 	if player_in_attack_radius:
 		choose_attack()
-		
 
 func take_dmg(dmg, knockback_dir):
 	health -= dmg
@@ -151,6 +152,7 @@ func take_dmg(dmg, knockback_dir):
 		is_chasing = false
 		can_walk = false
 		velocity = Vector2.ZERO
+		emit_signal("boss_died")
 		
 		$EGDealDamageArea/CollisionShape2D.set_deferred("disabled", true)
 		print("Enemy is dead. Disabling damage collision shape.")
