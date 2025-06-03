@@ -48,6 +48,8 @@ func _ready():
 	attack_cooldown.start()
 
 func _physics_process(delta):
+	$EGHealthBar.value = health
+	
 	match current_state:
 		State.IDLE:
 			# Do nothing until player is found

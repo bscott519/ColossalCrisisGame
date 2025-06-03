@@ -228,7 +228,6 @@ texture = ExtResource("7_0tt3y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ccw1Platform7/StaticBody2D"]
 position = Vector2(1.33325, -12.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wrjdp")
 one_way_collision = true
 
@@ -241,7 +240,6 @@ texture = ExtResource("7_0tt3y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ccw1Platform9/StaticBody2D"]
 position = Vector2(0.77771, -12.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wrjdp")
 one_way_collision = true
 
@@ -254,7 +252,6 @@ texture = ExtResource("7_0tt3y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ccw1Platform10/StaticBody2D"]
 position = Vector2(0.77771, -12.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wrjdp")
 one_way_collision = true
 
@@ -267,7 +264,6 @@ texture = ExtResource("7_0tt3y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ccw1Platform8/StaticBody2D"]
 position = Vector2(1.33325, -12.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wrjdp")
 one_way_collision = true
 
