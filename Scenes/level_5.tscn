@@ -174,7 +174,7 @@ position = Vector2(4184, 23)
 shape = SubResource("RectangleShape2D_ft2ke")
 
 [node name="player" parent="." instance=ExtResource("4_fbqnf")]
-position = Vector2(2630, 67)
+position = Vector2(130, 195)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(2, 2)
