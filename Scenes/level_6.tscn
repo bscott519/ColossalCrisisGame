@@ -92,6 +92,14 @@ scale = Vector2(2.44737, 1.452)
 texture = ExtResource("2_c1tev")
 flip_h = true
 
+[node name="Background28" type="Sprite2D" parent="."]
+modulate = Color(0.52549, 0.34902, 1, 1)
+position = Vector2(3670, 416)
+rotation = -3.14159
+scale = Vector2(2.44737, 1.452)
+texture = ExtResource("2_c1tev")
+flip_v = true
+
 [node name="Background6" type="Sprite2D" parent="."]
 modulate = Color(0.52549, 0.34902, 1, 1)
 position = Vector2(4011, 138)
@@ -306,7 +314,7 @@ position = Vector2(4104, -653)
 shape = SubResource("RectangleShape2D_ft2ke")
 
 [node name="player" parent="." instance=ExtResource("4_6d83s")]
-position = Vector2(21, 195)
+position = Vector2(15, 194)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(2, 2)
@@ -339,65 +347,77 @@ position = Vector2(76, 202)
 [node name="Point2" type="Marker2D" parent="colosslings3/PatrolPoints"]
 position = Vector2(512, 202)
 
-[node name="colosslings2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_4jl0u")]
-position = Vector2(1472, 169)
-patrol_points = NodePath("PatrolPoints")
-
-[node name="PatrolPoints" type="Node" parent="colosslings2"]
-
-[node name="Point1" type="Marker2D" parent="colosslings2/PatrolPoints"]
-position = Vector2(1348, 172)
-
-[node name="Point2" type="Marker2D" parent="colosslings2/PatrolPoints"]
-position = Vector2(1580, 168)
-
 [node name="colosslings4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_4jl0u")]
-position = Vector2(1261, -235)
+position = Vector2(2036, -31)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node" parent="colosslings4"]
 
 [node name="Point1" type="Marker2D" parent="colosslings4/PatrolPoints"]
-position = Vector2(1178, -238)
+position = Vector2(1953, -34)
 
 [node name="Point2" type="Marker2D" parent="colosslings4/PatrolPoints"]
-position = Vector2(1354, -237)
+position = Vector2(2129, -33)
+
+[node name="colosslings7" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_4jl0u")]
+position = Vector2(2036, 117)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="colosslings7"]
+
+[node name="Point1" type="Marker2D" parent="colosslings7/PatrolPoints"]
+position = Vector2(1953, 114)
+
+[node name="Point2" type="Marker2D" parent="colosslings7/PatrolPoints"]
+position = Vector2(2129, 115)
+
+[node name="colosslings8" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_4jl0u")]
+position = Vector2(1482, 169)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="colosslings8"]
+
+[node name="Point1" type="Marker2D" parent="colosslings8/PatrolPoints"]
+position = Vector2(1359, 166)
+
+[node name="Point2" type="Marker2D" parent="colosslings8/PatrolPoints"]
+position = Vector2(1575, 167)
 
 [node name="colosslings5" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_4jl0u")]
-position = Vector2(1292, -652)
+position = Vector2(1377, -138)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node" parent="colosslings5"]
 
 [node name="Point1" type="Marker2D" parent="colosslings5/PatrolPoints"]
-position = Vector2(1168, -655)
+position = Vector2(1253, -141)
 
 [node name="Point2" type="Marker2D" parent="colosslings5/PatrolPoints"]
-position = Vector2(1419, -653)
+position = Vector2(1504, -139)
 
 [node name="colosslings6" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("5_4jl0u")]
-position = Vector2(2201, -714)
+position = Vector2(1058, -139)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node" parent="colosslings6"]
 
 [node name="Point1" type="Marker2D" parent="colosslings6/PatrolPoints"]
-position = Vector2(2125, -717)
+position = Vector2(982, -142)
 
 [node name="Point2" type="Marker2D" parent="colosslings6/PatrolPoints"]
-position = Vector2(2283, -716)
+position = Vector2(1215, -141)
 
 [node name="possessedknight" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_28yyb")]
-position = Vector2(907, -290)
+position = Vector2(775, -251)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node" parent="possessedknight"]
 
 [node name="Point1" type="Marker2D" parent="possessedknight/PatrolPoints"]
-position = Vector2(783, -238)
+position = Vector2(651, -199)
 
 [node name="Point2" type="Marker2D" parent="possessedknight/PatrolPoints"]
-position = Vector2(1020, -238)
+position = Vector2(888, -199)
 
 [node name="possessedknight2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_28yyb")]
 position = Vector2(273, 160)
@@ -424,40 +444,52 @@ position = Vector2(11, 212)
 position = Vector2(245, 212)
 
 [node name="possessedknight3" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_28yyb")]
-position = Vector2(375, -511)
+position = Vector2(526, -250)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node" parent="possessedknight3"]
 
 [node name="Point1" type="Marker2D" parent="possessedknight3/PatrolPoints"]
-position = Vector2(251, -461)
+position = Vector2(402, -200)
 
 [node name="Point2" type="Marker2D" parent="possessedknight3/PatrolPoints"]
-position = Vector2(477, -461)
+position = Vector2(628, -200)
 
 [node name="possessedknight5" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_28yyb")]
-position = Vector2(496, -736)
+position = Vector2(496, -590)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node" parent="possessedknight5"]
 
 [node name="Point1" type="Marker2D" parent="possessedknight5/PatrolPoints"]
-position = Vector2(399, -686)
+position = Vector2(399, -540)
 
 [node name="Point2" type="Marker2D" parent="possessedknight5/PatrolPoints"]
-position = Vector2(634, -686)
+position = Vector2(634, -540)
+
+[node name="possessedknight11" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_28yyb")]
+position = Vector2(763, -590)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="possessedknight11"]
+
+[node name="Point1" type="Marker2D" parent="possessedknight11/PatrolPoints"]
+position = Vector2(666, -540)
+
+[node name="Point2" type="Marker2D" parent="possessedknight11/PatrolPoints"]
+position = Vector2(901, -540)
 
 [node name="possessedknight6" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_28yyb")]
-position = Vector2(1748, -767)
+position = Vector2(1993, -594)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node" parent="possessedknight6"]
 
 [node name="Point1" type="Marker2D" parent="possessedknight6/PatrolPoints"]
-position = Vector2(1639, -717)
+position = Vector2(1884, -544)
 
 [node name="Point2" type="Marker2D" parent="possessedknight6/PatrolPoints"]
-position = Vector2(1843, -717)
+position = Vector2(2088, -544)
 
 [node name="possessedknight4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_28yyb")]
 position = Vector2(1715, 117)
@@ -471,29 +503,53 @@ position = Vector2(1598, 167)
 [node name="Point2" type="Marker2D" parent="possessedknight4/PatrolPoints"]
 position = Vector2(1824, 167)
 
+[node name="possessedknight10" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_28yyb")]
+position = Vector2(1713, -132)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="possessedknight10"]
+
+[node name="Point1" type="Marker2D" parent="possessedknight10/PatrolPoints"]
+position = Vector2(1596, -82)
+
+[node name="Point2" type="Marker2D" parent="possessedknight10/PatrolPoints"]
+position = Vector2(1822, -82)
+
 [node name="possessedknight7" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_28yyb")]
-position = Vector2(3170, -672)
+position = Vector2(3252, -646)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node" parent="possessedknight7"]
 
 [node name="Point1" type="Marker2D" parent="possessedknight7/PatrolPoints"]
-position = Vector2(3046, -622)
+position = Vector2(3148, -596)
 
 [node name="Point2" type="Marker2D" parent="possessedknight7/PatrolPoints"]
-position = Vector2(3272, -622)
+position = Vector2(3354, -596)
 
 [node name="possessedknight8" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_28yyb")]
-position = Vector2(2631, -736)
+position = Vector2(2655, -594)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node" parent="possessedknight8"]
 
 [node name="Point1" type="Marker2D" parent="possessedknight8/PatrolPoints"]
-position = Vector2(2507, -686)
+position = Vector2(2531, -544)
 
 [node name="Point2" type="Marker2D" parent="possessedknight8/PatrolPoints"]
-position = Vector2(2733, -686)
+position = Vector2(2757, -544)
+
+[node name="possessedknight12" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("6_28yyb")]
+position = Vector2(2928, -594)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="possessedknight12"]
+
+[node name="Point1" type="Marker2D" parent="possessedknight12/PatrolPoints"]
+position = Vector2(2804, -544)
+
+[node name="Point2" type="Marker2D" parent="possessedknight12/PatrolPoints"]
+position = Vector2(3030, -544)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -510,56 +566,8 @@ position = Vector2(4074, -642)
 scale = Vector2(4, 4)
 next_scene = "Level 2"
 
-[node name="Ccw1Platform" type="Sprite2D" parent="."]
-position = Vector2(1643, 30)
-scale = Vector2(5.28, 3.4)
-texture = ExtResource("10_fd8gt")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ccw1Platform/StaticBody2D"]
-position = Vector2(0, -3.8147e-06)
-shape = SubResource("RectangleShape2D_8e530")
-one_way_collision = true
-
-[node name="Ccw1Platform2" type="Sprite2D" parent="."]
-position = Vector2(1759, -27)
-scale = Vector2(5.28, 3.4)
-texture = ExtResource("10_fd8gt")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ccw1Platform2/StaticBody2D"]
-position = Vector2(0, -3.8147e-06)
-shape = SubResource("RectangleShape2D_8e530")
-one_way_collision = true
-
-[node name="Ccw1Platform3" type="Sprite2D" parent="."]
-position = Vector2(1868, -148)
-scale = Vector2(5.28, 3.4)
-texture = ExtResource("10_fd8gt")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ccw1Platform3/StaticBody2D"]
-position = Vector2(0, -3.8147e-06)
-shape = SubResource("RectangleShape2D_8e530")
-one_way_collision = true
-
-[node name="Ccw1Platform6" type="Sprite2D" parent="."]
-position = Vector2(493, -438)
-scale = Vector2(5.28, 3.4)
-texture = ExtResource("10_fd8gt")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ccw1Platform6/StaticBody2D"]
-position = Vector2(0, -3.8147e-06)
-shape = SubResource("RectangleShape2D_8e530")
-one_way_collision = true
-
 [node name="Ccw1Platform7" type="Sprite2D" parent="."]
-position = Vector2(241, -590)
+position = Vector2(233, -399)
 scale = Vector2(5.28, 3.4)
 texture = ExtResource("10_fd8gt")
 
@@ -570,14 +578,14 @@ position = Vector2(0, -3.8147e-06)
 shape = SubResource("RectangleShape2D_8e530")
 one_way_collision = true
 
-[node name="Ccw1Platform10" type="Sprite2D" parent="."]
-position = Vector2(2629, -746)
+[node name="Ccw1Platform8" type="Sprite2D" parent="."]
+position = Vector2(232, -331)
 scale = Vector2(5.28, 3.4)
 texture = ExtResource("10_fd8gt")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform10"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Ccw1Platform8"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ccw1Platform10/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ccw1Platform8/StaticBody2D"]
 position = Vector2(0, -3.8147e-06)
 shape = SubResource("RectangleShape2D_8e530")
 one_way_collision = true
@@ -586,25 +594,31 @@ one_way_collision = true
 position = Vector2(562, 148)
 
 [node name="healthPowerUp2" parent="." instance=ExtResource("11_mxi2s")]
-position = Vector2(594, -402)
+position = Vector2(234, -502)
 
 [node name="healthPowerUp8" parent="." instance=ExtResource("11_mxi2s")]
-position = Vector2(1100, -722)
+position = Vector2(1127, -545)
+
+[node name="healthPowerUp10" parent="." instance=ExtResource("11_mxi2s")]
+position = Vector2(3064, -576)
+
+[node name="healthPowerUp11" parent="." instance=ExtResource("11_mxi2s")]
+position = Vector2(3110, -604)
 
 [node name="healthPowerUp3" parent="." instance=ExtResource("11_mxi2s")]
-position = Vector2(2030, -127)
+position = Vector2(2330, 31)
+
+[node name="healthPowerUp9" parent="." instance=ExtResource("11_mxi2s")]
+position = Vector2(2382, 32)
 
 [node name="healthPowerUp6" parent="." instance=ExtResource("11_mxi2s")]
 position = Vector2(233, -272)
 
-[node name="healthPowerUp4" parent="." instance=ExtResource("11_mxi2s")]
-position = Vector2(2628, -785)
-
 [node name="healthPowerUp5" parent="." instance=ExtResource("11_mxi2s")]
-position = Vector2(2004, -780)
+position = Vector2(1666, -544)
 
 [node name="healthPowerUp7" parent="." instance=ExtResource("11_mxi2s")]
-position = Vector2(2039, -781)
+position = Vector2(1701, -544)
 
 [node name="Killzone" parent="." instance=ExtResource("12_b1wka")]
 
@@ -637,28 +651,40 @@ position = Vector2(860, 170)
 position = Vector2(1170, 170)
 
 [node name="darkknight3" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_wxt1c")]
-position = Vector2(3546, -683)
+position = Vector2(3546, -657)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node" parent="darkknight3"]
 
 [node name="Point1" type="Marker2D" parent="darkknight3/PatrolPoints"]
-position = Vector2(3380, -620)
+position = Vector2(3380, -594)
 
 [node name="Point2" type="Marker2D" parent="darkknight3/PatrolPoints"]
-position = Vector2(3690, -620)
+position = Vector2(3690, -594)
+
+[node name="darkknight6" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_wxt1c")]
+position = Vector2(2285, -606)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node" parent="darkknight6"]
+
+[node name="Point1" type="Marker2D" parent="darkknight6/PatrolPoints"]
+position = Vector2(2119, -543)
+
+[node name="Point2" type="Marker2D" parent="darkknight6/PatrolPoints"]
+position = Vector2(2389, -543)
 
 [node name="darkknight4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_wxt1c")]
-position = Vector2(3896, -683)
+position = Vector2(3896, -657)
 patrol_points = NodePath("PatrolPoints")
 
 [node name="PatrolPoints" type="Node" parent="darkknight4"]
 
 [node name="Point1" type="Marker2D" parent="darkknight4/PatrolPoints"]
-position = Vector2(3730, -620)
+position = Vector2(3730, -594)
 
 [node name="Point2" type="Marker2D" parent="darkknight4/PatrolPoints"]
-position = Vector2(4040, -620)
+position = Vector2(4040, -594)
 
 [node name="LevelTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_dnhlx")
@@ -807,18 +833,6 @@ texture = ExtResource("15_c1tev")
 position = Vector2(0.0249939, -1.5)
 shape = SubResource("RectangleShape2D_c1tev")
 
-[node name="CcHumungoCloud2_5" type="Sprite2D" parent="."]
-position = Vector2(234, -365)
-scale = Vector2(5, 3)
-texture = ExtResource("15_c1tev")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CcHumungoCloud2_5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CcHumungoCloud2_5/StaticBody2D"]
-position = Vector2(0.0249939, -1.5)
-shape = SubResource("RectangleShape2D_c1tev")
-one_way_collision = true
-
 [node name="CcHumungoCloud3_1" type="Sprite2D" parent="."]
 position = Vector2(231, -245)
 scale = Vector2(3, 3)
@@ -832,8 +846,8 @@ shape = SubResource("RectangleShape2D_c1tev")
 one_way_collision = true
 
 [node name="CcHumungoCloud3_2" type="Sprite2D" parent="."]
-position = Vector2(231, -475)
-scale = Vector2(3, 3)
+position = Vector2(231, -479)
+scale = Vector2(3, 1)
 texture = ExtResource("15_c1tev")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CcHumungoCloud3_2"]
