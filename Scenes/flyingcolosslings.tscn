@@ -1,0 +1,152 @@
+[gd_scene load_steps=25 format=3 uid="uid://0w1sfm1e4c2o"]
+
+[ext_resource type="Script" uid="uid://b0h1tru3qj7yd" path="res://Scenes/flyingcolosslings.gd" id="1_ejq2e"]
+[ext_resource type="Texture2D" uid="uid://bapnf131jmdih" path="res://GameArt/TMMEnemyDeath1.png" id="2_h8jk0"]
+[ext_resource type="Texture2D" uid="uid://l1yxspaxqyio" path="res://GameArt/TMMEnemyDeath2.png" id="3_m78lw"]
+[ext_resource type="Texture2D" uid="uid://hcy0hjwm1svq" path="res://GameArt/TMMEnemyDeath3.png" id="4_bw2df"]
+[ext_resource type="Texture2D" uid="uid://bk7x1cbmim4dt" path="res://GameArt/icon.svg" id="5_lp0g0"]
+[ext_resource type="Texture2D" uid="uid://cr1rltw3k6v7a" path="res://GameArt/TMMColosslingIdle1.png" id="6_72jf0"]
+[ext_resource type="Texture2D" uid="uid://47q34xsc0k1" path="res://GameArt/TMMColosslingIdle2.png" id="7_64fg2"]
+[ext_resource type="Texture2D" uid="uid://bvbjfjhi0gmdj" path="res://GameArt/TMMColosslingWalk1.png" id="8_ufw3f"]
+[ext_resource type="Texture2D" uid="uid://0y6t6eulmiu3" path="res://GameArt/TMMColosslingWalk2.png" id="9_qjf13"]
+[ext_resource type="Script" uid="uid://dacff0uq0wsri" path="res://Scripts/CLDealDmgArea.gd" id="10_mw48e"]
+[ext_resource type="AudioStream" uid="uid://drjvewt1v2ivs" path="res://Sounds/sounds/explosion.wav" id="11_3vlej"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhkha"]
+atlas = ExtResource("2_h8jk0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f83to"]
+atlas = ExtResource("3_m78lw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tokov"]
+atlas = ExtResource("4_bw2df")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gius"]
+atlas = ExtResource("5_lp0g0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mjbt"]
+atlas = ExtResource("5_lp0g0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bdqn"]
+atlas = ExtResource("6_72jf0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inkc3"]
+atlas = ExtResource("7_64fg2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbqeu"]
+atlas = ExtResource("8_ufw3f")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t501q"]
+atlas = ExtResource("9_qjf13")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kobry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhkha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f83to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tokov")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gius")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mjbt")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bdqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inkc3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbqeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t501q")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ej00d"]
+radius = 28.2843
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sk6bi"]
+radius = 29.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fw74b"]
+radius = 30.0
+
+[node name="flyingcolosslings" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_ejq2e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_kobry")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, -16)
+shape = SubResource("CircleShape2D_ej00d")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="CLHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CLHitbox"]
+position = Vector2(2.08165e-12, -16)
+shape = SubResource("CircleShape2D_sk6bi")
+
+[node name="CLDealDmgArea" type="Area2D" parent="."]
+collision_layer = 4
+script = ExtResource("10_mw48e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CLDealDmgArea"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_fw74b")
+
+[node name="EnemyDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_3vlej")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="CLHitbox" to="." method="_on_cl_hitbox_area_entered"]
+[connection signal="body_entered" from="CLDealDmgArea" to="CLDealDmgArea" method="_on_body_entered"]
