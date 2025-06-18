@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://qisgnvpn4h4i"]
+[gd_scene load_steps=25 format=3 uid="uid://qisgnvpn4h4i"]
 
 [ext_resource type="Script" uid="uid://bi6thnrnycvq4" path="res://Scripts/level_6.gd" id="1_xcj7k"]
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_c1tev"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://b8dvr4re3ybsg" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="14_dnhlx"]
 [ext_resource type="Texture2D" uid="uid://bjs3s2gx3apib" path="res://GameArt/CCHumungoCloud.png" id="15_c1tev"]
 [ext_resource type="PackedScene" uid="uid://0w1sfm1e4c2o" path="res://Scenes/flyingcolosslings.tscn" id="16_ncld5"]
+[ext_resource type="Texture2D" uid="uid://bykm1sepdek6k" path="res://GameArt/CCCastleEntrance.png" id="17_6d83s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("3_ncld5")
@@ -941,5 +942,10 @@ position = Vector2(1543, -479)
 
 [node name="Point2" type="Marker2D" parent="flyingcolosslings4/PatrolPoints"]
 position = Vector2(1542, -703)
+
+[node name="CcCastleEntrance" type="Sprite2D" parent="."]
+position = Vector2(4348, -756)
+scale = Vector2(7, 7)
+texture = ExtResource("17_6d83s")
 
 [connection signal="finished" from="LevelTheme" to="." method="_on_level_theme_finished"]
