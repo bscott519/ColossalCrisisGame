@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b4fcjb0f8n0ma"]
+[gd_scene load_steps=29 format=3 uid="uid://b4fcjb0f8n0ma"]
 
 [ext_resource type="Script" uid="uid://cqvsk0b2edkvr" path="res://Scripts/level_5.gd" id="1_wy7mr"]
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_t8tq7"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://0x0e0temc7r4" path="res://Scripts/boss_trigger.gd" id="15_2se6i"]
 [ext_resource type="Script" uid="uid://3mnpbkwocaoa" path="res://Scripts/boss_door.gd" id="16_myq40"]
 [ext_resource type="PackedScene" uid="uid://cbrjwdmbhictw" path="res://Scenes/earth_giant.tscn" id="18_8nic5"]
+[ext_resource type="Texture2D" uid="uid://cqpc77njp2250" path="res://GameArt/CCBeanstalk.png" id="20_wrjdp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biuay"]
 texture = ExtResource("3_hujus")
@@ -416,6 +417,11 @@ shape = SubResource("RectangleShape2D_om74q")
 [node name="EarthGiant" parent="." instance=ExtResource("18_8nic5")]
 position = Vector2(3279, -2)
 scale = Vector2(3.2, 3.2)
+
+[node name="Beanstalk" type="Sprite2D" parent="."]
+position = Vector2(4294, -64)
+scale = Vector2(5, 5)
+texture = ExtResource("20_wrjdp")
 
 [connection signal="finished" from="LevelTheme" to="." method="_on_level_theme_finished"]
 [connection signal="playerEntered" from="BossTrigger" to="BossDoor" method="_on_boss_trigger_player_entered"]
