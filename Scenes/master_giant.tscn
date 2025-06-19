@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://cwb6f3qlo4mpl"]
 
 [node name="MasterGiant" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprites" type="Node2D" parent="."]
