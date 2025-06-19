@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck74jsgubpeg0"]
+[gd_scene load_steps=8 format=3 uid="uid://ck74jsgubpeg0"]
 
 [ext_resource type="PackedScene" uid="uid://d1g2ooq8x1of4" path="res://Scenes/level_icon.tscn" id="1_3hviw"]
 [ext_resource type="Script" uid="uid://do8u8o65lavc5" path="res://Scripts/level_select.gd" id="1_bidab"]
 [ext_resource type="PackedScene" uid="uid://b1gserf155o12" path="res://Scenes/player_icon.tscn" id="2_aid86"]
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_yts61"]
 [ext_resource type="AudioStream" uid="uid://4kq1dvj4rnyq" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Den_(Regular).wav" id="5_y1mdf"]
+[ext_resource type="FontFile" uid="uid://bajqlmo0hm0fl" path="res://GameArt/Shouldve Known.otf" id="6_s6o25"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxukp"]
 texture = ExtResource("2_yts61")
@@ -28,14 +29,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_qxukp")
 
-[node name="LevelIcon" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("1_3hviw")]
+[node name="LevelIcon" parent="." node_paths=PackedStringArray("next_level_right") instance=ExtResource("1_3hviw")]
 offset_left = 96.0
 offset_top = 206.0
 offset_right = 160.0
 offset_bottom = 270.0
 scale = Vector2(2, 2)
 next_scene_path = "res://Scenes/level_1.tscn"
-next_level_left = NodePath("../LevelIcon6")
 next_level_right = NodePath("../LevelIcon2")
 
 [node name="LevelIcon2" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("1_3hviw")]
@@ -83,15 +83,25 @@ next_level_left = NodePath("../LevelIcon4")
 next_level_right = NodePath("../LevelIcon6")
 
 [node name="LevelIcon6" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("1_3hviw")]
-offset_left = 544.0
-offset_top = 400.0
-offset_right = 608.0
-offset_bottom = 464.0
+offset_left = 431.0
+offset_top = 444.0
+offset_right = 495.0
+offset_bottom = 508.0
 scale = Vector2(2, 2)
 lvl_name = "6"
 next_scene_path = "uid://qisgnvpn4h4i"
 next_level_left = NodePath("../LevelIcon5")
-next_level_right = NodePath("../LevelIcon")
+next_level_right = NodePath("../LevelIcon7")
+
+[node name="LevelIcon7" parent="." node_paths=PackedStringArray("next_level_left") instance=ExtResource("1_3hviw")]
+offset_left = 654.0
+offset_top = 444.0
+offset_right = 718.0
+offset_bottom = 508.0
+scale = Vector2(2, 2)
+lvl_name = "7"
+next_scene_path = "uid://cg4v8rai28a26"
+next_level_left = NodePath("../LevelIcon6")
 
 [node name="PlayerIcon" parent="." instance=ExtResource("2_aid86")]
 layout_mode = 0
@@ -124,6 +134,29 @@ offset_bottom = 643.0
 theme_override_font_sizes/font_size = 23
 text = "A/D or Left/Right Arrow Keys to change level
 Press Enter to select Level"
+
+[node name="Overworld" type="Label" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 71.0
+offset_right = 816.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("6_s6o25")
+theme_override_font_sizes/font_size = 40
+text = "Overworld
+"
+horizontal_alignment = 1
+
+[node name="Humungo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 319.0
+offset_right = 820.0
+offset_bottom = 386.0
+theme_override_fonts/font = ExtResource("6_s6o25")
+theme_override_font_sizes/font_size = 40
+text = "Humungo"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="finished" from="TitleTheme" to="." method="_on_title_theme_finished"]
