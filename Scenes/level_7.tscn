@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cg4v8rai28a26"]
+[gd_scene load_steps=25 format=3 uid="uid://cg4v8rai28a26"]
 
 [ext_resource type="Script" uid="uid://r1paro7iqiek" path="res://Scenes/level_7.gd" id="1_gn553"]
 [ext_resource type="Texture2D" uid="uid://c7awsvhvqdq0c" path="res://GameArt/Background.png" id="2_f8wta"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://pd0mic8diwl7" path="res://Scenes/flagpole.tscn" id="12_1r13y"]
 [ext_resource type="PackedScene" uid="uid://c7iym8qvw4i4e" path="res://Scenes/killzone.tscn" id="13_hb764"]
 [ext_resource type="AudioStream" uid="uid://b8dvr4re3ybsg" path="res://Sounds/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="14_td06s"]
+[ext_resource type="PackedScene" uid="uid://cwb6f3qlo4mpl" path="res://Scenes/master_giant.tscn" id="16_irpto"]
 [ext_resource type="PackedScene" uid="uid://buy507nxy6xwt" path="res://Scenes/boss_door.tscn" id="16_y233x"]
 [ext_resource type="Script" uid="uid://3mnpbkwocaoa" path="res://Scripts/boss_door.gd" id="17_vu0bl"]
 [ext_resource type="Script" uid="uid://0x0e0temc7r4" path="res://Scripts/boss_trigger.gd" id="18_t5oqk"]
@@ -182,9 +183,8 @@ shape = SubResource("RectangleShape2D_ft2ke")
 position = Vector2(2247, 67)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(2, 2)
 limit_left = -29
-limit_top = -200
+limit_top = -400
 limit_right = 5550
 limit_bottom = 320
 
@@ -323,6 +323,10 @@ script = ExtResource("18_t5oqk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossTrigger"]
 position = Vector2(2993, 59)
 shape = SubResource("RectangleShape2D_om74q")
+
+[node name="MasterGiant" parent="." instance=ExtResource("16_irpto")]
+position = Vector2(3413, -196)
+scale = Vector2(3.5, 3.5)
 
 [connection signal="finished" from="LevelTheme" to="." method="_on_level_theme_finished"]
 [connection signal="playerEntered" from="BossTrigger" to="BossDoor" method="_on_boss_trigger_player_entered"]
