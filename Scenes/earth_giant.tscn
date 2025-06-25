@@ -1,8 +1,23 @@
-[gd_scene load_steps=24 format=3 uid="uid://cbrjwdmbhictw"]
+[gd_scene load_steps=30 format=3 uid="uid://cbrjwdmbhictw"]
 
 [ext_resource type="Script" uid="uid://ba7kmamigg8am" path="res://Scripts/earth_giant.gd" id="1_kl2yr"]
 [ext_resource type="Texture2D" uid="uid://cbmek8v8jln14" path="res://GameArt/CCEarthGiantSS.png" id="1_obi7s"]
+[ext_resource type="Texture2D" uid="uid://bapnf131jmdih" path="res://GameArt/TMMEnemyDeath1.png" id="2_71syd"]
+[ext_resource type="Texture2D" uid="uid://l1yxspaxqyio" path="res://GameArt/TMMEnemyDeath2.png" id="3_82jbl"]
 [ext_resource type="FontFile" uid="uid://bajqlmo0hm0fl" path="res://GameArt/Shouldve Known.otf" id="3_horgh"]
+[ext_resource type="Texture2D" uid="uid://hcy0hjwm1svq" path="res://GameArt/TMMEnemyDeath3.png" id="4_hlnqd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msvhs"]
+atlas = ExtResource("2_71syd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t672y"]
+atlas = ExtResource("3_82jbl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8xnp"]
+atlas = ExtResource("4_hlnqd")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klkj6"]
 atlas = ExtResource("1_obi7s")
@@ -54,10 +69,22 @@ region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e7ak4"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msvhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t672y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8xnp")
+}, {
+"duration": 1.0,
+"texture": null
+}],
 "loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -151,7 +178,7 @@ script = ExtResource("1_kl2yr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e7ak4")
-animation = &"rock_summon"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
