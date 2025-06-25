@@ -1,8 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwb6f3qlo4mpl"]
+[gd_scene load_steps=21 format=3 uid="uid://cwb6f3qlo4mpl"]
 
 [ext_resource type="Texture2D" uid="uid://6ddjklopc4e" path="res://GameArt/CCMasterGiantHead.png" id="1_o2p3u"]
 [ext_resource type="Texture2D" uid="uid://c310no3s8h500" path="res://GameArt/CCMasterGiantLeftHand.png" id="2_4mstd"]
 [ext_resource type="Texture2D" uid="uid://bjpmhjqthoxjv" path="res://GameArt/CCMasterGiantRighHand.png" id="3_di18c"]
+[ext_resource type="Texture2D" uid="uid://bapnf131jmdih" path="res://GameArt/TMMEnemyDeath1.png" id="4_7omvd"]
+[ext_resource type="Texture2D" uid="uid://l1yxspaxqyio" path="res://GameArt/TMMEnemyDeath2.png" id="5_lp5c8"]
+[ext_resource type="Texture2D" uid="uid://hcy0hjwm1svq" path="res://GameArt/TMMEnemyDeath3.png" id="6_2htnq"]
 
 [sub_resource type="Animation" id="Animation_o2p3u"]
 resource_name = "SETUP"
@@ -84,6 +87,18 @@ resource_name = "LeftHandAttack"
 
 [sub_resource type="Animation" id="Animation_di18c"]
 resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MGDeath:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_7omvd"]
 resource_name = "Idle"
@@ -261,6 +276,38 @@ _data = {
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xa0uu"]
 graph_offset = Vector2(-69.4399, -15.45)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv2vs"]
+atlas = ExtResource("4_7omvd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa0uu"]
+atlas = ExtResource("5_lp5c8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sntci"]
+atlas = ExtResource("6_2htnq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhu71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv2vs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa0uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sntci")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
 [node name="MasterGiant" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -289,3 +336,8 @@ texture = ExtResource("3_di18c")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_xa0uu")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="MGDeath" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jhu71")
+frame = 3
+frame_progress = 1.0
