@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cwb6f3qlo4mpl"]
+[gd_scene load_steps=27 format=3 uid="uid://cwb6f3qlo4mpl"]
 
 [ext_resource type="Texture2D" uid="uid://6ddjklopc4e" path="res://GameArt/CCMasterGiantHead.png" id="1_o2p3u"]
 [ext_resource type="Texture2D" uid="uid://c310no3s8h500" path="res://GameArt/CCMasterGiantLeftHand.png" id="2_4mstd"]
@@ -505,8 +505,18 @@ radius = 23.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_lp5c8"]
 radius = 24.0208
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7omvd"]
+animation = &"SETUP"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lp5c8"]
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xa0uu"]
-graph_offset = Vector2(-69.4399, -15.45)
+states/SETUP/node = SubResource("AnimationNodeAnimation_7omvd")
+states/SETUP/position = Vector2(319.06, 64.05)
+states/Start/position = Vector2(198.5, 98.375)
+transitions = ["Start", "SETUP", SubResource("AnimationNodeStateMachineTransition_lp5c8")]
+graph_offset = Vector2(-108.06, -1.94249)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gv2vs"]
 atlas = ExtResource("4_7omvd")
@@ -620,6 +630,7 @@ position = Vector2(47, 40)
 shape = SubResource("CircleShape2D_lp5c8")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 tree_root = SubResource("AnimationNodeStateMachine_xa0uu")
 anim_player = NodePath("../AnimationPlayer")
 
