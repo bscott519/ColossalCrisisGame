@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cwb6f3qlo4mpl"]
+[gd_scene load_steps=25 format=3 uid="uid://cwb6f3qlo4mpl"]
 
 [ext_resource type="Texture2D" uid="uid://6ddjklopc4e" path="res://GameArt/CCMasterGiantHead.png" id="1_o2p3u"]
 [ext_resource type="Texture2D" uid="uid://c310no3s8h500" path="res://GameArt/CCMasterGiantLeftHand.png" id="2_4mstd"]
@@ -14,7 +14,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/CcMasterGiantHead:position")
+tracks/0/path = NodePath("Sprites/Head/CcMasterGiantHead:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/CcMasterGiantHead:rotation")
+tracks/1/path = NodePath("Sprites/Head/CcMasterGiantHead:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -38,7 +38,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/CcMasterGiantLeftHand:position")
+tracks/2/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -50,7 +50,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/CcMasterGiantLeftHand:rotation")
+tracks/3/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -62,7 +62,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprites/CcMasterGiantRighHand:position")
+tracks/4/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -74,7 +74,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprites/CcMasterGiantRighHand:rotation")
+tracks/5/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -90,7 +90,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/CcMasterGiantHead:position")
+tracks/0/path = NodePath("Sprites/Head/CcMasterGiantHead:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -102,7 +102,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/CcMasterGiantHead:rotation")
+tracks/1/path = NodePath("Sprites/Head/CcMasterGiantHead:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -114,11 +114,11 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/CcMasterGiantLeftHand:position")
+tracks/2/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.966667, 1.63333, 2),
+"times": PackedFloat32Array(0, 0.4, 0.766667, 1.43333, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(50.6, 41.6), Vector2(70, 53), Vector2(27, 79), Vector2(27, 79), Vector2(50.6, 41.6)]
@@ -126,7 +126,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/CcMasterGiantLeftHand:rotation")
+tracks/3/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -138,7 +138,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprites/CcMasterGiantRighHand:position")
+tracks/4/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -150,7 +150,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprites/CcMasterGiantRighHand:rotation")
+tracks/5/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -162,7 +162,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprites/CcMasterGiantLeftHand:flip_v")
+tracks/6/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:flip_v")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -170,6 +170,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:flip_v")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_gv2vs"]
@@ -180,7 +192,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/CcMasterGiantHead:position")
+tracks/0/path = NodePath("Sprites/Head/CcMasterGiantHead:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -192,7 +204,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/CcMasterGiantHead:rotation")
+tracks/1/path = NodePath("Sprites/Head/CcMasterGiantHead:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -204,7 +216,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/CcMasterGiantLeftHand:position")
+tracks/2/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -216,7 +228,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/CcMasterGiantLeftHand:rotation")
+tracks/3/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -228,7 +240,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprites/CcMasterGiantRighHand:position")
+tracks/4/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -240,7 +252,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprites/CcMasterGiantRighHand:rotation")
+tracks/5/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -252,7 +264,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprites/CcMasterGiantLeftHand:flip_v")
+tracks/6/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:flip_v")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -264,7 +276,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Sprites/CcMasterGiantRighHand:flip_v")
+tracks/7/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:flip_v")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -276,22 +288,23 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_lp5c8"]
 resource_name = "RightHandAttack"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/CcMasterGiantRighHand:position")
+tracks/0/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.4, 0.766667, 1.44667, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-53.4, 41.6)]
+"values": [Vector2(-50.6, 41.6), Vector2(-70, 53), Vector2(-27.506, 78.694), Vector2(-27.506, 78.694), Vector2(-50.6, 41.6)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/CcMasterGiantRighHand:rotation")
+tracks/1/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -303,14 +316,74 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/CcMasterGiantRighHand:flip_v")
+tracks/2/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:flip_v")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.233333),
+"times": PackedFloat32Array(0.233333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:flip_v")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/Head/CcMasterGiantHead:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/Head/CcMasterGiantHead:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_2htnq"]
@@ -321,7 +394,7 @@ resource_name = "SETUP"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/CcMasterGiantHead:position")
+tracks/0/path = NodePath("Sprites/Head/CcMasterGiantHead:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -333,7 +406,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/CcMasterGiantHead:rotation")
+tracks/1/path = NodePath("Sprites/Head/CcMasterGiantHead:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -345,7 +418,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/CcMasterGiantLeftHand:position")
+tracks/2/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -357,7 +430,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/CcMasterGiantLeftHand:rotation")
+tracks/3/path = NodePath("Sprites/LeftHand/CcMasterGiantLeftHand:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -369,7 +442,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprites/CcMasterGiantRighHand:position")
+tracks/4/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -381,7 +454,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprites/CcMasterGiantRighHand:rotation")
+tracks/5/path = NodePath("Sprites/RightHand/CcMasterGiantRighHand:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -417,6 +490,20 @@ _data = {
 &"SETUP": SubResource("Animation_o2p3u"),
 &"death": SubResource("Animation_di18c")
 }
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7omvd"]
+radius = 26.5
+height = 68.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lp5c8"]
+radius = 28.0
+height = 70.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7omvd"]
+radius = 23.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lp5c8"]
+radius = 24.0208
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xa0uu"]
 graph_offset = Vector2(-69.4399, -15.45)
@@ -463,26 +550,81 @@ autoplay = "SETUP"
 
 [node name="Sprites" type="Node2D" parent="."]
 
-[node name="CcMasterGiantHead" type="Sprite2D" parent="Sprites"]
+[node name="Head" type="Node2D" parent="Sprites"]
+
+[node name="CcMasterGiantHead" type="Sprite2D" parent="Sprites/Head"]
 position = Vector2(0, 5)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_o2p3u")
 
-[node name="CcMasterGiantLeftHand" type="Sprite2D" parent="Sprites"]
+[node name="HeadHurtbox" type="Area2D" parent="Sprites/Head/CcMasterGiantHead"]
+position = Vector2(0, -4.54545)
+scale = Vector2(0.909091, 0.909091)
+
+[node name="HCollisionShape2D" type="CollisionShape2D" parent="Sprites/Head/CcMasterGiantHead/HeadHurtbox"]
+position = Vector2(-2, 3)
+shape = SubResource("CapsuleShape2D_7omvd")
+
+[node name="HeadHitBox" type="Area2D" parent="Sprites/Head/CcMasterGiantHead"]
+position = Vector2(0, -4.54545)
+scale = Vector2(0.909091, 0.909091)
+
+[node name="HHCollisionShape2D" type="CollisionShape2D" parent="Sprites/Head/CcMasterGiantHead/HeadHitBox"]
+position = Vector2(-2, 3)
+shape = SubResource("CapsuleShape2D_lp5c8")
+
+[node name="RightHand" type="Node2D" parent="Sprites"]
+
+[node name="CcMasterGiantRighHand" type="Sprite2D" parent="Sprites/RightHand"]
+position = Vector2(-53.4, 41.6)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_di18c")
+
+[node name="RightHandHurtbox" type="Area2D" parent="Sprites/RightHand/CcMasterGiantRighHand"]
+position = Vector2(63.25, -52)
+scale = Vector2(1.25, 1.25)
+
+[node name="RHCollisionShape2D" type="CollisionShape2D" parent="Sprites/RightHand/CcMasterGiantRighHand/RightHandHurtbox"]
+position = Vector2(-47, 40)
+shape = SubResource("CircleShape2D_7omvd")
+
+[node name="RightHandHitbox" type="Area2D" parent="Sprites/RightHand/CcMasterGiantRighHand"]
+position = Vector2(63.25, -52)
+scale = Vector2(1.25, 1.25)
+
+[node name="RHHCollisionShape2D" type="CollisionShape2D" parent="Sprites/RightHand/CcMasterGiantRighHand/RightHandHitbox"]
+position = Vector2(-47, 40)
+shape = SubResource("CircleShape2D_lp5c8")
+
+[node name="LeftHand" type="Node2D" parent="Sprites"]
+
+[node name="CcMasterGiantLeftHand" type="Sprite2D" parent="Sprites/LeftHand"]
 position = Vector2(50.6, 41.6)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_4mstd")
 
-[node name="CcMasterGiantRighHand" type="Sprite2D" parent="Sprites"]
-position = Vector2(-53.4, 41.6)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_di18c")
+[node name="LeftHandHurtbox" type="Area2D" parent="Sprites/LeftHand/CcMasterGiantLeftHand"]
+position = Vector2(-4.5, -2)
+scale = Vector2(1.25, 1.25)
+
+[node name="LHCollisionShape2D" type="CollisionShape2D" parent="Sprites/LeftHand/CcMasterGiantLeftHand/LeftHandHurtbox"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_7omvd")
+
+[node name="LeftHandHitbox" type="Area2D" parent="Sprites/LeftHand/CcMasterGiantLeftHand"]
+position = Vector2(-63.25, -52)
+scale = Vector2(1.25, 1.25)
+
+[node name="LHHCollisionShape2D" type="CollisionShape2D" parent="Sprites/LeftHand/CcMasterGiantLeftHand/LeftHandHitbox"]
+position = Vector2(47, 40)
+shape = SubResource("CircleShape2D_lp5c8")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_xa0uu")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="MGDeath" type="AnimatedSprite2D" parent="."]
+position = Vector2(-55, -28)
 sprite_frames = SubResource("SpriteFrames_jhu71")
 frame = 3
 frame_progress = 1.0
